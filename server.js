@@ -1,7 +1,22 @@
-var webpack = require('webpack');
-var WebpackDevServer = require('webpack-dev-server');
-var config = require('./webpack.config');
-var request = require('request')
+const webpack = require('webpack');
+const WebpackDevServer = require('webpack-dev-server');
+const config = require('./webpack.config');
+const request = require('request')
+const settings = require('./settings')
+
+
+let knex = require('knex') ({
+  client : 'pg',
+  connection : {
+    user : settings.user,
+    password : settings.password,
+    database : settings.database,
+    host: settings.hostname,
+    port: settings.port,
+    ssl: settings.ssl
+  }
+})
+
 
 new WebpackDevServer(webpack(config), {
     publicPath: config.output.publicPath,
@@ -19,3 +34,5 @@ new WebpackDevServer(webpack(config), {
 
     console.log('Running at http://0.0.0.0:3000');
   });
+
+console.log(knex.select().from('coins').timeout(1000))
