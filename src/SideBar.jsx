@@ -1,38 +1,44 @@
 import React, {Component} from 'react';
 
 class SideBar extends Component {
+    disableScroll = (e) => {
+        document.body.style.overflow = 'hidden'
+    }
+    enableScroll = (e) => {
+        document.body.style.overflow='auto'
+    }
     render() {
         return (
-            <div className='sideBar'>
+            <div className='sideBar' onMouseOver={this.disableScroll} onMouseOut={this.enableScroll}>
                 <div className='ticker'>
-                    <p>BTC | <span id='bitcoin'>0.00</span></p>
+                    <p>BTC | <span id='btcTicker'>0.00</span></p>
                 </div>
                 <div className='ticker'>
-                    <p><span>coin</span> | <span>0.00</span></p>
+                    <p>ETH | <span id='ethTicker'>0.00</span></p>
                 </div>
                 <div className='ticker'>
-                    <p><span>coin</span> | <span>0.00</span></p>
+                    <p>BCH | <span id='bchTicker'>0.00</span></p>
                 </div>
                 <div className='ticker'>
-                    <p><span>coin</span> | <span>0.00</span></p>
+                    <p>XRP | <span id='xrpTicker'>0.00</span></p>
                 </div>
                 <div className='ticker'>
-                    <p><span>coin</span> | <span>0.00</span></p>
+                    <p>LTC | <span id='ltcTicker'>0.00</span></p>
                 </div>
                 <div className='ticker'>
-                    <p><span>coin</span> | <span>0.00</span></p>
+                    <p>XEM | <span id='xemTicker'>0.00</span></p>
                 </div>
                 <div className='ticker'>
-                    <p><span>coin</span> | <span>0.00</span></p>
+                    <p>DASH | <span id='dashTicker'>0.00</span></p>
                 </div>
                 <div className='ticker'>
-                    <p><span>coin</span> | <span>0.00</span></p>
+                    <p>IOTA | <span id='iotaTicker'>0.00</span></p>
                 </div>
                 <div className='ticker'>
-                    <p><span>coin</span> | <span>0.00</span></p>
+                    <p>XMR | <span id='xmrTicker'>0.00</span></p>
                 </div>
                 <div className='ticker'>
-                    <p><span>coin</span> | <span>0.00</span></p>
+                    <p>ETC | <span id='etcTicker'>0.00</span></p>
                 </div>
             </div>
         );

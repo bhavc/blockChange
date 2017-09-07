@@ -6,7 +6,7 @@ body {
   height: 100vh;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 250px;
-  grid-template-rows: 50% 30% 20%;
+  grid-template-rows: 800px 30% 20%;
   grid-template-areas: "mainChart mainChart mainChart sideBar"
                        "leftChart rightChart rightChart sideBar"
                        "bottomChart bottomChart bottomChart sideBar";
@@ -44,6 +44,10 @@ body {
     color: white;
     background-color: #2EB7FF;
     grid-area: sideBar;
+    position: fixed;
+    right: 0;
+    width: 250px;
+    height: 100vh;
   }
 }
 
