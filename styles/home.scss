@@ -1,7 +1,3 @@
-body {
-  margin: 0;
-}
-
 .wrapper {
   height: 100vh;
   display: grid;
@@ -10,7 +6,6 @@ body {
   grid-template-areas: "mainChart mainChart mainChart sideBar"
                        "leftChart rightChart rightChart sideBar"
                        "bottomChart bottomChart bottomChart sideBar";
-  }
   .mainChart {
     text-align: center;
     color: white;
@@ -45,3 +40,5 @@ body {
     background-color: #2EB7FF;
     grid-area: sideBar;
   }
+}
+  
