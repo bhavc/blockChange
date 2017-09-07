@@ -16,37 +16,37 @@ body {
     background-color: grey;
     grid-area: mainChart;
   }
-  
+
   .leftChart {
-    text-align: center;    
-    color: white;    
+    text-align: center;
+    color: white;
     background-color: #454545;
     grid-area: leftChart;
   }
 
   .rightChart {
-    text-align: center;    
-    color: white;    
+    text-align: center;
+    color: white;
     background-color: #373737;
     grid-area: rightChart;
   }
 
   .bottomChart {
-    text-align: center;    
-    color: white;    
+    text-align: center;
+    color: white;
     background-color: #080808;
     grid-area: bottomChart;
   }
 
   .sideBar {
     overflow-y: scroll;
-    text-align: center;    
-    color: white;    
+    text-align: center;
+    color: white;
     background-color: #2EB7FF;
     grid-area: sideBar;
   }
 }
- 
+
 .ticker {
   font-size: 20px;
   border: 1px solid white;

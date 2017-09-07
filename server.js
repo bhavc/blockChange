@@ -35,4 +35,14 @@ new WebpackDevServer(webpack(config), {
     console.log('Running at http://0.0.0.0:3000');
   });
 
-console.log(knex.select().from('coins').timeout(1000))
+
+//able to console log the queries that we have
+knex
+  .select()
+  .from('coins')
+  .then((results) => {
+    console.log(results)
+  })
+  .catch(() => {
+
+  })
