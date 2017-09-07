@@ -10,15 +10,13 @@ class LeftChart extends Component {
   		chartData:{
   			labels: [],
   			datasets:[{
-  				data:[
-  				  1000000,
-  				  500000,
-  				  250000
-  				],
+  				data:[],
   				backgroundColor:[
   				  '#FF6384',
             '#36A2EB',
-            '#FFCE56'
+            '#FFCE56',
+            '#cc65fe',
+            '#33FF39'
   				]
   			}]
   		}
@@ -26,18 +24,23 @@ class LeftChart extends Component {
   }
 
   componentDidMount() {
-    fetch(`https://api.coinmarketcap.com/v1/ticker/?limit=10`) 
+    fetch(`https://api.coinmarketcap.com/v1/ticker/?limit=5`) 
       .then(result => {
       	return result.json()
       })
       .then(coins => {
-      	console.log('$$$$$$$$$$$$$$', coins)
       	let coinIDs = coins.map(coin => {
       		return coin.id
       	});
+      	let marketCap = coins.map(coin => {
+      		return coin.market_cap_usd
+      	})
+
       	let newChartData = this.state.chartData
       	newChartData.labels = coinIDs
+        newChartData.datasets[0].data = marketCap
       	this.setState({chartData: newChartData})
+
       })
       .catch(() => {
       })
@@ -46,7 +49,6 @@ class LeftChart extends Component {
     render() {
         return (
             <div className='leftChart'>
-            <div>{this.state.coins.map(item=><li key={coins.id}>{coins.id}</li>)}</div>
               <Doughnut
 								data={this.state.chartData}
 							/>
