@@ -24,13 +24,13 @@ class LeftChart extends Component {
   }
 
   componentDidMount() {
-    fetch(`https://api.coinmarketcap.com/v1/ticker/?limit=5`) 
+    fetch(`https://api.coinmarketcap.com/v1/ticker/?limit=5`)
       .then(result => {
       	return result.json()
       })
       .then(coins => {
       	let coinIDs = coins.map(coin => {
-      		return coin.id
+      		return coin.name
       	});
       	let marketCap = coins.map(coin => {
       		return coin.market_cap_usd
