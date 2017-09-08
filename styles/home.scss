@@ -6,7 +6,7 @@ body {
   height: 100vh;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 250px;
-  grid-template-rows: 800px 30% 20%;
+  grid-template-rows: 600px 290px 300px;
   grid-template-areas: "mainChart mainChart mainChart sideBar"
                        "leftChart rightChart rightChart sideBar"
                        "bottomChart bottomChart bottomChart sideBar";
@@ -56,4 +56,11 @@ body {
   border: 1px solid white;
   margin: 15px;
   margin-bottom: 18px;
+}
+
+.pings {
+  border-top: 1px solid white;
+  width: 80%;
+  margin: 0 auto;
+  font-size: 75%;
 }
