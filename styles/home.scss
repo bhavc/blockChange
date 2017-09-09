@@ -75,3 +75,23 @@ body {
   margin: 0 auto;
   font-size: 75%;
 }
+
+.addNew {
+  position: relative;
+  top: 5px;
+  left: -10px;
+  color: white;
+}
+
+.addNew:hover {
+  color: black;
+}
+
+.newNotif {
+  background: transparent;
+  border: none !important;
+}
+
+.newNotif:focus {
+  outline: 0;
+}

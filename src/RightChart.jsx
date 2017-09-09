@@ -9,7 +9,7 @@ class RightChart extends Component {
   		chartData:{
   			labels: [],
   			datasets:[{
-  				data:[],
+                  data:[],
   				backgroundColor:[
   				  '#FF6384',
   				],
@@ -31,10 +31,10 @@ class RightChart extends Component {
       	let dayIndex = coins.price.map((coin, index) => {
           return index + 1
         })
+        
         let newChartData = this.state.chartData
-
-      	newChartData.labels = dayIndex
         newChartData.datasets[0].data = dayValues
+        newChartData.labels = dayIndex
       	this.setState({chartData: newChartData})
       })
     }
@@ -42,9 +42,7 @@ class RightChart extends Component {
     render() {
         return (
             <div className='rightChart'>
-              <Line
-								data={this.state.chartData}
-							/>
+              <Line data={this.state.chartData} />
             </div>
         );
     }

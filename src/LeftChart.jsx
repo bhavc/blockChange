@@ -6,21 +6,18 @@ class LeftChart extends Component {
   constructor(props){
   	super(props);
   	this.state = {
-          coins:[],
-          options: {
-            
-            },
+        coins:[],
   		chartData:{
   			labels: [],
   			datasets:[{
   				data:[],
   				backgroundColor:[
-  				  '#FF6384',
-            '#36A2EB',
-            '#FFCE56',
-            '#cc65fe',
-            '#33FF39'
-                  ],
+  				    '#FF6384',
+                    '#36A2EB',
+                    '#FFCE56',
+                    '#cc65fe',
+                    '#33FF39'
+                ]
   			}]
   		}
   	}
@@ -52,7 +49,7 @@ class LeftChart extends Component {
     render() {
         return (
             <div className='leftChart'>
-              <Doughnut style="maintainAspectRatio: false" data={this.state.chartData} />
+              <Doughnut data={this.state.chartData} />
             </div>
         );
     }
