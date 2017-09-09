@@ -20,7 +20,7 @@ class LeftChart extends Component {
             '#FFCE56',
             '#cc65fe',
             '#33FF39'
-  				]
+                  ],
   			}]
   		}
   	}
@@ -52,9 +52,7 @@ class LeftChart extends Component {
     render() {
         return (
             <div className='leftChart'>
-              <Doughnut
-								data={this.state.chartData}
-							/>
+              <Doughnut style="maintainAspectRatio: false" data={this.state.chartData} />
             </div>
         );
     }
