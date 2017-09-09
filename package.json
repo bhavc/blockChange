@@ -45,11 +45,14 @@
     "webpack-dev-server": "2.3.0"
   },
   "dependencies": {
+    "@sendgrid/mail": "^6.1.2",
     "chart.js": "^2.5.0",
     "knex": "^0.13.0",
     "pg": "^7.3.0",
     "react": "^15.4.2",
     "react-chartjs-2": "^2.6.2",
-    "react-dom": "^15.4.2"
+    "react-dom": "^15.4.2",
+    "request-promise": "^4.2.1",
+    "sendgrid": "^5.2.3"
   }
 }

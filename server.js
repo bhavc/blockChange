@@ -4,7 +4,6 @@ const config = require('./webpack.config');
 const request = require('request')
 const settings = require('./settings')
 
-
 let knex = require('knex') ({
   client : 'pg',
   connection : {
@@ -16,7 +15,6 @@ let knex = require('knex') ({
     ssl: settings.ssl
   }
 })
-
 
 new WebpackDevServer(webpack(config), {
     publicPath: config.output.publicPath,
