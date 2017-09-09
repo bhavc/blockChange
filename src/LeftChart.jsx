@@ -6,7 +6,10 @@ class LeftChart extends Component {
   constructor(props){
   	super(props);
   	this.state = {
-  		coins:[],
+          coins:[],
+          options: {
+            
+            },
   		chartData:{
   			labels: [],
   			datasets:[{
