@@ -14,7 +14,7 @@ const knex = require('knex') ({
 
 knex
   .select()
-  .from('priceTime')
+  .from('priceChangeTable')
   .then(function(results) {
     console.log(results)
   })
