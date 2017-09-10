@@ -4,17 +4,17 @@ const config = require('./webpack.config');
 const request = require('request')
 const settings = require('./settings')
 
-let knex = require('knex') ({
-  client : 'pg',
-  connection : {
-    user : settings.user,
-    password : settings.password,
-    database : settings.database,
-    host: settings.hostname,
-    port: settings.port,
-    ssl: settings.ssl
-  }
-})
+// const knex = require('knex') ({
+//   client : 'pg',
+//   connection : {
+//     user : settings.user,
+//     password : settings.password,
+//     database : settings.database,
+//     host: settings.hostname,
+//     port: settings.port,
+//     ssl: settings.ssl
+//   }
+// })
 
 new WebpackDevServer(webpack(config), {
     publicPath: config.output.publicPath,
@@ -32,15 +32,3 @@ new WebpackDevServer(webpack(config), {
 
     console.log('Running at http://0.0.0.0:3000');
   });
-
-
-//able to console log the queries that we have
-knex
-  .select()
-  .from('coins')
-  .then((results) => {
-    console.log(results)
-  })
-  .catch(() => {
-
-  })
