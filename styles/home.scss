@@ -6,7 +6,7 @@ body {
   height: 100vh;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 250px;
-  grid-template-rows: 600px 290px 300px;
+  grid-template-rows: 600px 300px 300px;
   grid-template-areas: "mainChart mainChart mainChart sideBar"
                        "leftChart rightChart rightChart sideBar"
                        "bottomChart bottomChart bottomChart sideBar";
@@ -51,6 +51,17 @@ body {
   }
 }
 
+@media (max-width: 1380px) {
+  .wrapper {
+    grid-template-columns: 1fr 250px;
+    grid-template-rows: 600px 400px 400px 400px;
+    grid-template-areas: "mainChart sideBar"
+                         "leftChart sideBar"
+                         "rightChart sideBar"
+                         "bottomChart sideBar";
+  }
+}
+
 .ticker {
   font-size: 20px;
   border: 1px solid white;
@@ -63,4 +74,24 @@ body {
   width: 80%;
   margin: 0 auto;
   font-size: 75%;
+}
+
+.addNew {
+  position: relative;
+  top: 5px;
+  left: -10px;
+  color: white;
+}
+
+.addNew:hover {
+  color: black;
+}
+
+.newNotif {
+  background: transparent;
+  border: none !important;
+}
+
+.newNotif:focus {
+  outline: 0;
 }
