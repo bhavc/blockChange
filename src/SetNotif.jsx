@@ -4,9 +4,12 @@ import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
 
 class SetNotif extends Component {
-  state = {
-    open: false,
-  };
+      state = {
+        open: false,
+        dropDownSelection: 'time',
+        placeHolder: 'text'
+      };
+
 
   handleOpen = () => {
     this.setState({open: true});
@@ -16,7 +19,30 @@ class SetNotif extends Component {
     this.setState({open: false});
   };
 
+  handleSelectionChange = (e) => {
+    this.setState({
+      dropDownSelection: e.target.value,
+      placeHolder: e.target.value
+    })
+  }
+
+  notifyForm = () => {
+
+    let placeholder = this.state.placeHolder
+
+    switch (this.state.dropDownSelection){
+      case 'time':
+        return (
+              <select>
+                <option>seconds</option>
+                <option>minutes</option>
+                <option>hours</option>
+              </select>)
+    }
+  }
+
   render() {
+
     const actions = [
       <FlatButton
         label="Cancel"
@@ -47,17 +73,13 @@ class SetNotif extends Component {
                             <option>BTC</option>
                             <option>ETH</option>
                         </select>
-                        <select>
+                        <select value={this.state.dropDownSelection} onChange={this.handleSelectionChange}>
                             <option>time</option>
                             <option>percent</option>
                             <option>value</option>
                         </select>
-                            <input type='text'></input>
-                        <select>
-                            <option>seconds</option>
-                            <option>minutes</option>
-                            <option>hours</option>
-                        </select>
+                          <input type='text' placeholder={this.state.placeHolder}></input>
+                          {this.notifyForm()}
                         <br />
                         <button>Submit</button>
                     </form>
