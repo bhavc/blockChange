@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import Ticker from './Ticker.jsx';
-import NotifForm from './notifform.jsx'
 
 class SideBar extends Component {
 
@@ -14,7 +13,6 @@ class SideBar extends Component {
         return (
             <div className='sideBar' onMouseOver={this.disableScroll} onMouseOut={this.enableScroll}>
                 <Ticker />
-                {/* <NotifForm /> */}
             </div>
         );
     }
