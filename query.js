@@ -15,7 +15,7 @@ const knex = require('knex') ({
 });
 
 function setFinalPrice(){
-  request('https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=BTC,CAD,USD,EUR&extraParams=your_app_name', function(error, response, body) {
+  request('https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=BTC,CAD,USD,EUR&extraParams=your_app_name', function(error, response, body) {
     if (!error && response.statusCode == 200) {
       console.log('making an api call every 10 seconds')
       var json = JSON.parse(body);
@@ -75,4 +75,4 @@ function queryPrice(){
 }
 queryPrice()
 
-//add in a set timeout function over here. 
+//add in a set timeout function over here.
