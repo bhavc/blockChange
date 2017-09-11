@@ -14,6 +14,8 @@ const knex = require('knex') ({
   }
 });
 
+
+//this function calls api and sets the final price
 function setFinalPrice(){
   request('https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=BTC,CAD,USD,EUR&extraParams=your_app_name', function(error, response, body) {
     if (!error && response.statusCode == 200) {
@@ -33,9 +35,9 @@ function setFinalPrice(){
     }
   })
 }
-setFinalPrice()
+// setFinalPrice()
 
-
+//this function sends an email to user id 1
 function queryPrice(){
   knex('priceChangeTable')
   .where(function(){
@@ -73,6 +75,4 @@ function queryPrice(){
     console.log(err);
   })
 }
-queryPrice()
-
-//add in a set timeout function over here.
+// queryPrice()
