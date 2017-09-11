@@ -2,14 +2,24 @@ body {
   font-family: 'Open Sans', sans-serif;
 }
 
+.material-icons {
+  font-size: 36px !important;
+}
+
 .wrapper {
   height: 100vh;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 250px;
-  grid-template-rows: 600px 300px 300px;
-  grid-template-areas: "mainChart mainChart mainChart sideBar"
+  grid-template-rows: 75px 600px 300px 300px;
+  grid-template-areas: "navBar navBar navBar sideBar"
+                       "mainChart mainChart mainChart sideBar"
                        "leftChart rightChart rightChart sideBar"
                        "bottomChart bottomChart bottomChart sideBar";
+  
+  .navBar {
+    grid-area: navBar;
+  }
+  
   .mainChart {
     text-align: center;
     color: white;
@@ -42,7 +52,7 @@ body {
     overflow-y: scroll;
     text-align: center;
     color: white;
-    background-color: #2EB7FF;
+    background-color: darkgrey;
     grid-area: sideBar;
     position: fixed;
     right: 0;
@@ -54,8 +64,9 @@ body {
 @media (max-width: 1380px) {
   .wrapper {
     grid-template-columns: 1fr 250px;
-    grid-template-rows: 600px 400px 400px 400px;
-    grid-template-areas: "mainChart sideBar"
+    grid-template-rows: 75px 600px 400px 400px 400px;
+    grid-template-areas: "navBar sideBar"
+                         "mainChart sideBar"
                          "leftChart sideBar"
                          "rightChart sideBar"
                          "bottomChart sideBar";
@@ -67,7 +78,13 @@ body {
   border: 1px solid white;
   margin: 15px;
   margin-bottom: 18px;
+
+  .tickerHeader {
+    margin-top: 15px;
+    margin-bottom: 12px;
+  }
 }
+
 
 .pings {
   border-top: 1px solid white;
@@ -77,8 +94,9 @@ body {
 }
 
 .addNew {
+  font-size: 20px;
   position: relative;
-  top: 5px;
+  top: 3px;
   left: -10px;
   color: white;
 }
@@ -94,4 +112,42 @@ body {
 
 .newNotif:focus {
   outline: 0;
+}
+
+.setNotif {
+  width: 300px;
+  height: 200px;
+  border: 1px solid white;
+  margin: 0 auto;
+  text-align: left;
+  padding: 25px;
+
+  input {
+    width: 50px;
+  }
+
+  button {
+    margin: 15px;
+    margin: 0 auto;
+  }
+}
+
+.navBar {
+  padding: 25px;
+  background-color: grey;
+  color: white;
+  .barItem {
+    margin-right: 15px;
+    display: inline;
+  }
+  .barItem i {
+    transition: all .2s ease-in-out;    
+  }
+  .barItem i:hover {
+    transform: scale(1.2);
+  }
+  .barItem a {
+    color: inherit;
+    text-decoration: none;
+  }
 }

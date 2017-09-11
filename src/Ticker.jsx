@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import Ping from './ping.jsx';
-import NewNotif from './newnotif.jsx';
 
 class Ticker extends Component {
 
@@ -34,7 +33,7 @@ class Ticker extends Component {
     render () {
         const currentTicker = this.state.ticker
         const tickerList = currentTicker.map((coin, index) => {
-           return <div className='ticker' key={index}><p><NewNotif />{coin.symbol} | {coin.change}%</p><Ping /></div>
+           return <div className='ticker' key={index}><p className='tickerHeader'>{coin.symbol} | {coin.change}%</p></div>
         })
         return (
             <div>
