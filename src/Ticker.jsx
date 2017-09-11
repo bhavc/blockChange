@@ -34,7 +34,7 @@ class Ticker extends Component {
     render () {
         const currentTicker = this.state.ticker
         const tickerList = currentTicker.map((coin, index) => {
-           return <div className='ticker' key={index}><p><NewNotif />{coin.symbol} | {coin.change}%</p><Ping /></div>
+           return <div className='ticker' key={index}><p className='tickerHeader'><NewNotif />{coin.symbol} | {coin.change}%</p><Ping /></div>
         })
         return (
             <div>
