@@ -4,7 +4,6 @@ const config = require('./webpack.config');
 const request = require('request')
 const settings = require('./settings')
 
-
 new WebpackDevServer(webpack(config), {
     publicPath: config.output.publicPath,
     watchOptions: {
