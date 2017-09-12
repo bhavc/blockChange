@@ -16,10 +16,6 @@ body {
                        "leftChart rightChart rightChart sideBar"
                        "bottomChart bottomChart bottomChart sideBar";
   
-  .navBar {
-    grid-area: navBar;
-  }
-  
   .mainChart {
     text-align: center;
     color: dimgrey;
@@ -32,7 +28,9 @@ body {
     color: dimgrey;
     background-color: whitesmoke;
     grid-area: leftChart;
-    padding: 50px;
+    padding-left: 40px;    
+    padding-right: 40px;    
+    padding-bottom: 100px;
   }
 
   .rightChart {
@@ -40,7 +38,9 @@ body {
     color: dimgrey;
     background-color: whitesmoke;
     grid-area: rightChart;
-    padding: 100px;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 100px;    
   }
 
   .bottomChart {
@@ -60,14 +60,19 @@ body {
     right: 0;
     width: 250px;
     height: 100vh;
-    border-left: 1px solid dimgrey;
+    border-left: 1px solid Gainsboro;
   }
 }
 
 .navBar {
-  padding: 25px;
+  border-bottom: 1px solid gainsboro;
+  padding-top: 23px;
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-bottom: 25px;
   background-color: whitesmoke;
   color: dimgrey;
+  grid-area: navBar;
   .barItem {
     margin-right: 15px;
     display: inline-block;
@@ -101,25 +106,28 @@ body {
 
 .ticker {
   font-size: 20px;
-  margin: 15px;
-  margin-bottom: 18px;
-  padding: 5px;
-  border-bottom: 1px solid whitesmoke;
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-bottom: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid Gainsboro;
   .tickerInfo {
     margin-top: 15px;
     margin-bottom: 12px;
   }
   .tickerUp {
-    width: 10px;
-    height: 10px;
+    width: 12px;
+    height: 12px;
     background-color: limegreen;
     position: relative;
     top: 33px;
     left: 10px;
   }
   .tickerDown {
-    width: 10px;
-    height: 10px;
+    width: 12px;
+    height: 12px;
     background-color: hotpink;
     position: relative;
     top: 33px;

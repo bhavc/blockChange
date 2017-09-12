@@ -38,7 +38,11 @@ class SetNotif extends Component {
                 <option>minutes</option>
                 <option>hours</option>
               </select>)
-    }
+      case 'percent':
+          return (
+            <span>%</span>
+          )
+  }
   }
 
   render() {
@@ -60,7 +64,7 @@ class SetNotif extends Component {
       <div className='barItem'>
         <i className="material-icons" onClick={this.handleOpen}>add_alarm</i>
         <Dialog
-          title="Set alert"
+          title="My Alerts"
           actions={actions}
           modal={false}
           open={this.state.open}
