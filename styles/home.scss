@@ -10,7 +10,7 @@ body {
   height: 100vh;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 250px;
-  grid-template-rows: 75px 600px 300px 300px;
+  grid-template-rows: 80px 600px 500px 300px;
   grid-template-areas: "navBar navBar navBar sideBar"
                        "mainChart mainChart mainChart sideBar"
                        "leftChart rightChart rightChart sideBar"
@@ -22,42 +22,68 @@ body {
   
   .mainChart {
     text-align: center;
-    color: white;
-    background-color: grey;
+    color: dimgrey;
+    background-color: white;
     grid-area: mainChart;
   }
 
   .leftChart {
     text-align: center;
-    color: white;
-    background-color: #454545;
+    color: dimgrey;
+    background-color: whitesmoke;
     grid-area: leftChart;
+    padding: 50px;
   }
 
   .rightChart {
     text-align: center;
-    color: white;
-    background-color: #373737;
+    color: dimgrey;
+    background-color: whitesmoke;
     grid-area: rightChart;
+    padding: 100px;
   }
 
   .bottomChart {
     text-align: center;
-    color: white;
-    background-color: #080808;
+    color: dimgrey;
+    background-color: white;
     grid-area: bottomChart;
   }
 
   .sideBar {
     overflow-y: scroll;
     text-align: center;
-    color: white;
-    background-color: darkgrey;
+    color: dimgrey;
+    background-color: white;
     grid-area: sideBar;
     position: fixed;
     right: 0;
     width: 250px;
     height: 100vh;
+    border-left: 1px solid dimgrey;
+  }
+}
+
+.navBar {
+  padding: 25px;
+  background-color: whitesmoke;
+  color: dimgrey;
+  .barItem {
+    margin-right: 15px;
+    display: inline-block;
+  }
+  .barItem i {
+    transition: all .2s ease-in-out;    
+  }
+  .barItem i:hover {
+    transform: scale(1.2);
+    color: black;
+    cursor: pointer;
+    cursor: hand;
+  }
+  .barItem a {
+    color: inherit;
+    text-decoration: none;
   }
 }
 
@@ -75,16 +101,31 @@ body {
 
 .ticker {
   font-size: 20px;
-  border: 1px solid white;
   margin: 15px;
   margin-bottom: 18px;
-
-  .tickerHeader {
+  padding: 5px;
+  border-bottom: 1px solid whitesmoke;
+  .tickerInfo {
     margin-top: 15px;
     margin-bottom: 12px;
   }
+  .tickerUp {
+    width: 10px;
+    height: 10px;
+    background-color: limegreen;
+    position: relative;
+    top: 33px;
+    left: 10px;
+  }
+  .tickerDown {
+    width: 10px;
+    height: 10px;
+    background-color: hotpink;
+    position: relative;
+    top: 33px;
+    left: 10px;
+  }
 }
-
 
 .pings {
   border-top: 1px solid white;
@@ -102,7 +143,7 @@ body {
 }
 
 .addNew:hover {
-  color: black;
+  color: dimgrey;
 }
 
 .newNotif {
@@ -132,22 +173,14 @@ body {
   }
 }
 
-.navBar {
-  padding: 25px;
-  background-color: grey;
-  color: white;
-  .barItem {
-    margin-right: 15px;
-    display: inline;
-  }
-  .barItem i {
-    transition: all .2s ease-in-out;    
-  }
-  .barItem i:hover {
-    transform: scale(1.2);
-  }
-  .barItem a {
-    color: inherit;
-    text-decoration: none;
-  }
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
 }
+.clearfix { display: inline-block; }
+* html .clearfix { height: 1%; }
+.clearfix { display: block; }
