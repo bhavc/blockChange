@@ -33,10 +33,20 @@ class Ticker extends Component {
     render () {
         const currentTicker = this.state.ticker
         const tickerList = currentTicker.map((coin, index) => {
-           return <div className='ticker clearfix' key={index}><div className='tickerUp'></div><p className='tickerInfo'>{coin.symbol} | {coin.change}%</p></div>
+           let tickerBox 
+           if (coin.change.charAt(0) === "-") {
+                tickerBox = <div className='tickerDown'></div>
+            } else {
+                tickerBox = <div className='tickerUp'></div> 
+            }
+           return <div className='ticker clearfix' key={index}>
+                    {tickerBox}
+                    <p className='tickerInfo'>{coin.symbol} | {coin.change}%</p>
+                  </div>
         })
         return (
             <div>
+                
                 {tickerList}
             </div>
         );
