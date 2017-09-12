@@ -10,10 +10,8 @@ class RightChart extends Component {
   			labels: [],
   			datasets:[{
                   data:[],
-  				backgroundColor:[
-  				  '#FF6384',
-  				],
-  				label: 'Bitcoin'
+  				backgroundColor:['#00BFFF'],
+                label: 'Bitcoin',  
   			}]
   		}
   	}
@@ -42,7 +40,27 @@ class RightChart extends Component {
     render() {
         return (
             <div className='rightChart'>
-              <Line data={this.state.chartData} />
+              <h1>Right Chart</h1>
+              <Line 
+                data={this.state.chartData} 
+                width={100}
+                height={100}
+                options={{
+                    maintainAspectRatio: false,
+                    scales: {
+                        xAxes: [{
+                                    gridLines: {
+                                        color: "rgba(0, 0, 0, 0)",
+                                    }
+                                }],
+                        yAxes: [{
+                                    gridLines: {
+                                        color: "rgba(0, 0, 0, 0)",
+                                    }   
+                                }]
+                        }
+                }}  
+            />
             </div>
         );
     }

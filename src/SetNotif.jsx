@@ -58,7 +58,7 @@ class SetNotif extends Component {
 
     return (
       <div className='barItem'>
-        <a href='#'><i className="material-icons" onClick={this.handleOpen}>add_alarm</i></a>
+        <i className="material-icons" onClick={this.handleOpen}>add_alarm</i>
         <Dialog
           title="Set alert"
           actions={actions}

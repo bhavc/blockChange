@@ -17,6 +17,13 @@ class LeftChart extends Component {
                     '#FFCE56',
                     '#cc65fe',
                     '#33FF39'
+                ],
+                borderColor:[
+                    '#f5f5f5', 
+                    '#f5f5f5', 
+                    '#f5f5f5', 
+                    '#f5f5f5', 
+                    '#f5f5f5'
                 ]
   			}]
   		}
@@ -49,7 +56,15 @@ class LeftChart extends Component {
     render() {
         return (
             <div className='leftChart'>
-              <Doughnut data={this.state.chartData} />
+              <h1>Left Chart</h1>
+              <Doughnut 
+                data={this.state.chartData}              
+                width={0}
+                height={0}
+                options={{
+                    maintainAspectRatio: false
+                }}
+              />
             </div>
         );
     }
