@@ -24,5 +24,16 @@ class App extends Component {
       </MuiThemeProvider>
     );
   }
+
+  constructor() {
+      fetch('//localhost:3001/notification', {
+        accept: 'application/json',
+      })
+      .then((res) => {
+        console.log(res)
+
+      })
+    super();
+  }
 }
 export default App;
