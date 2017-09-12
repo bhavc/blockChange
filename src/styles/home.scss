@@ -1,0 +1,186 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.material-icons {
+  font-size: 36px !important;
+}
+
+.wrapper {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 250px;
+  grid-template-rows: 80px 600px 500px 300px;
+  grid-template-areas: "navBar navBar navBar sideBar"
+                       "mainChart mainChart mainChart sideBar"
+                       "leftChart rightChart rightChart sideBar"
+                       "bottomChart bottomChart bottomChart sideBar";
+  
+  .navBar {
+    grid-area: navBar;
+  }
+  
+  .mainChart {
+    text-align: center;
+    color: dimgrey;
+    background-color: white;
+    grid-area: mainChart;
+  }
+
+  .leftChart {
+    text-align: center;
+    color: dimgrey;
+    background-color: whitesmoke;
+    grid-area: leftChart;
+    padding: 50px;
+  }
+
+  .rightChart {
+    text-align: center;
+    color: dimgrey;
+    background-color: whitesmoke;
+    grid-area: rightChart;
+    padding: 100px;
+  }
+
+  .bottomChart {
+    text-align: center;
+    color: dimgrey;
+    background-color: white;
+    grid-area: bottomChart;
+  }
+
+  .sideBar {
+    overflow-y: scroll;
+    text-align: center;
+    color: dimgrey;
+    background-color: white;
+    grid-area: sideBar;
+    position: fixed;
+    right: 0;
+    width: 250px;
+    height: 100vh;
+    border-left: 1px solid dimgrey;
+  }
+}
+
+.navBar {
+  padding: 25px;
+  background-color: whitesmoke;
+  color: dimgrey;
+  .barItem {
+    margin-right: 15px;
+    display: inline-block;
+  }
+  .barItem i {
+    transition: all .2s ease-in-out;    
+  }
+  .barItem i:hover {
+    transform: scale(1.2);
+    color: black;
+    cursor: pointer;
+    cursor: hand;
+  }
+  .barItem a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+@media (max-width: 1380px) {
+  .wrapper {
+    grid-template-columns: 1fr 250px;
+    grid-template-rows: 75px 600px 400px 400px 400px;
+    grid-template-areas: "navBar sideBar"
+                         "mainChart sideBar"
+                         "leftChart sideBar"
+                         "rightChart sideBar"
+                         "bottomChart sideBar";
+  }
+}
+
+.ticker {
+  font-size: 20px;
+  margin: 15px;
+  margin-bottom: 18px;
+  padding: 5px;
+  border-bottom: 1px solid whitesmoke;
+  .tickerInfo {
+    margin-top: 15px;
+    margin-bottom: 12px;
+  }
+  .tickerUp {
+    width: 10px;
+    height: 10px;
+    background-color: limegreen;
+    position: relative;
+    top: 33px;
+    left: 10px;
+  }
+  .tickerDown {
+    width: 10px;
+    height: 10px;
+    background-color: hotpink;
+    position: relative;
+    top: 33px;
+    left: 10px;
+  }
+}
+
+.pings {
+  border-top: 1px solid white;
+  width: 80%;
+  margin: 0 auto;
+  font-size: 75%;
+}
+
+.addNew {
+  font-size: 20px;
+  position: relative;
+  top: 3px;
+  left: -10px;
+  color: white;
+}
+
+.addNew:hover {
+  color: dimgrey;
+}
+
+.newNotif {
+  background: transparent;
+  border: none !important;
+}
+
+.newNotif:focus {
+  outline: 0;
+}
+
+.setNotif {
+  width: 300px;
+  height: 200px;
+  border: 1px solid white;
+  margin: 0 auto;
+  text-align: left;
+  padding: 25px;
+
+  input {
+    width: 50px;
+  }
+
+  button {
+    margin: 15px;
+    margin: 0 auto;
+  }
+}
+
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+.clearfix { display: inline-block; }
+* html .clearfix { height: 1%; }
+.clearfix { display: block; }
