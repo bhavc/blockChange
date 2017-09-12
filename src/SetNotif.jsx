@@ -11,7 +11,8 @@ class SetNotif extends Component {
     coin: 'BTC',
     interval: '',
     open: false,
-    placeHolder: 'text'
+    placeHolder: 'text',
+    useremail: this.props.userEmail
 
   };
 
@@ -35,12 +36,17 @@ class SetNotif extends Component {
     this.setState({ value: e.target.value })
   }
 
-  handleValueChange = (e) => {
+  handleCoinChange = (e) => {
+    this.setState({ coin: e.target.value })
+  }
+
+  handleIntervalChange = (e) => {
     this.setState({ interval: e.target.value })
   }
 
   handleSubmit = (e) => {
-    console.log('$$$$$$$$$$$$$$$$$$ SUBMITTED')
+    console.log(this.state)
+    this.handleClose()
   }
 
   notifyForm = () => {
@@ -73,7 +79,7 @@ class SetNotif extends Component {
       <FlatButton
         label="Submit"
         primary={true}
-        onClick={this.handleClose}
+        onClick={this.handleSubmit}
       />,
     ];
 
@@ -89,8 +95,7 @@ class SetNotif extends Component {
         >        
             <div>
                 <div className='setNotif'>
-                    <form onSubmit={() => this.handleSubmit}>
-
+                    <form>
                         <select value={this.state.coin} onChange={this.handleCoinChange}>
                             <option>BTC</option>
                             <option>ETH</option>
@@ -106,7 +111,6 @@ class SetNotif extends Component {
                           {this.notifyForm()}
 
                         <br />
-                        <button>Submit</button>
                     </form>
                 </div>
             </div>

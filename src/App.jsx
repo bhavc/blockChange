@@ -9,12 +9,11 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 
 class App extends Component {
 
-
   render() {
     return (
       <MuiThemeProvider>
       <div className='wrapper'>
-        <NavBar />
+        <NavBar userEmail={this.state.useremail}/>
         <MainChart />
         <LeftChart />
         <RightChart />
@@ -34,6 +33,10 @@ class App extends Component {
 
       })
     super();
+      this.state = {
+        username: 'bhav',
+        useremail: 'bhavdip.dev@gmail.com'
+    }
   }
 }
 export default App;
