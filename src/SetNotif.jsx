@@ -45,7 +45,19 @@ class SetNotif extends Component {
   }
 
   handleSubmit = (e) => {
-    console.log(this.state)
+    fetch('http://localhost:3001/notification', {
+      method: 'POST',
+      body: JSON.stringify(this.state),
+      headers: {},
+      credentials: 'omit'
+    })
+    .then((response) => {
+      response.status
+      return response.text()
+    },
+    (error) => {
+      error.message
+    })
     this.handleClose()
   }
 
