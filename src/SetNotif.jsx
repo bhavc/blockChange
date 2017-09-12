@@ -4,12 +4,16 @@ import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
 
 class SetNotif extends Component {
-      state = {
-        open: false,
-        dropDownSelection: 'time',
-        placeHolder: 'text'
-      };
+  state = { 
 
+    type: 'time',
+    value: '',
+    coin: 'BTC',
+    interval: '',
+    open: false,
+    placeHolder: 'text'
+
+  };
 
   handleOpen = () => {
     this.setState({open: true});
@@ -19,21 +23,34 @@ class SetNotif extends Component {
     this.setState({open: false});
   };
 
-  handleSelectionChange = (e) => {
-    this.setState({
-      dropDownSelection: e.target.value,
-      placeHolder: e.target.value
-    })
+  handleCoinChange = (e) => {
+    this.setState({ coin: e.target.value })
+  }
+
+  handleTypeChange = (e) => {
+    this.setState({ type: e.target.value })
+  }
+
+  handleValueChange = (e) => {
+    this.setState({ value: e.target.value })
+  }
+
+  handleValueChange = (e) => {
+    this.setState({ interval: e.target.value })
+  }
+
+  handleSubmit = (e) => {
+    console.log('$$$$$$$$$$$$$$$$$$ SUBMITTED')
   }
 
   notifyForm = () => {
 
     let placeholder = this.state.placeHolder
 
-    switch (this.state.dropDownSelection){
+    switch (this.state.type){
       case 'time':
         return (
-              <select>
+              <select value={this.state.interval} onChange={this.handleIntervalChange}>
                 <option>seconds</option>
                 <option>minutes</option>
                 <option>hours</option>
@@ -68,18 +85,22 @@ class SetNotif extends Component {
         >        
             <div>
                 <div className='setNotif'>
-                    <form>
-                        <select>
+                    <form onSubmit={() => this.handleSubmit}>
+
+                        <select value={this.state.coin} onChange={this.handleCoinChange}>
                             <option>BTC</option>
                             <option>ETH</option>
                         </select>
-                        <select value={this.state.dropDownSelection} onChange={this.handleSelectionChange}>
+
+                        <select value={this.state.type} onChange={this.handleTypeChange}>
                             <option>time</option>
                             <option>percent</option>
                             <option>value</option>
                         </select>
-                          <input type='text' placeholder={this.state.placeHolder}></input>
+
+                          <input type='text' value={this.state.value} placeholder={this.state.placeHolder} onChange={this.handleValueChange}></input>
                           {this.notifyForm()}
+
                         <br />
                         <button>Submit</button>
                     </form>
