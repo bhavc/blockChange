@@ -11,7 +11,7 @@ class Ticker extends Component {
     }
     
     componentDidMount() {
-        fetch(`https://api.coinmarketcap.com/v1/ticker/?limit=10`)
+        fetch(`https://api.coinmarketcap.com/v1/ticker/?limit=25`)
         .then(result => {
             return result.json()
         })

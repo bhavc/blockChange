@@ -99,7 +99,7 @@ class SetNotif extends Component {
       <div className='barItem'>
         <i className="material-icons" onClick={this.handleOpen}>add_alarm</i>
         <Dialog
-          title="My Alerts"
+          title="Alerts"
           actions={actions}
           modal={false}
           open={this.state.open}
@@ -107,6 +107,7 @@ class SetNotif extends Component {
         >        
             <div>
                 <div className='setNotif'>
+                    <h3>add new alert</h3>
                     <form>
                         <select value={this.state.coin} onChange={this.handleCoinChange}>
                             <option>BTC</option>
@@ -124,6 +125,12 @@ class SetNotif extends Component {
 
                         <br />
                     </form>
+                    <div className='activeAlerts'>
+                      <h3>my active alerts</h3>
+                      <p>BTC</p>
+                      <p>0.05</p>
+                      <p>USD $50</p>
+                    </div>
                 </div>
             </div>
         </Dialog>

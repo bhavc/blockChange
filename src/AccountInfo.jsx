@@ -49,7 +49,7 @@ class AccountInfo extends Component {
       <div className='barItem'>
         <i className="material-icons" onClick={this.handleOpen}>account_circle</i>
         <Dialog
-          title="My account"
+          title="Account"
           actions={actions}
           modal={false}
           open={this.state.open}
