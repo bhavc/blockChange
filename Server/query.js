@@ -72,42 +72,42 @@ module.exports = {
 
 
 
-//this function sends an email to user id 1
-// function queryPrice(){
-//   knex('priceChangeTable')
-//   .where(function(){
-//     this.where('id', 1)
-//   })
-//   .then(function(res) {
-//
-//     console.log(res[0])
-//
-//     var transporter = nodemailer.createTransport({
-//       service: 'gmail',
-//       auth: {
-//         user: 'bhavdip.dev@gmail.com',
-//         pass: '!3Hj.e.n'
-//       }
-//     });
-//
-//     var mailOptions = {
-//       from: 'bhavdip.dev@gmail.com',
-//       to: `${res[0].user_email}`,
-//       subject: `${res[0].coin} Update!`,
-//       text: `The value of ${res[0].coin} has changed from ${res[0].current_value}
-//       to ${res[0].final_value} since you set your notification price`
-//     };
-//
-//     transporter.sendMail(mailOptions, function(error, info){
-//       if (error) {
-//         console.log(error);
-//       } else {
-//         console.log('Email set: ' + info.response)
-//       }
-//     })
-//   })
-//   .catch(function(err){
-//     console.log(err);
-//   })
-// }
-// queryPrice()
+// this function sends an email to user id 1
+function queryPrice(){
+  knex('priceChangeTable')
+  .where(function(){
+    this.where('id', 1)
+  })
+  .then(function(res) {
+
+    console.log(res[0])
+
+    var transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: 'bhavdip.dev@gmail.com',
+        pass: '!3Hj.e.n'
+      }
+    });
+
+    var mailOptions = {
+      from: 'bhavdip.dev@gmail.com',
+      to: `${res[0].user_email}`,
+      subject: `${res[0].coin} Update!`,
+      text: `The value of ${res[0].coin} has changed from ${res[0].current_value}
+      to ${res[0].final_value} since you set your notification price`
+    };
+
+    transporter.sendMail(mailOptions, function(error, info){
+      if (error) {
+        console.log(error);
+      } else {
+        console.log('Email set: ' + info.response)
+      }
+    })
+  })
+  .catch(function(err){
+    console.log(err);
+  })
+}
+queryPrice()

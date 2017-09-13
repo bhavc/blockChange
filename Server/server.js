@@ -28,7 +28,8 @@ app.post("/notification", function(req, res) {
   knex('priceChangeTable').insert({user_email: req.body.useremail, coin: req.body.coin, queryType: req.body.type})
   .then(function (result) {
     res.json({ success: true, message: 'ok' });
-    timeQuery()
+    timeQuery(req.body.coin, req.body.useremail, req.body.value)
+    
   })
 })
 
