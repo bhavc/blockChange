@@ -14,8 +14,9 @@ const knex = require('knex') ({
   }
 });
 
+//create a function that handles both setting the initial and final price
 
-function setInitialPrice(coin){
+function setInitialPrice(coin, email){
   request(`https://min-api.cryptocompare.com/data/price?fsym=${coin}&tsyms=BTC,CAD,USD,EUR&extraParams=your_app_name`, function(error, response, body) {
     if (!error && response.statusCode == 200) {
       console.log(body)
@@ -23,48 +24,53 @@ function setInitialPrice(coin){
       let canadianCurrency = json['CAD']
       console.log(canadianCurrency)
 
-
-      // knex('priceChangeTable')
-      // .update({final_value: canadianCurrency})
-      // .where(function(){
-      //   this.where('id', 1)
-      // })
-      // .catch(function(err) {
-      //   console.error(err);
-      // })
-    }
-  })
-}
-
-setInitialPrice('ETH')
-
-//this function calls api and sets the final price
-function setFinalPrice(coin){
-  request(`https://min-api.cryptocompare.com/data/price?fsym=${coin}&tsyms=BTC,CAD,USD,EUR&extraParams=your_app_name`, function(error, response, body) {
-    if (!error && response.statusCode == 200) {
-      console.log('making an api call every 10 seconds')
-      var json = JSON.parse(body);
-      let canadianCurrency = json['CAD']
-      console.log(canadianCurrency)
-
       knex('priceChangeTable')
-      .update({final_value: canadianCurrency})
-      .where(function(){
-        this.where('id', 1)
-      })
+      .update({current_value: canadianCurrency})
+      .where('user_email', email)
+        .andWhere('coin', coin)
+        .andWhere('current_value', null)
       .catch(function(err) {
         console.error(err);
       })
     }
   })
 }
-// setFinalPrice()
 
-//this function sends an email to user id 1
-function queryPrice(){
+// this function calls api and sets the final price
+function setFinalPrice(coin, email){
+  request(`https://min-api.cryptocompare.com/data/price?fsym=${coin}&tsyms=BTC,CAD,USD,EUR&extraParams=your_app_name`, function(error, response, body) {
+    if (!error && response.statusCode == 200) {
+      console.log('making an api call every 2 seconds')
+      var json = JSON.parse(body);
+      let canadianCurrency = json['CAD']
+      console.log(canadianCurrency)
+
+      knex('priceChangeTable')
+      .update({final_value: canadianCurrency})
+      .where('user_email', email)
+        .andWhere('coin', coin)
+        .andWhere('final_value', null)
+      .catch(function(err) {
+        console.error(err);
+      })
+    }
+  })
+}
+
+function timeQuery(coin, email, time) {
+  setInitialPrice(coin, email)
+
+  setTimeout(function() {
+    setFinalPrice(coin, email)
+  }, time*1000)
+
+}
+
+// this function sends an email to user id 1
+function emailer(id){
   knex('priceChangeTable')
   .where(function(){
-    this.where('id', 1)
+    this.where('id', id)
   })
   .then(function(res) {
 
@@ -98,4 +104,7 @@ function queryPrice(){
     console.log(err);
   })
 }
-// queryPrice()
+
+module.exports = {
+  setFinalPrice, setInitialPrice, timeQuery, emailer
+};

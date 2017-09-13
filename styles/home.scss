@@ -12,7 +12,7 @@ body {
   grid-template-columns: 1fr 1fr 1fr 250px;
   grid-template-rows: 80px 600px 500px 300px;
   grid-template-areas: "navBar navBar navBar sideBar"
-                       "mainChart mainChart mainChart sideBar"
+                       "mainInfo mainChart mainChart sideBar"
                        "leftChart rightChart rightChart sideBar"
                        "bottomChart bottomChart bottomChart sideBar";
   
@@ -21,6 +21,12 @@ body {
     color: dimgrey;
     background-color: white;
     grid-area: mainChart;
+  }
+
+  .mainInfo {
+    grid-area: mainInfo;
+    text-align: center;
+    background-color: white;
   }
 
   .leftChart {
