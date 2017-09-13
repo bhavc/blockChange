@@ -11,7 +11,8 @@ class SetNotif extends Component {
     coin: 'BTC',
     interval: '',
     open: false,
-    placeHolder: 'text',
+    placeHolder: '',
+    direction: '',
     useremail: this.props.userEmail
 
   };
@@ -44,6 +45,10 @@ class SetNotif extends Component {
     this.setState({ interval: e.target.value })
   }
 
+  handleDirectionChange = (e) => {
+    this.setState({ direction: e.target.value })
+  }
+
   handleSubmit = (e) => {
     fetch('http://localhost:3001/notification', {
       method: 'POST',
@@ -62,9 +67,7 @@ class SetNotif extends Component {
     this.handleClose()
   }
 
-  notifyForm = () => {
-
-    let placeholder = this.state.placeHolder
+  notifyChangeTime = () => {
 
     switch (this.state.type){
       case 'time':
@@ -74,11 +77,26 @@ class SetNotif extends Component {
                 <option>minutes</option>
                 <option>hours</option>
               </select>)
-      case 'percent':
-          return (
-            <span>%</span>
-          )
+    }
   }
+
+  notifyChangeValue = () => {
+
+    switch (this.state.type){
+      case 'percent':
+        return (
+              <select value={this.state.direction} onChange={this.handleDirectionChange}>
+                <option>Up</option>
+                <option>Down</option>
+              </select>)
+
+      case 'value':
+        return (
+              <select value={this.state.direction} onChange={this.handleDirectionChange}>
+                <option>Up</option>
+                <option>Down</option>
+              </select>)
+    }
   }
 
   render() {
@@ -119,9 +137,9 @@ class SetNotif extends Component {
                             <option>percent</option>
                             <option>value</option>
                         </select>
-
+                          {this.notifyChangeValue()}
                           <input type='text' value={this.state.value} placeholder={this.state.placeHolder} onChange={this.handleValueChange}></input>
-                          {this.notifyForm()}
+                          {this.notifyChangeTime()}
 
                         <br />
                     </form>
