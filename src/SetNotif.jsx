@@ -11,8 +11,8 @@ class SetNotif extends Component {
     coin: 'BTC',
     interval: '',
     open: false,
-    placeHolder: 'text',
-    direction: 'Up',
+    placeHolder: '',
+    direction: '',
     useremail: this.props.userEmail
 
   };
