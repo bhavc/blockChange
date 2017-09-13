@@ -12,7 +12,7 @@ class SideBar extends Component {
     render() {
         return (
             <div className='sideBar' onMouseOver={this.disableScroll} onMouseOut={this.enableScroll}>
-                <Ticker />
+                <Ticker tickerInfo={this.props.tickerInfo}/>
             </div>
         );
     }
