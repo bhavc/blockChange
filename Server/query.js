@@ -66,17 +66,11 @@ function timeQuery(coin, email, time) {
 
 }
 
-module.exports = {
-  setFinalPrice, setInitialPrice, timeQuery
-};
-
-
-
 // this function sends an email to user id 1
-function queryPrice(){
+function emailer(id){
   knex('priceChangeTable')
   .where(function(){
-    this.where('id', 1)
+    this.where('id', id)
   })
   .then(function(res) {
 
@@ -110,4 +104,7 @@ function queryPrice(){
     console.log(err);
   })
 }
-queryPrice()
+
+module.exports = {
+  setFinalPrice, setInitialPrice, timeQuery, emailer
+};
