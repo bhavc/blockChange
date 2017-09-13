@@ -9,41 +9,41 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 
 class App extends Component {
 
-    coinMarketCapApi = () => {
+  coinMarketCapApi = () => {
 
-      fetch(`https://api.coinmarketcap.com/v1/ticker/?limit=10`)
-      .then(result => {
-          return result.json()
-      })
-      .then(coins => {
-          let newCoins = coins
-          console.log(newCoins)
-          this.setState({topCoins: newCoins})
-      })
-    }
+    fetch(`https://api.coinmarketcap.com/v1/ticker/?limit=10`)
+    .then(result => {
+        return result.json()
+    })
+    .then(coins => {
+        let newCoins = coins
+        this.setState({topCoins: newCoins})
+    })
+  }
 
-    constructor(props) {
-      super(props);
-      fetch('//localhost:3001/notification', {
-        accept: 'application/json',
-      })
-      .then((res) => {
-        console.log(res)
+  constructor(props) {
+    super(props);
+    fetch('//localhost:3001/notification', {
+      accept: 'application/json',
+    })
+    .then((res) => {})
 
-      })
-    let appState = {
+  let appState = {
 
-        username: 'bhav',
-        useremail: 'bhavdip.dev@gmail.com',
-        topCoins: [],
-        
-      }
+      username: 'bhav',
+      useremail: 'bhavdip.dev@gmail.com',
+      topCoins: [],
 
-    this.state = appState
+  }
+
+  this.state = appState
+  
   }
 
   componentDidMount() {  
+
     this.coinMarketCapApi()
+
   }
 
   render() {
