@@ -9,23 +9,41 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 
 class App extends Component {
 
-  componentDidMount() {
+    coinMarketCapApi = () => {
+
       fetch(`https://api.coinmarketcap.com/v1/ticker/?limit=10`)
       .then(result => {
           return result.json()
       })
       .then(coins => {
-          let coinObj = {}
-          let newCoins = []
-          coins.map(coin => {
-              coinObj = coin
-              newCoins.push(coinObj)
-              coinObj = {}
-              return newCoins
-          })
+          let newCoins = coins
+          console.log(newCoins)
           this.setState({topCoins: newCoins})
+      })
+    }
+
+    constructor(props) {
+      super(props);
+      fetch('//localhost:3001/notification', {
+        accept: 'application/json',
+      })
+      .then((res) => {
+        console.log(res)
 
       })
+    let appState = {
+
+        username: 'bhav',
+        useremail: 'bhavdip.dev@gmail.com',
+        topCoins: [],
+        
+      }
+
+    this.state = appState
+  }
+
+  componentDidMount() {  
+    this.coinMarketCapApi()
   }
 
   render() {
@@ -34,7 +52,7 @@ class App extends Component {
       <div className='wrapper'>
         <NavBar userEmail={this.state.useremail}/>
         <MainChart />
-        <LeftChart />
+        <LeftChart chartData={this.state.topCoins}/>
         <RightChart />
         <BottomChart />
         <SideBar tickerInfo={this.state.topCoins}/>
@@ -42,21 +60,6 @@ class App extends Component {
       </MuiThemeProvider>
     );
   }
-
-  constructor() {
-      fetch('//localhost:3001/notification', {
-        accept: 'application/json',
-      })
-      .then((res) => {
-        console.log(res)
-
-      })
-    super();
-      this.state = {
-        username: 'bhav',
-        useremail: 'bhavdip.dev@gmail.com',
-        topCoins: []
-    }
-  }
 }
+
 export default App;
