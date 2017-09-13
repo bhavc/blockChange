@@ -15,9 +15,32 @@ const knex = require('knex') ({
 });
 
 
+function setInitialPrice(coin){
+  request(`https://min-api.cryptocompare.com/data/price?fsym=${coin}&tsyms=BTC,CAD,USD,EUR&extraParams=your_app_name`, function(error, response, body) {
+    if (!error && response.statusCode == 200) {
+      console.log(body)
+      var json = JSON.parse(body);
+      let canadianCurrency = json['CAD']
+      console.log(canadianCurrency)
+
+
+      // knex('priceChangeTable')
+      // .update({final_value: canadianCurrency})
+      // .where(function(){
+      //   this.where('id', 1)
+      // })
+      // .catch(function(err) {
+      //   console.error(err);
+      // })
+    }
+  })
+}
+
+setInitialPrice('ETH')
+
 //this function calls api and sets the final price
-function setFinalPrice(){
-  request('https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=BTC,CAD,USD,EUR&extraParams=your_app_name', function(error, response, body) {
+function setFinalPrice(coin){
+  request(`https://min-api.cryptocompare.com/data/price?fsym=${coin}&tsyms=BTC,CAD,USD,EUR&extraParams=your_app_name`, function(error, response, body) {
     if (!error && response.statusCode == 200) {
       console.log('making an api call every 10 seconds')
       var json = JSON.parse(body);
