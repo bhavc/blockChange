@@ -56,7 +56,21 @@ class AccountInfo extends Component {
           onRequestClose={this.handleClose}
         >        
             <div>
-                
+                <h3>update account</h3>
+                <form>
+                  <div>
+                    <p>email new address</p>
+                    <input type='text'></input>
+                  </div>
+                  <div>
+                    <p>enter new password</p>
+                    <input type='text'></input>
+                  </div>
+                  <div>
+                    <p>confirm new passwoerd</p>
+                    <input type='text'></input>
+                  </div>
+                </form>
             </div>
         </Dialog>
       </div>

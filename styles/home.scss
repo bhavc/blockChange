@@ -181,6 +181,20 @@ body {
   }
 }
 
+.activeAlerts p {
+  display: inline-block;
+  margin-right: 25px;
+}
+
+.activeCoins p {
+  display: inline-block;
+  margin-right: 25px;  
+}
+
+.activeCoinListItem {
+  border-bottom: 1px solid black;
+}
+
 .clearfix:after {
   visibility: hidden;
   display: block;

@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
+import ActiveAlertListItem from './ActiveAlertListItem.jsx';
 
 class SetNotif extends Component {
   state = {
@@ -146,9 +147,7 @@ class SetNotif extends Component {
                     </form>
                     <div className='activeAlerts'>
                       <h3>my active alerts</h3>
-                      <p>BTC</p>
-                      <p>0.05</p>
-                      <p>USD $50</p>
+                      <ActiveAlertListItem />
                     </div>
                 </div>
             </div>

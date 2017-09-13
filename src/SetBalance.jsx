@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
+import ActiveCoinListItem from './ActiveCoinListItem.jsx';
 
 class SetBalance extends Component {
       state = {
@@ -66,6 +67,7 @@ class SetBalance extends Component {
                 </form>
                 <div className='activeCoins'>
                   <h3>my coins</h3>
+                  <ActiveCoinListItem />
                 </div>
             </div>
         </Dialog>
