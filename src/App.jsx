@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import MainChart from './MainChart.jsx';
+import MainInfo from './MainInfo.jsx';
 import LeftChart from './LeftChart.jsx';
 import RightChart from './RightChart.jsx';
 import BottomChart from './BottomChart.jsx';
@@ -34,6 +35,7 @@ class App extends Component {
       <div className='wrapper'>
         <NavBar userEmail={this.state.useremail}/>
         <MainChart />
+        <MainInfo />
         <LeftChart />
         <RightChart />
         <BottomChart />
