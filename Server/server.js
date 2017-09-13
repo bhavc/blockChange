@@ -10,6 +10,10 @@ app.use(bodyParser.json())
 app.post("/notification", function(req, res) {
   console.log(req.body)
   res.send(req.body);
+  console.log(req.body.type)
+  console.log(req.body.value)
+  console.log(req.body.coin)
+  console.log(req.body.useremail)
 })
 
 http.createServer(app).listen(3001, function() {
