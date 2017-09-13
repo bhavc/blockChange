@@ -49,14 +49,28 @@ class AccountInfo extends Component {
       <div className='barItem'>
         <i className="material-icons" onClick={this.handleOpen}>account_circle</i>
         <Dialog
-          title="My account"
+          title="Account"
           actions={actions}
           modal={false}
           open={this.state.open}
           onRequestClose={this.handleClose}
         >        
             <div>
-                
+                <h3>update account</h3>
+                <form>
+                  <div>
+                    <p>email new address</p>
+                    <input type='text'></input>
+                  </div>
+                  <div>
+                    <p>enter new password</p>
+                    <input type='text'></input>
+                  </div>
+                  <div>
+                    <p>confirm new passwoerd</p>
+                    <input type='text'></input>
+                  </div>
+                </form>
             </div>
         </Dialog>
       </div>

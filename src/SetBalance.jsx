@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
+import ActiveCoinListItem from './ActiveCoinListItem.jsx';
 
 class SetBalance extends Component {
       state = {
@@ -49,14 +50,25 @@ class SetBalance extends Component {
       <div className='barItem'>
         <i className="material-icons" onClick={this.handleOpen}>attach_money</i>
         <Dialog
-          title="My Balance"
+          title="Balance"
           actions={actions}
           modal={false}
           open={this.state.open}
           onRequestClose={this.handleClose}
         >        
             <div>
-                
+                <h3>add new coin</h3>
+                <form>
+                  <select>
+                    <option>BTC</option>
+                    <option>ETH</option>
+                  </select>
+                  <input type='text'></input>
+                </form>
+                <div className='activeCoins'>
+                  <h3>my coins</h3>
+                  <ActiveCoinListItem />
+                </div>
             </div>
         </Dialog>
       </div>

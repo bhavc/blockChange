@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
+import ActiveAlertListItem from './ActiveAlertListItem.jsx';
 
 class SetNotif extends Component {
   state = {
@@ -118,7 +119,7 @@ class SetNotif extends Component {
       <div className='barItem'>
         <i className="material-icons" onClick={this.handleOpen}>add_alarm</i>
         <Dialog
-          title="My Alerts"
+          title="Alerts"
           actions={actions}
           modal={false}
           open={this.state.open}
@@ -126,6 +127,7 @@ class SetNotif extends Component {
         >
             <div>
                 <div className='setNotif'>
+                    <h3>add new alert</h3>
                     <form>
                         <select value={this.state.coin} onChange={this.handleCoinChange}>
                             <option>BTC</option>
@@ -143,6 +145,10 @@ class SetNotif extends Component {
 
                         <br />
                     </form>
+                    <div className='activeAlerts'>
+                      <h3>my active alerts</h3>
+                      <ActiveAlertListItem />
+                    </div>
                 </div>
             </div>
         </Dialog>
