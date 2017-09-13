@@ -4,7 +4,7 @@ import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
 
 class SetNotif extends Component {
-  state = { 
+  state = {
 
     type: 'time',
     value: '',
@@ -53,11 +53,12 @@ class SetNotif extends Component {
     fetch('http://localhost:3001/notification', {
       method: 'POST',
       body: JSON.stringify(this.state),
-      headers: {},
+      headers: {
+        'Content-Type': "application/json"
+      },
       credentials: 'omit'
     })
     .then((response) => {
-      response.status
       return response.text()
     },
     (error) => {
@@ -122,7 +123,7 @@ class SetNotif extends Component {
           modal={false}
           open={this.state.open}
           onRequestClose={this.handleClose}
-        >        
+        >
             <div>
                 <div className='setNotif'>
                     <form>
