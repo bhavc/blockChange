@@ -47,6 +47,7 @@
   },
   "dependencies": {
     "@sendgrid/mail": "^6.1.2",
+    "body-parser": "^1.18.1",
     "chart.js": "^2.5.0",
     "cors": "^2.8.4",
     "express": "^4.15.4",

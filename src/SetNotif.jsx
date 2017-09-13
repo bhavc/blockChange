@@ -4,14 +4,15 @@ import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
 
 class SetNotif extends Component {
-  state = { 
+  state = {
 
     type: 'time',
     value: '',
     coin: 'BTC',
     interval: '',
     open: false,
-    placeHolder: 'text',
+    placeHolder: '',
+    direction: '',
     useremail: this.props.userEmail
 
   };
@@ -44,15 +45,20 @@ class SetNotif extends Component {
     this.setState({ interval: e.target.value })
   }
 
+  handleDirectionChange = (e) => {
+    this.setState({ direction: e.target.value })
+  }
+
   handleSubmit = (e) => {
     fetch('http://localhost:3001/notification', {
       method: 'POST',
       body: JSON.stringify(this.state),
-      headers: {},
+      headers: {
+        'Content-Type': "application/json"
+      },
       credentials: 'omit'
     })
     .then((response) => {
-      response.status
       return response.text()
     },
     (error) => {
@@ -61,9 +67,7 @@ class SetNotif extends Component {
     this.handleClose()
   }
 
-  notifyForm = () => {
-
-    let placeholder = this.state.placeHolder
+  notifyChangeTime = () => {
 
     switch (this.state.type){
       case 'time':
@@ -73,11 +77,26 @@ class SetNotif extends Component {
                 <option>minutes</option>
                 <option>hours</option>
               </select>)
-      case 'percent':
-          return (
-            <span>%</span>
-          )
+    }
   }
+
+  notifyChangeValue = () => {
+
+    switch (this.state.type){
+      case 'percent':
+        return (
+              <select value={this.state.direction} onChange={this.handleDirectionChange}>
+                <option>Up</option>
+                <option>Down</option>
+              </select>)
+
+      case 'value':
+        return (
+              <select value={this.state.direction} onChange={this.handleDirectionChange}>
+                <option>Up</option>
+                <option>Down</option>
+              </select>)
+    }
   }
 
   render() {
@@ -104,7 +123,7 @@ class SetNotif extends Component {
           modal={false}
           open={this.state.open}
           onRequestClose={this.handleClose}
-        >        
+        >
             <div>
                 <div className='setNotif'>
                     <h3>add new alert</h3>
@@ -119,9 +138,9 @@ class SetNotif extends Component {
                             <option>percent</option>
                             <option>value</option>
                         </select>
-
+                          {this.notifyChangeValue()}
                           <input type='text' value={this.state.value} placeholder={this.state.placeHolder} onChange={this.handleValueChange}></input>
-                          {this.notifyForm()}
+                          {this.notifyChangeTime()}
 
                         <br />
                     </form>
