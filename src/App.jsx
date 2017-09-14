@@ -30,14 +30,17 @@ class App extends Component {
 
   let appState = {
 
-      username: 'bhav',
-      useremail: 'bhavdip.dev@gmail.com',
-      topCoins: [],
+      currentUser: {
+        username: 'bhav',
+        useremail: 'bhavdip.dev@gmail.com',
+        usercoins: []
+      },
+      topCoins: []
 
   }
 
   this.state = appState
-  
+
   }
 
   componentDidMount() {  
@@ -50,7 +53,7 @@ class App extends Component {
     return (
       <MuiThemeProvider>
       <div className='wrapper'>
-        <NavBar userEmail={this.state.useremail}/>
+        <NavBar userEmail={this.state.currentUser.useremail}/>
         <MainChart />
         <LeftChart chartData={this.state.topCoins}/>
         <RightChart />

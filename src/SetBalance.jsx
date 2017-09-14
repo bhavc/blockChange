@@ -7,8 +7,7 @@ import ActiveCoinListItem from './ActiveCoinListItem.jsx';
 class SetBalance extends Component {
       state = {
         open: false,
-        dropDownSelection: 'time',
-        placeHolder: 'text'
+        coin: 'BTC',
       };
 
 
@@ -23,12 +22,11 @@ class SetBalance extends Component {
   handleSelectionChange = (e) => {
     this.setState({
       dropDownSelection: e.target.value,
-      placeHolder: e.target.value
     })
   }
 
-  notifyForm = () => {
-    let placeholder = this.state.placeHolder
+  handleCoinChange = (e) => {
+    this.setState({ coin: e.target.value })
   }
 
   render() {
@@ -59,7 +57,7 @@ class SetBalance extends Component {
             <div>
                 <h3>add new coin</h3>
                 <form>
-                  <select>
+                  <select value={this.state.coin} onChange={this.handleCoinChange}>
                     <option>BTC</option>
                     <option>ETH</option>
                   </select>
