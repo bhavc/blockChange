@@ -89,7 +89,7 @@ body {
   }
   .barItem i:hover {
     transform: scale(1.2);
-    color: white;
+    color: dodgerblue;
     cursor: pointer;
     cursor: hand;
   }
@@ -145,6 +145,11 @@ body {
     left: 10px;
     border-radius: 100px;
   }
+}
+
+.ticker:hover {
+  border: 1px solid dodgerblue;
+  cursor: default;
 }
 
 .pings {
