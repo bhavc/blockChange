@@ -13,3 +13,6 @@ const knex = require('knex') ({
     ssl: settings.ssl
   }
 });
+
+
+//your gonna have to use cronjob for this
