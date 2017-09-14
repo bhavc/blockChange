@@ -12,7 +12,7 @@ class App extends Component {
 
   coinMarketCapApi = () => {
 
-    fetch(`https://api.coinmarketcap.com/v1/ticker/?limit=15`)
+    fetch(`https://api.coinmarketcap.com/v1/ticker/?limit=10`)
     .then(result => {
         return result.json()
     })
