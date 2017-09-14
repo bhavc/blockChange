@@ -56,6 +56,15 @@ class App extends Component {
       })
   }
 
+  setUserCoins = (coins) => {
+    this.setState({currentUser: {
+      username: this.state.currentUser.username,
+      useremail: this.state.currentUser.useremail,
+      usercoins: coins
+      }
+    })
+  }
+
   constructor(props) {
     super(props);
     fetch('//localhost:3001/notification', {
@@ -89,7 +98,7 @@ class App extends Component {
     return (
       <MuiThemeProvider>
       <div className='wrapper'>
-        <NavBar userEmail={this.state.currentUser.useremail}/>
+        <NavBar userEmail={this.state.currentUser.useremail} setUserCoins={this.setUserCoins}/>
         <MainChart />
         <MainInfo />
         <LeftChart chartData={this.state.topCoins}/>

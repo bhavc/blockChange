@@ -7,11 +7,9 @@ import ActiveCoinListItem from './ActiveCoinListItem.jsx';
 class SetBalance extends Component {
       state = {
         open: false,
-        userCoins: [
-        {
-          
-        }
-        ]
+        userCoins: [],
+        coin: 'BTC',
+        amount: 0
       };
 
 
@@ -23,14 +21,23 @@ class SetBalance extends Component {
     this.setState({open: false});
   };
 
-  handleSelectionChange = (e) => {
-    this.setState({
-      dropDownSelection: e.target.value,
-    })
-  }
-
   handleCoinChange = (e) => {
     this.setState({ coin: e.target.value })
+  }
+
+  handleAmountChange = (e) => {
+    this.setState({ amount: e.target.value })
+  }
+
+  handleSubmit = () => {
+    let userCoin = {}
+    let userCoins = this.state.userCoins
+    userCoin.coin = this.state.coin
+    userCoin.amount = this.state.amount
+    userCoins.push(userCoin)
+    userCoin = {}
+    this.props.setUserCoins(userCoins)
+    this.handleClose()
   }
 
   render() {
@@ -44,7 +51,7 @@ class SetBalance extends Component {
       <FlatButton
         label="Submit"
         primary={true}
-        onClick={this.handleClose}
+        onClick={this.handleSubmit}
       />,
     ];
 
@@ -65,7 +72,7 @@ class SetBalance extends Component {
                     <option>BTC</option>
                     <option>ETH</option>
                   </select>
-                  <input type='text'></input>
+                  <input type='text' value={this.state.amount} onChange={this.handleAmountChange}></input>
                 </form>
                 <div className='activeCoins'>
                   <h3>my coins</h3>
