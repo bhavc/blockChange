@@ -2,12 +2,19 @@ import React, {Component} from 'react';
 
 class ActiveCoinListItem extends Component {
     render() {
-        return (
-            <div className='activeCoinListItem'>
-                <p>BTC</p>
-                <p>0.05</p>
-                <p>USD $50</p>
-            </div>
+    	let userCoins = this.props.userCoins
+    	let userCoinList = userCoins.map((coin, index) => {
+
+    	  return  <div className='activeCoinListItem' key={index}>
+				          <p>{coin.coin}</p>
+				          <p>{coin.amount}</p>
+				          <p>CAD</p>
+                </div>
+    	})
+      return (
+        <div>
+          {userCoinList}
+        </div>
         );
     }
 }
