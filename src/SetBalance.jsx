@@ -18,7 +18,12 @@ class SetBalance extends Component {
   };
 
   handleClose = () => {
-    this.setState({open: false});
+    this.setState({
+      open: false,
+      userCoins: [],
+      coin: 'BTC',
+      amount: 0
+    });
   };
 
   handleCoinChange = (e) => {
@@ -29,18 +34,19 @@ class SetBalance extends Component {
     this.setState({ amount: e.target.value })
   }
 
-  handleSubmit = () => {
+  handleAdd = () => {
     let userCoin = {}
     userCoin.coin = this.state.coin
     userCoin.amount = this.state.amount
     let newUserCoins = this.state.userCoins.concat(userCoin)
     this.setState({userCoins: newUserCoins})
-    this.props.setUserCoins(newUserCoins)
     userCoin = {}
   }
 
   handleSave = () => {
-    
+    let userCoins = this.state.userCoins
+    this.props.setUserCoins(userCoins)
+    this.handleClose()
   }
 
   render() {
@@ -52,10 +58,15 @@ class SetBalance extends Component {
         onClick={this.handleClose}
       />,
       <FlatButton
+        label="Add"
+        primary={true}
+        onClick={this.handleAdd}
+      />,
+      <FlatButton
         label="Save"
         primary={true}
-        onClick={this.handleSubmit}
-      />,
+        onClick={this.handleSave}
+      />
     ];
 
     return (
@@ -77,7 +88,6 @@ class SetBalance extends Component {
                     <option>ETH</option>
                   </select>
                   <input type='text' value={this.state.amount} onChange={this.handleAmountChange}></input>
-                  <button type='submit' onClick={this.handleSubmit}>add</button>
                 </form>
                 <div className='activeCoins'>
                   <h3>my coins</h3>
