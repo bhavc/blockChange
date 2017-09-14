@@ -31,13 +31,16 @@ class SetBalance extends Component {
 
   handleSubmit = () => {
     let userCoin = {}
-    let userCoins = this.state.userCoins
     userCoin.coin = this.state.coin
     userCoin.amount = this.state.amount
-    userCoins.push(userCoin)
+    let newUserCoins = this.state.userCoins.concat(userCoin)
+    this.setState({userCoins: newUserCoins})
+    this.props.setUserCoins(newUserCoins)
     userCoin = {}
-    this.props.setUserCoins(userCoins)
-    this.handleClose()
+  }
+
+  handleSave = () => {
+    
   }
 
   render() {
@@ -73,12 +76,12 @@ class SetBalance extends Component {
                     <option>BTC</option>
                     <option>ETH</option>
                   </select>
-                  <input type='text'></input>
-                  <button type='submit'>add</button>
+                  <input type='text' value={this.state.amount} onChange={this.handleAmountChange}></input>
+                  <button type='submit' onClick={this.handleSubmit}>add</button>
                 </form>
                 <div className='activeCoins'>
                   <h3>my coins</h3>
-                  <ActiveCoinListItem />
+                  <ActiveCoinListItem userCoins={this.state.userCoins}/>
                 </div>
             </div>
           </div>

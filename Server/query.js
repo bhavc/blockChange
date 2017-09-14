@@ -19,10 +19,8 @@ const knex = require('knex') ({
 function setInitialPrice(coin, email){
   request(`https://min-api.cryptocompare.com/data/price?fsym=${coin}&tsyms=BTC,CAD,USD,EUR&extraParams=your_app_name`, function(error, response, body) {
     if (!error && response.statusCode == 200) {
-      console.log(body)
       var json = JSON.parse(body);
       let canadianCurrency = json['CAD']
-      console.log(canadianCurrency)
 
       knex('priceChangeTable')
       .update({current_value: canadianCurrency})
@@ -38,32 +36,40 @@ function setInitialPrice(coin, email){
 
 // this function calls api and sets the final price
 function setFinalPrice(coin, email){
-  request(`https://min-api.cryptocompare.com/data/price?fsym=${coin}&tsyms=BTC,CAD,USD,EUR&extraParams=your_app_name`, function(error, response, body) {
-    if (!error && response.statusCode == 200) {
-      console.log('making an api call every 2 seconds')
-      var json = JSON.parse(body);
-      let canadianCurrency = json['CAD']
-      console.log(canadianCurrency)
+  return new Promise((resolve, reject) => {
+    request(`https://min-api.cryptocompare.com/data/price?fsym=${coin}&tsyms=BTC,CAD,USD,EUR&extraParams=your_app_name`, function(error, response, body) {
+      if (!error && response.statusCode == 200) {
+        var json = JSON.parse(body);
+        let canadianCurrency = json['CAD']
 
-      knex('priceChangeTable')
-      .update({final_value: canadianCurrency})
-      .where('user_email', email)
-        .andWhere('coin', coin)
-        .andWhere('final_value', null)
-      .catch(function(err) {
-        console.error(err);
-      })
-    }
-  })
+        knex('priceChangeTable')
+        .update({final_value: canadianCurrency})
+        .where('user_email', email)
+          .andWhere('coin', coin)
+          .andWhere('final_value', null)
+        .then(resolve)
+        .catch(function(err) {
+          console.error(err);
+          reject(err);
+        })
+      } else {
+        reject(error);
+      }
+    });
+  });
 }
 
-function timeQuery(coin, email, time) {
-  setInitialPrice(coin, email)
+function timeQuery(coin, email, time, id) {
+  let myPromise = new Promise((resolve, reject) => {
+    setInitialPrice(coin, email)
 
-  setTimeout(function() {
-    setFinalPrice(coin, email)
-  }, time*1000)
-
+    setTimeout(function() {
+      setFinalPrice(coin, email).then(() => {
+        resolve(id);
+      });
+    }, time+1000)
+  })
+  return myPromise;
 }
 
 // this function sends an email to user id 1
@@ -74,7 +80,7 @@ function emailer(id){
   })
   .then(function(res) {
 
-    console.log(res[0])
+    console.log('res from emailer',res)
 
     var transporter = nodemailer.createTransport({
       service: 'gmail',
@@ -96,7 +102,7 @@ function emailer(id){
       if (error) {
         console.log(error);
       } else {
-        console.log('Email set: ' + info.response)
+        console.log('Email sent: ' + info.response)
       }
     })
   })
