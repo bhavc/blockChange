@@ -76,7 +76,7 @@ class SetBalance extends Component {
                 </form>
                 <div className='activeCoins'>
                   <h3>my coins</h3>
-                  <ActiveCoinListItem />
+                  <ActiveCoinListItem userCoins={this.state.userCoins}/>
                 </div>
             </div>
         </Dialog>
