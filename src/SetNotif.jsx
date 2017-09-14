@@ -10,14 +10,14 @@ class SetNotif extends Component {
     type: 'time',
     value: '',
     coin: 'BTC',
-    interval: '',
+    interval: 'seconds',
     open: false,
     placeHolder: '',
     direction: '',
     useremail: this.props.userEmail
 
   };
-
+  
   handleOpen = () => {
     this.setState({open: true});
   };
@@ -136,8 +136,8 @@ class SetNotif extends Component {
 
                         <select value={this.state.type} onChange={this.handleTypeChange}>
                             <option>time</option>
-                            <option>percent</option>
-                            <option>value</option>
+                            <option>percent %</option>
+                            <option>value $</option>
                         </select>
                           {this.notifyChangeValue()}
                           <input type='text' value={this.state.value} placeholder={this.state.placeHolder} onChange={this.handleValueChange}></input>
