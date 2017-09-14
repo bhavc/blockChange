@@ -63,8 +63,7 @@ class App extends Component {
       useremail: this.state.currentUser.useremail,
       usercoins: newUserCoins
       }
-    })
-    this.postUserCoins()
+    }, this.postUserCoins)
   }
 
   postUserCoins = () => {
