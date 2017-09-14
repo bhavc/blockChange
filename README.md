@@ -8,7 +8,7 @@ Built using:
 - Postgres
 
 
-Uses React BoilderPlate
+Uses React BoilerPlate
 
 ### Usage
 
