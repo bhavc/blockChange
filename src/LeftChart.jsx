@@ -10,8 +10,6 @@ class LeftChart extends Component {
 
   render() {
 
-    console.log(this.props.chartData)
-
       return (
           <div className='leftChart'>
             <h1>Left Chart</h1>
