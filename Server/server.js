@@ -25,11 +25,10 @@ app.post("/notification", function(req, res) {
 
   //We need to add a switch statement for the query conditions
 
-  console.log(req.body.value)
+  console.log(req.body)
   knex('priceChangeTable').insert({user_email: req.body.useremail, coin: req.body.coin, queryType: req.body.type})
   .returning('id')
   .then(function (result) {
-    console.log(result)
     res.json({ success: true, message: 'ok' });
     return timeQuery(req.body.coin, req.body.useremail, req.body.value, Number(result))
   })
