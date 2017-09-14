@@ -1,11 +1,9 @@
 import React, {Component} from 'react';
 import Ping from './ping.jsx';
 import SideBar from './SideBar.jsx'
-
 class Ticker extends Component {
-
     render () {
-        const tickerChange = this.props.liveValues || []
+        const tickerChange = this.props.tickerInfo || []
         const tickerList = tickerChange.map((coin, index) => {
            let tickerBox 
            if (coin.value.charAt(0) === "-") {
@@ -25,5 +23,4 @@ class Ticker extends Component {
         );
     }
 }
-
 export default Ticker;
