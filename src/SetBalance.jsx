@@ -7,7 +7,11 @@ import ActiveCoinListItem from './ActiveCoinListItem.jsx';
 class SetBalance extends Component {
       state = {
         open: false,
-        coin: 'BTC',
+        userCoins: [
+        {
+          
+        }
+        ]
       };
 
 

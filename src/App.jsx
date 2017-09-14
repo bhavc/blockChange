@@ -18,7 +18,42 @@ class App extends Component {
     .then(coins => {
         let newCoins = coins
         this.setState({topCoins: newCoins})
+        this.liveTicker()
     })
+  }
+
+  liveTicker = () => {
+    
+    let currentTickers = ''
+    let activeTickers = []
+    console.log('$$$$$$$$', this.state.topCoins)
+    this.state.topCoins.forEach((coin) => {
+      let symbol = coin.symbol
+
+      if (symbol === 'MIOTA') {
+        symbol = 'IOT'
+      }
+
+      activeTickers.push(symbol);
+      currentTickers = activeTickers.toString()
+    })
+
+    fetch(`https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${currentTickers}&tsyms=CAD`)
+      .then(result => {
+        return result.json()
+      }) 
+      .then(coins => {
+        let tickerObj = {};
+        let currentValues = []
+        for (var key in coins.RAW) {
+          
+          tickerObj.name =  coins.RAW[key].CAD.FROMSYMBOL;
+          tickerObj.value = coins.DISPLAY[key].CAD.CHANGEPCT24HOUR;
+          currentValues.push(tickerObj)
+          tickerObj = {}
+        }
+        this.setState({liveValues: currentValues})
+      })
   }
 
   constructor(props) {
@@ -35,7 +70,8 @@ class App extends Component {
         useremail: 'bhavdip.dev@gmail.com',
         usercoins: []
       },
-      topCoins: []
+      topCoins: [],
+      liveValues: []
 
   }
 
@@ -58,7 +94,7 @@ class App extends Component {
         <LeftChart chartData={this.state.topCoins}/>
         <RightChart />
         <BottomChart />
-        <SideBar tickerInfo={this.state.topCoins}/>
+        <SideBar tickerInfo={this.state.liveValues}/>
       </div>
       </MuiThemeProvider>
     );
