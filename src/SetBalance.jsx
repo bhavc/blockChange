@@ -42,7 +42,7 @@ class SetBalance extends Component {
         onClick={this.handleClose}
       />,
       <FlatButton
-        label="Submit"
+        label="Save"
         primary={true}
         onClick={this.handleClose}
       />,
@@ -58,7 +58,8 @@ class SetBalance extends Component {
           open={this.state.open}
           onRequestClose={this.handleClose}
         >        
-            <div>
+          <div>
+            <div className='setBalance'>
                 <h3>add new coin</h3>
                 <form>
                   <select value={this.state.coin} onChange={this.handleCoinChange}>
@@ -66,12 +67,14 @@ class SetBalance extends Component {
                     <option>ETH</option>
                   </select>
                   <input type='text'></input>
+                  <button type='submit'>add</button>
                 </form>
                 <div className='activeCoins'>
                   <h3>my coins</h3>
                   <ActiveCoinListItem />
                 </div>
             </div>
+          </div>
         </Dialog>
       </div>
     );
