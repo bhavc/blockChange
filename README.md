@@ -1,19 +1,16 @@
-React Boilerplate
-=====================
+A Cryptocurrency data visualization application with alerts sent depending on user preferences. Want to be notified of Bitcoins value at the end of the day? Set a notification and get it right to your email. How about a notification for when the value of Ethereum dips 10%? Set a query and you will be notified when the conditions are met. 
 
-A minimal and light dev environment for ReactJS.
+Built using: 
+- HTML & CSS (Materialize)
+- React.js
+- Express
+- Node
+- Postgres
+
+
+Uses React BoilderPlate
 
 ### Usage
-
-Clone the boilerplate and create your own git repo.
-
-```
-git clone git@github.com:lighthouse-labs/react-simple-boilerplate.git
-cd react-simple-boilerplate
-git remote rm origin
-git remote add origin [YOUR NEW REPOSITORY]
-# Manually update your package.json file
-```
 
 Install the dependencies and start the server.
 
@@ -21,20 +18,6 @@ Install the dependencies and start the server.
 npm install
 npm start
 open http://localhost:3000
-```
-
-### Static Files
-
-You can store static files like images, fonts, etc in the `build` folder.
-
-For example, if you copy a file called my_image.png into the build folder you can access it using `http://localhost:3000/build/my_image.png`.
-
-### Linting
-
-This boilerplate project includes React ESLint configuration.
-
-```
-npm run lint
 ```
 
 ### Dependencies
