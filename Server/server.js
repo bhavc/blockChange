@@ -39,6 +39,10 @@ app.post("/notification", function(req, res) {
 
 })
 
+app.post("/usercoins", function(req, res) {
+  console.log(req.body)
+})
+
 http.createServer(app).listen(3001, function() {
   console.log("Server started at post 3001");
 });

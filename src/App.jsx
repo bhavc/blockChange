@@ -57,12 +57,31 @@ class App extends Component {
   }
 
   setUserCoins = (coins) => {
+    let newUserCoins = this.state.currentUser.usercoins.concat(coins)
     this.setState({currentUser: {
       username: this.state.currentUser.username,
       useremail: this.state.currentUser.useremail,
-      usercoins: coins
+      usercoins: newUserCoins
       }
     })
+    this.postUserCoins()
+  }
+
+  postUserCoins = () => {
+    fetch('http://localhost:3001/usercoins', {
+      method: 'POST',
+      body: JSON.stringify(this.state.currentUser),
+      headers: {
+        'Content-Type': "application/json"
+      },
+      credentials: 'omit'
+      })
+      .then((response) => {
+        return response.text()
+      },
+      (error) => {
+      error.message
+      })
   }
 
   constructor(props) {
