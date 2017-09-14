@@ -12,7 +12,7 @@ class App extends Component {
 
   coinMarketCapApi = () => {
 
-    fetch(`https://api.coinmarketcap.com/v1/ticker/?limit=15`)
+    fetch(`https://api.coinmarketcap.com/v1/ticker/?limit=10`)
     .then(result => {
         return result.json()
     })
@@ -46,7 +46,6 @@ class App extends Component {
         let tickerObj = {};
         let currentValues = []
         for (var key in coins.RAW) {
-          
           tickerObj.name =  coins.RAW[key].CAD.FROMSYMBOL;
           tickerObj.value = coins.DISPLAY[key].CAD.CHANGEPCT24HOUR;
           currentValues.push(tickerObj)

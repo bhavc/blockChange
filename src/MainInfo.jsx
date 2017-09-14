@@ -4,7 +4,7 @@ class MainInfo extends Component {
     render() {
         return (
             <div className='mainInfo'>
-                <h1>Main Info</h1>
+                <p>Main Info</p>
             </div>
         );
     }

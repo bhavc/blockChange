@@ -7,7 +7,7 @@ class MainChart extends Component {
     render() {
         return (
             <div className='mainChart'>
-                <h1>Main Chart</h1>
+                <p>Main Chart</p>
             </div>
         );
     }

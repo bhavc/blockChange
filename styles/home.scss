@@ -1,5 +1,5 @@
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 .material-icons {
@@ -10,7 +10,7 @@ body {
   height: 100vh;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 250px;
-  grid-template-rows: 70px 600px 500px 300px;
+  grid-template-rows: 60px 600px 500px 300px;
   grid-template-areas: "navBar navBar navBar sideBar"
                        "mainInfo mainChart mainChart sideBar"
                        "leftChart rightChart rightChart sideBar"
@@ -18,22 +18,22 @@ body {
   
   .mainChart {
     text-align: center;
-    color: dimgrey;
-    background-color: white;
+    color: gainsboro;
+    background-color: #252830;
     grid-area: mainChart;
   }
 
   .mainInfo {
     grid-area: mainInfo;
     text-align: center;
-    color: dimgrey;
-    background-color: white;
+    color: gainsboro;
+    background-color: #252830;
   }
 
   .leftChart {
     text-align: center;
-    color: dimgrey;
-    background-color: whitesmoke;
+    color: gainsboro;
+    background-color: #252830;
     grid-area: leftChart;
     padding-left: 40px;    
     padding-right: 40px;    
@@ -42,8 +42,8 @@ body {
 
   .rightChart {
     text-align: center;
-    color: dimgrey;
-    background-color: whitesmoke;
+    color: gainsboro;
+    background-color: #252830;
     grid-area: rightChart;
     padding-left: 50px;
     padding-right: 50px;
@@ -52,33 +52,33 @@ body {
 
   .bottomChart {
     text-align: center;
-    color: dimgrey;
-    background-color: white;
+    color: gainsboro;
+    background-color: #252830;
     grid-area: bottomChart;
   }
 
   .sideBar {
     overflow-y: scroll;
     text-align: center;
-    color: dimgrey;
-    background-color: white;
+    color: gainsboro;
+    background-color: #252830;
     grid-area: sideBar;
     position: fixed;
     right: 0;
     width: 250px;
     height: 100vh;
-    border-left: 1px solid Gainsboro;
+    border-left: 1px solid #677086;
   }
 }
 
 .navBar {
-  border-bottom: 1px solid gainsboro;
-  padding-top: 20px;
-  padding-left: 25px;
+  border-bottom: 1px solid #677086;
+  padding-top: 15px;
+  padding-left: 20px;
   padding-right: 25px;
   padding-bottom: 25px;
-  background-color: whitesmoke;
-  color: dimgrey;
+  background-color: #252830;
+  color: #8E9AB8;
   grid-area: navBar;
   .barItem {
     margin-right: 15px;
@@ -89,7 +89,7 @@ body {
   }
   .barItem i:hover {
     transform: scale(1.2);
-    color: black;
+    color: dodgerblue;
     cursor: pointer;
     cursor: hand;
   }
@@ -102,7 +102,7 @@ body {
 @media (max-width: 1300px) {
   .wrapper {
     grid-template-columns: 1fr 250px;
-    grid-template-rows: 75px 600px 400px 400px 400px;
+    grid-template-rows: 60px 600px 400px 400px 400px 300px;
     grid-template-areas: "navBar sideBar"
                          "mainInfo sideBar"
                          "mainChart sideBar"
@@ -114,37 +114,46 @@ body {
 
 .ticker {
   font-size: 20px;
+  margin-top: 15px;
   margin-left: 10px;
   margin-right: 10px;
-  margin-bottom: 5px;
-  padding-left: 5px;
-  padding-right: 5px;
-  padding-bottom: 20px;
-  border-bottom: 1px solid Gainsboro;
-  .tickerInfo {
-    margin-top: 15px;
-    margin-bottom: 12px;
+  margin-bottom: 5px;  
+  border: 1px solid #677086;
+  background-color: #31353F;  
+  border-radius: 5px;
+
+  p {
+    margin-top: 0px;
+    margin-bottom: 10px;
   }
+
   .tickerUp {
     width: 12px;
     height: 12px;
     background-color: limegreen;
     position: relative;
-    top: 33px;
+    top: 17px;
     left: 10px;
+    border-radius: 100px;    
   }
   .tickerDown {
     width: 12px;
     height: 12px;
     background-color: hotpink;
     position: relative;
-    top: 33px;
+    top: 17px;
     left: 10px;
+    border-radius: 100px;
   }
 }
 
+.ticker:hover {
+  border: 1px solid dodgerblue;
+  cursor: default;
+}
+
 .pings {
-  border-top: 1px solid white;
+  border-top: 1px solid 252830;
   width: 80%;
   margin: 0 auto;
   font-size: 75%;
@@ -155,11 +164,11 @@ body {
   position: relative;
   top: 3px;
   left: -10px;
-  color: white;
+  color: 252830;
 }
 
 .addNew:hover {
-  color: dimgrey;
+  color: gainsboro;
 }
 
 .newNotif {
@@ -174,7 +183,7 @@ body {
 .setNotif {
   width: 300px;
   height: 200px;
-  border: 1px solid white;
+  border: 1px solid #252830;
   margin: 0 auto;
   text-align: left;
   padding: 25px;
@@ -197,6 +206,12 @@ body {
 .setBalance {
   width: 300px;
   margin: 0 auto;
+
+  .newButton {
+    position: relative;
+    left: 250px;
+    bottom: 24px;
+  }
 }
 
 .activeCoins p {
@@ -206,6 +221,15 @@ body {
 
 .activeCoinListItem {
   border-bottom: 1px solid black;
+}
+
+.accountInfo {
+  width: 180px;
+  margin: 0 auto;
+  
+  input {
+    margin-bottom: 10px;
+  }
 }
 
 .clearfix:after {
