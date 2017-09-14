@@ -46,7 +46,6 @@ class App extends Component {
         let tickerObj = {};
         let currentValues = []
         for (var key in coins.RAW) {
-          
           tickerObj.name =  coins.RAW[key].CAD.FROMSYMBOL;
           tickerObj.value = coins.DISPLAY[key].CAD.CHANGEPCT24HOUR;
           currentValues.push(tickerObj)

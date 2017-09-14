@@ -12,7 +12,7 @@ class LeftChart extends Component {
 
       return (
           <div className='leftChart'>
-            <h1>Left Chart</h1>
+            <p>Left Chart</p>
             <Doughnut 
               data={this.buildChartData()}              
               width={0}
@@ -43,14 +43,24 @@ class LeftChart extends Component {
                       '#36A2EB',
                       '#FFCE56',
                       '#cc65fe',
-                      '#33FF39'
+                      '#33FF39',
+                      '#36A2EB',
+                      '#FFCE56',
+                      '#cc65fe',
+                      '#33FF39',
+                      '#cc65fe'                      
                   ],
                   borderColor:[
-                      '#f5f5f5', 
-                      '#f5f5f5', 
-                      '#f5f5f5', 
-                      '#f5f5f5', 
-                      '#f5f5f5'
+                      '#252830', 
+                      '#252830', 
+                      '#252830', 
+                      '#252830', 
+                      '#252830',
+                      '#252830', 
+                      '#252830', 
+                      '#252830',
+                      '#252830',
+                      '#252830'                      
                   ]
           }]
         }
