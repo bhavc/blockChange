@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import MainChart from './MainChart.jsx';
+import MainInfo from './MainInfo.jsx';
 import LeftChart from './LeftChart.jsx';
 import RightChart from './RightChart.jsx';
 import BottomChart from './BottomChart.jsx';
@@ -26,7 +27,6 @@ class App extends Component {
     
     let currentTickers = ''
     let activeTickers = []
-    console.log('$$$$$$$$', this.state.topCoins)
     this.state.topCoins.forEach((coin) => {
       let symbol = coin.symbol
 
@@ -91,6 +91,7 @@ class App extends Component {
       <div className='wrapper'>
         <NavBar userEmail={this.state.currentUser.useremail}/>
         <MainChart />
+        <MainInfo />
         <LeftChart chartData={this.state.topCoins}/>
         <RightChart />
         <BottomChart />
