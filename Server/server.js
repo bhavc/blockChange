@@ -23,18 +23,21 @@ app.use(bodyParser.json())
 
 app.post("/notification", function(req, res) {
 
-  console.log(req.body)
-  //here you want to get by id ideally for the new ly created row
+  //We need to add a switch statement for the query conditions
+
+  console.log(req.body.value)
   knex('priceChangeTable').insert({user_email: req.body.useremail, coin: req.body.coin, queryType: req.body.type})
   .returning('id')
   .then(function (result) {
+    console.log(result)
     res.json({ success: true, message: 'ok' });
-    timeQuery(req.body.coin, req.body.useremail, req.body.value)
-    console.log("hey", result)
-    console.log(typeof result)
-    emailer(result[0])
-
+    return timeQuery(req.body.coin, req.body.useremail, req.body.value, Number(result))
   })
+  .then( (id) => {
+    emailer(id)
+  })
+
+
 })
 
 http.createServer(app).listen(3001, function() {
