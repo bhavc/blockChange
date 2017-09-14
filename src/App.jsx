@@ -11,7 +11,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 class App extends Component {
 
   componentDidMount() {
-      fetch(`https://api.coinmarketcap.com/v1/ticker/?limit=10`)
+      fetch(`https://api.coinmarketcap.com/v1/ticker/?limit=15`)
       .then(result => {
           return result.json()
       })
@@ -23,9 +23,43 @@ class App extends Component {
               newCoins.push(coinObj)
               coinObj = {}
               return newCoins
-          })
-          this.setState({topCoins: newCoins})
+            })
 
+            let currentTickers = '';
+            let activeTickers = [];
+            newCoins.forEach(function(coin) {
+              let symbol = coin.symbol
+
+              if (symbol === 'MIOTA') {
+                symbol = 'IOT';
+              }
+
+              activeTickers.push(symbol);
+              currentTickers = activeTickers.toString();
+            });
+
+            fetch(`https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${currentTickers}&tsyms=CAD`)
+            .then(result => {
+              return result.json()
+            }) 
+            .then(coins => {
+
+              let tickerObj = {};
+              let currentValues = []
+
+              for (var key in coins.RAW) {
+                
+                tickerObj.name =  coins.RAW[key].CAD.FROMSYMBOL;
+                tickerObj.value = coins.DISPLAY[key].CAD.CHANGEPCT24HOUR;
+                currentValues.push(tickerObj)
+                tickerObj = {}
+
+              }
+            
+              this.setState({liveValues: currentValues})
+              
+            })
+          this.setState({topCoins: newCoins})
       })
   }
 
@@ -39,7 +73,7 @@ class App extends Component {
         <LeftChart />
         <RightChart />
         <BottomChart />
-        <SideBar tickerInfo={this.state.topCoins}/>
+        <SideBar tickerValue={this.state.liveValues}/>
       </div>
       </MuiThemeProvider>
     );

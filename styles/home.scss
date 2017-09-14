@@ -26,6 +26,7 @@ body {
   .mainInfo {
     grid-area: mainInfo;
     text-align: center;
+    color: dimgrey;
     background-color: white;
   }
 
@@ -103,6 +104,7 @@ body {
     grid-template-columns: 1fr 250px;
     grid-template-rows: 75px 600px 400px 400px 400px;
     grid-template-areas: "navBar sideBar"
+                         "mainInfo sideBar"
                          "mainChart sideBar"
                          "leftChart sideBar"
                          "rightChart sideBar"
