@@ -58,11 +58,6 @@ class SetBalance extends Component {
         onClick={this.handleClose}
       />,
       <FlatButton
-        label="Add"
-        primary={true}
-        onClick={this.handleAdd}
-      />,
-      <FlatButton
         label="Save"
         primary={true}
         onClick={this.handleSave}
@@ -89,6 +84,7 @@ class SetBalance extends Component {
                   </select>
                   <input type='text' value={this.state.amount} onChange={this.handleAmountChange}></input>
                 </form>
+                <button className='newButton' onClick={this.handleAdd}>add</button>
                 <div className='activeCoins'>
                   <h3>my coins</h3>
                   <ActiveCoinListItem userCoins={this.state.userCoins}/>
