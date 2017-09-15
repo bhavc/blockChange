@@ -23,6 +23,21 @@ class App extends Component {
     })
   }
 
+  redditApi = () => {
+
+    fetch(`https://www.reddit.com/r/CryptoCurrency/hot.json?sort=hot&limit=10`)
+      .then(result => {
+          return result.json()
+      })
+      .then(threads => {
+        let parsedThreads = []
+        threads.data.children.forEach((thread) => {
+          parsedThreads.push(thread.data)
+        })
+        this.setState({reddit: parsedThreads})
+      })
+  }
+
   liveTicker = () => {
 
     let currentTickers = ''
@@ -100,7 +115,8 @@ class App extends Component {
         usercoins: []
       },
       topCoins: [],
-      liveValues: []
+      liveValues: [],
+      reddit: []
 
   }
 
@@ -111,6 +127,7 @@ class App extends Component {
   componentDidMount() {
 
     this.coinMarketCapApi()
+    this.redditApi()
 
   }
 
@@ -123,7 +140,7 @@ class App extends Component {
         <MainInfo userInfo={this.state.currentUser}/>
         <LeftChart chartData={this.state.topCoins}/>
         <RightChart />
-        <BottomChart />
+        <BottomChart reddit={this.state.reddit}/>
         <SideBar tickerInfo={this.state.liveValues}/>
       </div>
       </MuiThemeProvider>

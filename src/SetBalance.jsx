@@ -35,7 +35,6 @@ class SetBalance extends Component {
   }
 
   handleAdd = () => {
-
     let userCoin = {}
     userCoin.coin = this.state.coin
     userCoin.amount = this.state.amount
@@ -48,22 +47,8 @@ class SetBalance extends Component {
       }
     })
 
-    if (this.state.userCoins = []){
-      console.log('%%%%%%%%%%%%%%%%%')
-      let newUserCoins = this.state.userCoins.concat(userCoin)
-      this.setState({userCoins: newUserCoins})
-    } else {
-        console.log('$$$$$$$$$$$$$$$$$')
-      this.state.userCoins.map((coin) => {
-        if (coin.coin === userCoin.coin) {
-          coin.amount += userCoin.amount
-          coin.price = userCoin.price
-          coin.totalCAD = coin.price * coin.amount
-          return coin
-        }
-      })
-    }
-
+    let newUserCoins = this.state.userCoins.concat(userCoin)
+    this.setState({userCoins: newUserCoins})
     userCoin = {}
   }
 
