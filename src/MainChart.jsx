@@ -25,11 +25,11 @@ class MainChart extends Component {
   }
 
   buildChartData = () => {
-    let userCoinIDs = this.props.chartData.usercoins.map(coin => {
+    let userCoinIDs = this.props.chartData.map(coin => {
       return coin.coin
     });
 
-    let userTotal = this.props.chartData.usercoins.map(coin => {
+    let userTotal = this.props.chartData.map(coin => {
       return coin.totalCAD
     })
 
