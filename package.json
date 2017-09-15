@@ -53,6 +53,8 @@
     "express": "^4.15.4",
     "knex": "^0.13.0",
     "material-ui": "^0.19.1",
+    "node-cron": "^1.2.1",
+    "node-fetch": "^1.7.3",
     "pg": "^7.3.0",
     "pg-promise": "^5.9.7",
     "react": "^15.4.2",

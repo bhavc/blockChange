@@ -24,7 +24,7 @@ class App extends Component {
   }
 
   liveTicker = () => {
-    
+
     let currentTickers = ''
     let activeTickers = []
     this.state.topCoins.forEach((coin) => {
@@ -41,7 +41,7 @@ class App extends Component {
     fetch(`https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${currentTickers}&tsyms=CAD`)
       .then(result => {
         return result.json()
-      }) 
+      })
       .then(coins => {
         let tickerObj = {};
         let currentValues = []
@@ -107,7 +107,7 @@ class App extends Component {
 
   }
 
-  componentDidMount() {  
+  componentDidMount() {
 
     this.coinMarketCapApi()
 
