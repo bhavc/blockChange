@@ -22,9 +22,6 @@ app.use(require('cors')());
 app.use(bodyParser.json())
 
 app.post("/notification", function(req, res) {
-
-  //We need to add a switch statement for the query conditions
-
   console.log(req.body)
   knex('priceChangeTable').insert({user_email: req.body.useremail, coin: req.body.coin, queryType: req.body.type})
   .returning('id')
@@ -37,6 +34,16 @@ app.post("/notification", function(req, res) {
   })
 
 
+})
+
+app.post("/usercoins", function(req, res) {
+  console.log(req.body)
+  console.log(req.body.usercoins[0].price)
+  console.log(typeof(req.body.usercoins[0].price))
+  knex('coinValue').insert({user: req.body.userId, coin: req.body.usercoins[0].coin, price: req.body.usercoins[0].price, quantity: req.body.usercoins[0].amount, total: req.body.usercoins[0].totalCAD })
+    .then(function (result) {
+      res.json({ success: true, message: 'ok' });
+    })
 })
 
 http.createServer(app).listen(3001, function() {

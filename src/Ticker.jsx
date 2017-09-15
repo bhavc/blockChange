@@ -6,14 +6,14 @@ class Ticker extends Component {
         const tickerChange = this.props.tickerInfo || []
         const tickerList = tickerChange.map((coin, index) => {
            let tickerBox 
-           if (coin.value.charAt(0) === "-") {
+           if (coin.percent.charAt(0) === "-") {
                 tickerBox = <div className='tickerDown'></div>
             } else {
                 tickerBox = <div className='tickerUp'></div> 
             }
            return <div className='ticker clearfix' key={index}>
                     {tickerBox}
-                    <p className='tickerInfo'>{coin.name} | {coin.value}%</p>
+                    <p className='tickerInfo'>{coin.name} | {coin.percent}%</p>
                   </div>
         })
         return (

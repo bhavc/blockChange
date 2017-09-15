@@ -35,16 +35,41 @@ class SetBalance extends Component {
   }
 
   handleAdd = () => {
+
     let userCoin = {}
     userCoin.coin = this.state.coin
     userCoin.amount = this.state.amount
-    let newUserCoins = this.state.userCoins.concat(userCoin)
-    this.setState({userCoins: newUserCoins})
+
+    let liveCoinValues = this.props.liveCoinValues
+    liveCoinValues.forEach((coin) => {
+      if (coin.name === userCoin.coin) {
+        userCoin.price = coin.price
+        userCoin.totalCAD = coin.price * userCoin.amount
+      }
+    })
+
+    if (this.state.userCoins = []){
+      console.log('%%%%%%%%%%%%%%%%%')
+      let newUserCoins = this.state.userCoins.concat(userCoin)
+      this.setState({userCoins: newUserCoins})
+    } else {
+        console.log('$$$$$$$$$$$$$$$$$')
+      this.state.userCoins.map((coin) => {
+        if (coin.coin === userCoin.coin) {
+          coin.amount += userCoin.amount
+          coin.price = userCoin.price
+          coin.totalCAD = coin.price * coin.amount
+          return coin
+        }
+      })
+    }
+
     userCoin = {}
   }
 
   handleSave = () => {
     let userCoins = this.state.userCoins
+
     this.props.setUserCoins(userCoins)
     this.handleClose()
   }

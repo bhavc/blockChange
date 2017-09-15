@@ -24,7 +24,7 @@ class App extends Component {
   }
 
   liveTicker = () => {
-    
+
     let currentTickers = ''
     let activeTickers = []
     this.state.topCoins.forEach((coin) => {
@@ -41,13 +41,14 @@ class App extends Component {
     fetch(`https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${currentTickers}&tsyms=CAD`)
       .then(result => {
         return result.json()
-      }) 
+      })
       .then(coins => {
         let tickerObj = {};
         let currentValues = []
         for (var key in coins.RAW) {
           tickerObj.name =  coins.RAW[key].CAD.FROMSYMBOL;
-          tickerObj.value = coins.DISPLAY[key].CAD.CHANGEPCT24HOUR;
+          tickerObj.percent = coins.DISPLAY[key].CAD.CHANGEPCT24HOUR;
+          tickerObj.price = coins.RAW[key].CAD.PRICE;
           currentValues.push(tickerObj)
           tickerObj = {}
         }
@@ -56,12 +57,31 @@ class App extends Component {
   }
 
   setUserCoins = (coins) => {
+    let newUserCoins = this.state.currentUser.usercoins.concat(coins)
     this.setState({currentUser: {
+      userId: this.state.currentUser.userId,
       username: this.state.currentUser.username,
       useremail: this.state.currentUser.useremail,
-      usercoins: coins
+      usercoins: newUserCoins
       }
-    })
+    }, this.postUserCoins)
+  }
+
+  postUserCoins = () => {
+    fetch('http://localhost:3001/usercoins', {
+      method: 'POST',
+      body: JSON.stringify(this.state.currentUser),
+      headers: {
+        'Content-Type': "application/json"
+      },
+      credentials: 'omit'
+      })
+      .then((response) => {
+        return response.text()
+      },
+      (error) => {
+      error.message
+      })
   }
 
   constructor(props) {
@@ -74,6 +94,7 @@ class App extends Component {
   let appState = {
 
       currentUser: {
+        userId: 1,
         username: 'bhav',
         useremail: 'bhavdip.dev@gmail.com',
         usercoins: []
@@ -87,7 +108,7 @@ class App extends Component {
 
   }
 
-  componentDidMount() {  
+  componentDidMount() {
 
     this.coinMarketCapApi()
 
@@ -97,9 +118,9 @@ class App extends Component {
     return (
       <MuiThemeProvider>
       <div className='wrapper'>
-        <NavBar userEmail={this.state.currentUser.useremail} setUserCoins={this.setUserCoins}/>
-        <MainChart />
-        <MainInfo />
+        <NavBar userEmail={this.state.currentUser.useremail} setUserCoins={this.setUserCoins} liveCoinValues={this.state.liveValues}/>
+        <MainChart chartData={this.state.currentUser}/>
+        <MainInfo userInfo={this.state.currentUser}/>
         <LeftChart chartData={this.state.topCoins}/>
         <RightChart />
         <BottomChart />

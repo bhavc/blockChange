@@ -1,20 +1,11 @@
 
 exports.seed = function(knex, Promise) {
   // Deletes ALL existing entries
-  return knex('coins').del()
+  return knex('coinValue').del()
     .then(function () {
       // Inserts seed entries
-      return knex('coins').insert([
-        {id: 1, coin: 'bitcoin'},
-        {id: 2, coin: 'ethereum'},
-        {id: 3, coin: 'bitcoin-cash'},
-        {id: 4, coin: 'ripple'},
-        {id: 5, coin: 'litecoin'},
-        {id: 6, coin: 'nem'},
-        {id: 7, coin: 'dash'},
-        {id: 8, coin: 'iota'},
-        {id: 9, coin: 'monero'},
-        {id: 10, coin: 'ethereum-classic'}
+      return knex('coinValue').insert([
+        {id: 1, user: 1, coin: 'bitcoin', price: 1, quantity: 1, total: 1},
       ]);
     });
 };
