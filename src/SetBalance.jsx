@@ -38,6 +38,14 @@ class SetBalance extends Component {
     let userCoin = {}
     userCoin.coin = this.state.coin
     userCoin.amount = this.state.amount
+
+    let liveCoinValues = this.props.liveCoinValues
+    liveCoinValues.forEach((coin) => {
+      if (coin.name === userCoin.coin) {
+        userCoin.totalCAD = coin.price * userCoin.amount
+      }
+    })
+
     let newUserCoins = this.state.userCoins.concat(userCoin)
     this.setState({userCoins: newUserCoins})
     userCoin = {}

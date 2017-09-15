@@ -47,7 +47,8 @@ class App extends Component {
         let currentValues = []
         for (var key in coins.RAW) {
           tickerObj.name =  coins.RAW[key].CAD.FROMSYMBOL;
-          tickerObj.value = coins.DISPLAY[key].CAD.CHANGEPCT24HOUR;
+          tickerObj.percent = coins.DISPLAY[key].CAD.CHANGEPCT24HOUR;
+          tickerObj.price = coins.RAW[key].CAD.PRICE;
           currentValues.push(tickerObj)
           tickerObj = {}
         }
@@ -115,7 +116,7 @@ class App extends Component {
     return (
       <MuiThemeProvider>
       <div className='wrapper'>
-        <NavBar userEmail={this.state.currentUser.useremail} setUserCoins={this.setUserCoins}/>
+        <NavBar userEmail={this.state.currentUser.useremail} setUserCoins={this.setUserCoins} liveCoinValues={this.state.liveValues}/>
         <MainChart />
         <MainInfo />
         <LeftChart chartData={this.state.topCoins}/>

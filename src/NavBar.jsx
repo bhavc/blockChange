@@ -8,7 +8,7 @@ class NavBar extends Component {
         return (
             <div className='navBar'>                
                 <SetNotif userEmail={this.props.userEmail}/>
-                <SetBalance setUserCoins={this.props.setUserCoins} />
+                <SetBalance setUserCoins={this.props.setUserCoins} liveCoinValues={this.props.liveCoinValues}/>
                 <AccountInfo />
                 <div className='barItem'>
                     <a href='#'><i className="material-icons">exit_to_app</i></a>
