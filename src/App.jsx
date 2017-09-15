@@ -1,7 +1,10 @@
 import React, {Component} from 'react';
 import MainChart from './MainChart.jsx';
+import WelcomeMessage from './WelcomeMessage.jsx';
 import MainInfo from './MainInfo.jsx';
 import LeftChart from './LeftChart.jsx';
+import LeftChartMessage from './leftChartMessage.jsx';
+import RightChartMessage from './rightChartMessage.jsx';
 import RightChart from './RightChart.jsx';
 import BottomChart from './BottomChart.jsx';
 import SideBar from './SideBar.jsx';
@@ -136,10 +139,13 @@ class App extends Component {
       <MuiThemeProvider>
       <div className='wrapper'>
         <NavBar userEmail={this.state.currentUser.useremail} setUserCoins={this.setUserCoins} liveCoinValues={this.state.liveValues}/>
+        <WelcomeMessage />
         <MainChart chartData={this.state.currentUser}/>
         <MainInfo userInfo={this.state.currentUser}/>
         <LeftChart chartData={this.state.topCoins}/>
+        <LeftChartMessage />
         <RightChart />
+        <RightChartMessage />
         <BottomChart reddit={this.state.reddit}/>
         <SideBar tickerInfo={this.state.liveValues}/>
       </div>

@@ -10,12 +10,24 @@ body {
   height: 100vh;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 250px;
-  grid-template-rows: 60px 600px 500px 300px;
+  grid-template-rows: 60px 100px 600px 500px 500px 300px;
   grid-template-areas: "navBar navBar navBar sideBar"
+                       "welcomeMessage welcomeMessage welcomeMessage sideBar"
                        "mainInfo mainChart mainChart sideBar"
-                       "leftChart rightChart rightChart sideBar"
+                       "leftChart leftChart leftChartMessage sideBar"
+                       "rightChartMessage rightChart rightChart sideBar"
                        "bottomChart bottomChart bottomChart sideBar";
   
+  .welcomeMessage {
+    padding: 15px;
+    padding-left: 150px;
+    padding-bottom: 50px;
+    background-color: #252830;
+    color: white;    
+    grid-area: welcomeMessage;
+    font-family: 'Poiret One', cursive;
+  }
+
   .mainChart {
     text-align: center;
     color: gainsboro;
@@ -38,6 +50,25 @@ body {
     padding-left: 40px;    
     padding-right: 40px;    
     padding-bottom: 100px;
+  }
+
+  .leftChartMessage {
+    grid-area: leftChartMessage;
+    font-family: 'Poiret One', cursive;
+    padding-top: 200px;
+    text-align: center;
+    color: white;
+    background-color: #252830;
+    
+  }
+
+  .rightChartMessage {
+    grid-area: rightChartMessage;
+    font-family: 'Poiret One', cursive;
+    padding-top: 200px;
+    text-align: center;
+    color: white;
+    background-color: #252830;
   }
 
   .rightChart {
@@ -89,7 +120,7 @@ body {
   }
   .barItem i:hover {
     transform: scale(1.2);
-    color: dodgerblue;
+    color: #ACBBDD;
     cursor: pointer;
     cursor: hand;
   }
@@ -102,8 +133,9 @@ body {
 @media (max-width: 1300px) {
   .wrapper {
     grid-template-columns: 1fr 250px;
-    grid-template-rows: 60px 600px 400px 400px 400px 300px;
+    grid-template-rows: 60px 150px 600px 400px 400px 400px 300px;
     grid-template-areas: "navBar sideBar"
+                         "welcomeMessage sideBar"
                          "mainInfo sideBar"
                          "mainChart sideBar"
                          "leftChart sideBar"
@@ -117,10 +149,11 @@ body {
   margin-top: 15px;
   margin-left: 10px;
   margin-right: 10px;
-  margin-bottom: 5px;  
-  border: 1px solid #677086;
-  background-color: #31353F;  
-  border-radius: 5px;
+  margin-bottom: 5px;
+  padding: 1px;  
+  padding-bottom: 15px;
+  border-bottom: 1px solid #677086;
+  
 
   p {
     margin-top: 0px;
@@ -145,11 +178,6 @@ body {
     left: 10px;
     border-radius: 100px;
   }
-}
-
-.ticker:hover {
-  border: 1px solid dodgerblue;
-  cursor: default;
 }
 
 .pings {
@@ -183,7 +211,6 @@ body {
 .setNotif {
   width: 300px;
   height: 200px;
-  border: 1px solid #252830;
   margin: 0 auto;
   text-align: left;
   padding: 25px;
