@@ -38,7 +38,12 @@ app.post("/notification", function(req, res) {
 
 app.post("/usercoins", function(req, res) {
   console.log(req.body)
-  // knex('coinValue').insert({user: 1, coin: req.body.usercoins[0].coin, price: req.body.usercoins[0].price, quantity: req.body.usercoins[0].amount, total: req.body.usercoins[0].totalCAD })
+  console.log(req.body.usercoins[0].price)
+  console.log(typeof(req.body.usercoins[0].price))
+  knex('coinValue').insert({user: req.body.userId, coin: req.body.usercoins[0].coin, price: req.body.usercoins[0].price, quantity: req.body.usercoins[0].amount, total: req.body.usercoins[0].totalCAD })
+    .then(function (result) {
+      res.json({ success: true, message: 'ok' });
+    })
 })
 
 http.createServer(app).listen(3001, function() {
