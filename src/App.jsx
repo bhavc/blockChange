@@ -75,31 +75,31 @@ class App extends Component {
   }
 
   setUserCoins = (coins) => {
-    let newUserCoins = this.state.currentUser.usercoins.concat(coins)
-    this.setState({currentUser: {
-      userId: this.state.currentUser.userId,
-      username: this.state.currentUser.username,
-      useremail: this.state.currentUser.useremail,
-      usercoins: newUserCoins
-      }
-    }, this.postUserCoins)
+    console.log(coins)
+    //let newUserCoins = this.state.userCoins.concat(coins)
+    this.setState({userCoins: coins}, this.postUserCoins)
   }
 
   postUserCoins = () => {
-    fetch('http://localhost:3001/usercoins', {
-      method: 'POST',
-      body: JSON.stringify(this.state.currentUser),
-      headers: {
-        'Content-Type': "application/json"
-      },
-      credentials: 'omit'
-      })
-      .then((response) => {
-        return response.text()
-      },
-      (error) => {
-      error.message
-      })
+    let userCoins = this.state.userCoins
+
+    userCoins.map((coin) => {
+      fetch('http://localhost:3001/usercoins', {
+        method: 'POST',
+        body: JSON.stringify(coin),
+        headers: {
+          'Content-Type': "application/json"
+        },
+        credentials: 'omit'
+        })
+        .then((response) => {
+          return response.text()
+        },
+        (error) => {
+        error.message
+        })
+    })
+    //this.setState({userCoins: []})
   }
 
   constructor(props) {
@@ -115,8 +115,8 @@ class App extends Component {
         userId: 1,
         username: 'bhav',
         useremail: 'bhavdip.dev@gmail.com',
-        usercoins: []
       },
+      userCoins: [],
       topCoins: [],
       liveValues: [],
       reddit: []
@@ -140,8 +140,8 @@ class App extends Component {
       <div className='wrapper'>
         <NavBar userEmail={this.state.currentUser.useremail} setUserCoins={this.setUserCoins} liveCoinValues={this.state.liveValues}/>
         <WelcomeMessage />
-        <MainChart chartData={this.state.currentUser}/>
-        <MainInfo userInfo={this.state.currentUser}/>
+        <MainChart chartData={this.state.userCoins}/>
+        <MainInfo userCoinInfo={this.state.userCoins} userInfo={this.state.currentUser}/>
         <LeftChart chartData={this.state.topCoins}/>
         <LeftChartMessage />
         <RightChart />
