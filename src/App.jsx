@@ -93,6 +93,7 @@ class App extends Component {
   let appState = {
 
       currentUser: {
+        userId: 1,
         username: 'bhav',
         useremail: 'bhavdip.dev@gmail.com',
         usercoins: []
