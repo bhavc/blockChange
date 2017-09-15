@@ -117,8 +117,8 @@ class App extends Component {
       <MuiThemeProvider>
       <div className='wrapper'>
         <NavBar userEmail={this.state.currentUser.useremail} setUserCoins={this.setUserCoins} liveCoinValues={this.state.liveValues}/>
-        <MainChart />
-        <MainInfo />
+        <MainChart chartData={this.state.currentUser}/>
+        <MainInfo userInfo={this.state.currentUser}/>
         <LeftChart chartData={this.state.topCoins}/>
         <RightChart />
         <BottomChart />

@@ -1,16 +1,70 @@
 import React, {Component} from 'react';
-import SetNotif from './SetNotif.jsx';
-import Dialog from 'material-ui/Dialog';
-
+import {Doughnut} from 'react-chartjs-2';
+import App from './App.jsx'
 
 class MainChart extends Component {
-    render() {
-        return (
-            <div className='mainChart'>
-                <p>Main Chart</p>
-            </div>
-        );
-    }
-}
+
+  constructor(props){
+  	super(props);
+  }
+
+  render() {
+
+      return (
+          <div className='mainChart'>
+            <p>Left Chart</p>
+            <Doughnut 
+              data={this.buildChartData()}              
+              width={0}
+              height={0}
+              options={{
+                  maintainAspectRatio: false
+              }}
+            />
+          </div>
+      );
+  }
+
+  buildChartData = () => {
+    let userCoinIDs = this.props.chartData.usercoins.map(coin => {
+      return coin.coin
+    });
+
+    let userTotal = this.props.chartData.usercoins.map(coin => {
+      return coin.totalCAD
+    })
+
+    return {
+          labels: userCoinIDs,
+          datasets:[{
+            data: userTotal,
+            backgroundColor:[
+                '#FF6384',
+                      '#36A2EB',
+                      '#FFCE56',
+                      '#cc65fe',
+                      '#33FF39',
+                      '#36A2EB',
+                      '#FFCE56',
+                      '#cc65fe',
+                      '#33FF39',
+                      '#cc65fe'                      
+                  ],
+                  borderColor:[
+                      '#252830', 
+                      '#252830', 
+                      '#252830', 
+                      '#252830', 
+                      '#252830',
+                      '#252830', 
+                      '#252830', 
+                      '#252830',
+                      '#252830',
+                      '#252830'                      
+                  ]
+          }]
+        }
+      }
+  }
 
 export default MainChart;

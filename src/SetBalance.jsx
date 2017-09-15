@@ -42,6 +42,7 @@ class SetBalance extends Component {
     let liveCoinValues = this.props.liveCoinValues
     liveCoinValues.forEach((coin) => {
       if (coin.name === userCoin.coin) {
+        userCoin.price = coin.price
         userCoin.totalCAD = coin.price * userCoin.amount
       }
     })
