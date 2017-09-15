@@ -40,7 +40,6 @@ class RightChart extends Component {
     render() {
         return (
             <div className='rightChart'>
-              <p>Right Chart</p>
               <Line 
                 data={this.state.chartData} 
                 width={100}

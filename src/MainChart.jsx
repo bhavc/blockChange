@@ -12,7 +12,6 @@ class MainChart extends Component {
 
       return (
           <div className='mainChart'>
-            <p>Left Chart</p>
             <Doughnut 
               data={this.buildChartData()}              
               width={0}
