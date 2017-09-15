@@ -3,6 +3,8 @@ import MainChart from './MainChart.jsx';
 import WelcomeMessage from './WelcomeMessage.jsx';
 import MainInfo from './MainInfo.jsx';
 import LeftChart from './LeftChart.jsx';
+import LeftChartMessage from './leftChartMessage.jsx';
+import RightChartMessage from './rightChartMessage.jsx';
 import RightChart from './RightChart.jsx';
 import BottomChart from './BottomChart.jsx';
 import SideBar from './SideBar.jsx';
@@ -13,7 +15,7 @@ class App extends Component {
 
   coinMarketCapApi = () => {
 
-    fetch(`https://api.coinmarketcap.com/v1/ticker/?limit=25`)
+    fetch(`https://api.coinmarketcap.com/v1/ticker/?limit=10`)
     .then(result => {
         return result.json()
     })
@@ -124,7 +126,9 @@ class App extends Component {
         <MainChart chartData={this.state.currentUser}/>
         <MainInfo userInfo={this.state.currentUser}/>
         <LeftChart chartData={this.state.topCoins}/>
+        <LeftChartMessage />
         <RightChart />
+        <RightChartMessage /> 
         <BottomChart />
         <SideBar tickerInfo={this.state.liveValues}/>
       </div>

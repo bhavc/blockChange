@@ -10,11 +10,12 @@ body {
   height: 100vh;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 250px;
-  grid-template-rows: 60px 100px 600px 500px 300px;
+  grid-template-rows: 60px 100px 600px 500px 500px 300px;
   grid-template-areas: "navBar navBar navBar sideBar"
                        "welcomeMessage welcomeMessage welcomeMessage sideBar"
                        "mainInfo mainChart mainChart sideBar"
-                       "leftChart rightChart rightChart sideBar"
+                       "leftChart leftChart leftChartMessage sideBar"
+                       "rightChartMessage rightChart rightChart sideBar"
                        "bottomChart bottomChart bottomChart sideBar";
   
   .welcomeMessage {
@@ -49,6 +50,25 @@ body {
     padding-left: 40px;    
     padding-right: 40px;    
     padding-bottom: 100px;
+  }
+
+  .leftChartMessage {
+    grid-area: leftChartMessage;
+    font-family: 'Poiret One', cursive;
+    padding-top: 200px;
+    text-align: center;
+    color: white;
+    background-color: #252830;
+    
+  }
+
+  .rightChartMessage {
+    grid-area: rightChartMessage;
+    font-family: 'Poiret One', cursive;
+    padding-top: 200px;
+    text-align: center;
+    color: white;
+    background-color: #252830;
   }
 
   .rightChart {
