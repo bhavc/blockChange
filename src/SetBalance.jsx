@@ -35,7 +35,11 @@ class SetBalance extends Component {
   }
 
   handleAdd = () => {
+    let userInfo = this.props.userInfo
     let userCoin = {}
+    userCoin.userId = userInfo.userId
+    userCoin.username = userInfo.username
+    userCoin.useremail = userInfo.useremail
     userCoin.coin = this.state.coin
     userCoin.amount = this.state.amount
 

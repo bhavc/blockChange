@@ -75,8 +75,6 @@ class App extends Component {
   }
 
   setUserCoins = (coins) => {
-    console.log(coins)
-    //let newUserCoins = this.state.userCoins.concat(coins)
     this.setState({userCoins: coins}, this.postUserCoins)
   }
 
@@ -99,7 +97,6 @@ class App extends Component {
         error.message
         })
     })
-    //this.setState({userCoins: []})
   }
 
   constructor(props) {
@@ -138,7 +135,7 @@ class App extends Component {
     return (
       <MuiThemeProvider>
       <div className='wrapper'>
-        <NavBar userEmail={this.state.currentUser.useremail} setUserCoins={this.setUserCoins} liveCoinValues={this.state.liveValues}/>
+        <NavBar userInfo={this.state.currentUser} setUserCoins={this.setUserCoins} liveCoinValues={this.state.liveValues}/>
         <WelcomeMessage />
         <MainChart chartData={this.state.userCoins}/>
         <MainInfo userCoinInfo={this.state.userCoins} userInfo={this.state.currentUser}/>
