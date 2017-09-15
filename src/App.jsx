@@ -59,6 +59,7 @@ class App extends Component {
   setUserCoins = (coins) => {
     let newUserCoins = this.state.currentUser.usercoins.concat(coins)
     this.setState({currentUser: {
+      userId: this.state.currentUser.userId,
       username: this.state.currentUser.username,
       useremail: this.state.currentUser.useremail,
       usercoins: newUserCoins
