@@ -37,7 +37,6 @@ app.post("/notification", function(req, res) {
 })
 
 
-
 app.post("/usercoins", function(req, res) {
 
   console.log(req.body.coin)
