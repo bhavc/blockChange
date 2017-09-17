@@ -36,6 +36,13 @@ app.post("/notification", function(req, res) {
 
 })
 
+app.get("/usercoins", function(req, res) {
+  knex.select().from('coinValue')
+  .then(function(result){
+    res.send(result)
+  })
+})
+
 
 app.post("/usercoins", function(req, res) {
 
@@ -50,7 +57,8 @@ app.post("/usercoins", function(req, res) {
     }
       if (coinArray.includes(req.body.coin)) {
         knex('coinValue')
-        .update({quantity: req.body.amount})
+        //update everything here
+        .update({price: req.body.price, quantity: req.body.amount, total: req.body.totalCAD})
         .where({coin: req.body.coin})
         .then( function (result) {
           res.json({success: true, message: 'ok'})
