@@ -5,8 +5,8 @@ exports.seed = function(knex, Promise) {
     .then(function () {
       // Inserts seed entries
       return knex('coinValue').insert([
-        {user: 1, coin: 'ETH', price: 1, quantity: 1, total: 1},
-        {user: 1, coin: 'LTC', price: 1, quantity: 1, total: 1},
+        {user: 1, coin: 'ETH', price: 1, quantity: 1, price: 400, total: 1},
+        {user: 1, coin: 'LTC', price: 1, quantity: 1, price: 60, total: 1},
       ]);
     });
 };
