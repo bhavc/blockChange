@@ -26,38 +26,28 @@ app.post("/notification", function(req, res) {
 
   console.log(req.body)
 
-  knex('priceChangeTable').insert({user_email: req.body.useremail, coin: req.body.coin, queryType: req.body.type})
-  .returning('id')
-  .then(function (result) {
-    res.json({ success: true, message: 'ok' });
-    return timeQuery(req.body.coin, req.body.useremail, req.body.value, Number(result))
-  })
-  .then( (id) => {
-    emailer(id)
-  })
-
-  switch(true) {
-    case (req.body.type == 'value $'):
+  switch(req.body.type ) {
+    case 'value $':
         console.log('you selected value')
         knex('priceChangeTable').insert({user_email: req.body.useremail, coin: req.body.coin, queryType: req.body.type})
         .returning('id')
         .then (function (result) {
-          res.json({ success: true, message: 'ok'})
           setInitialPrice(req.body.coin, req.body.useremail)
+          res.json({ success: true, message: 'ok'})
         }).then(function () {
           cronApiPull(req.body.coin, req.body.useremail, req.body.value)
         })
         break;
-    case (req.body.type == 'percent %'):
+    case 'percent %':
         console.log('you selected percent')
         break;
-    case (req.body.type == 'time'):
+    case 'time':
         console.log('you selected time')
         knex('priceChangeTable').insert({user_email: req.body.useremail, coin: req.body.coin, queryType: req.body.type})
         .returning('id')
         .then(function (result) {
+          timeQuery(req.body.coin, req.body.useremail, req.body.value, Number(result))
           res.json({ success: true, message: 'ok' });
-          return timeQuery(req.body.coin, req.body.useremail, req.body.value, Number(result))
         })
         .then( (id) => {
           emailer(id)
