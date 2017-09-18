@@ -32,7 +32,7 @@ app.post("/notification", function(req, res) {
   switch(req.body.type ) {
     case 'value $':
         console.log('you selected value')
-        knex('priceChangeTable').insert({user_email: req.body.useremail, coin: req.body.coin, queryType: req.body.type})
+        knex('priceChangeTable').insert({user_email: req.body.useremail, coin: req.body.coin, queryType: req.body.type, activeNotifications: true})
         .returning('id')
         .then (function (result) {
           setInitialPrice(req.body.coin, req.body.useremail)
@@ -43,7 +43,7 @@ app.post("/notification", function(req, res) {
         break;
     case 'percent %':
         console.log('you selected percent')
-        knex('priceChangeTable').insert({user_email: req.body.useremail, coin: req.body.coin, queryType: req.body.type})
+        knex('priceChangeTable').insert({user_email: req.body.useremail, coin: req.body.coin, queryType: req.body.type, activeNotifications: true})
         .returning('id')
         .then(function(result) {
           setInitialPrice(req.body.coin, req.body.useremail)
@@ -54,7 +54,7 @@ app.post("/notification", function(req, res) {
         break;
     case 'time':
         console.log('you selected time')
-        knex('priceChangeTable').insert({user_email: req.body.useremail, coin: req.body.coin, queryType: req.body.type})
+        knex('priceChangeTable').insert({user_email: req.body.useremail, coin: req.body.coin, queryType: req.body.type, activeNotifications: true})
         .returning('id')
         .then(function (result) {
           timeQuery(req.body.coin, req.body.useremail, req.body.value, Number(result))
