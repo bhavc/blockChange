@@ -5,9 +5,9 @@ exports.seed = function(knex, Promise) {
     .then(function () {
       // Inserts seed entries
       return knex('priceChangeTable').insert([
-        {user_email: 'bhavdip.dev@gmail.com', coin: 'bitcoin', 'current_value': 4000.00 },
-        {user_email: 'bhavdip.dev@gmail.com', coin: 'dash', 'current_value': 23.00 },
-        {user_email: 'bhavdip.dev@gmail.com', coin: 'ethereum', 'current_value': 800.00}
+        {user_email: 'bhavdip.dev@gmail.com', coin: 'BTC', 'current_value': 5260.00 },
+        {user_email: 'bhavdip.dev@gmail.com', coin: 'DASH', 'current_value': 23.00 },
+        {user_email: 'bhavdip.dev@gmail.com', coin: 'ETH', 'current_value': 800.00}
       ]);
     });
 };

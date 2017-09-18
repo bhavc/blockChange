@@ -35,7 +35,11 @@ class SetBalance extends Component {
   }
 
   handleAdd = () => {
+    let userInfo = this.props.userInfo
     let userCoin = {}
+    userCoin.userId = userInfo.userId
+    userCoin.username = userInfo.username
+    userCoin.useremail = userInfo.useremail
     userCoin.coin = this.state.coin
     userCoin.amount = this.state.amount
 
@@ -55,7 +59,7 @@ class SetBalance extends Component {
   handleSave = () => {
     let userCoins = this.state.userCoins
 
-    this.props.setUserCoins(userCoins)
+    this.props.postUserCoins(userCoins)
     this.handleClose()
   }
 
@@ -83,7 +87,7 @@ class SetBalance extends Component {
           modal={false}
           open={this.state.open}
           onRequestClose={this.handleClose}
-        >        
+        >
           <div>
             <div className='setBalance'>
                 <h3>add new coin</h3>
@@ -91,6 +95,13 @@ class SetBalance extends Component {
                   <select value={this.state.coin} onChange={this.handleCoinChange}>
                     <option>BTC</option>
                     <option>ETH</option>
+                    <option>BCH</option>
+                    <option>XRP</option>
+                    <option>LTC</option>
+                    <option>DASH</option>
+                    <option>XEM</option>
+                    <option>XER</option>
+
                   </select>
                   <input type='text' value={this.state.amount} onChange={this.handleAmountChange}></input>
                 </form>

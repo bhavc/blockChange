@@ -2,20 +2,18 @@ import React, {Component} from 'react';
 
 class MainInfo extends Component {
     render() {
-    	const userInfo = this.props.userInfo
-    	let coinListTotal = 0
+    	const userCoinInfo = this.props.userCoinInfo
 
-    	const coinList = userInfo.usercoins.map((coin, index) => {
-        coinListTotal += coin.totalCAD
-    		return <p className='tickerInfo' key={index}>{coin.coin}  |  {coin.amount}  |  CAD ${coin.totalCAD}</p>
+    	const coinList = userCoinInfo.map((coin, index) => {
+    		return <p className='tickerInfo' key={index}>{coin.coin}  |  {coin.quantity}  |  CAD ${coin.total}</p>
     	})
         return (
             <div className='mainInfo'>
-                <p>{userInfo.username}'s Coins</p>
+                <p>{this.props.userInfo.username}'s Coins</p>
                 <p>Coin | Amount | Total</p>
                 {coinList}
                 <p>-----------</p>
-                <p>Total: ${coinListTotal}</p>
+                <p>Total: ${Math.round(this.props.totalCoinValue * 100) / 100}</p>
             </div>
         );
     }

@@ -70,38 +70,64 @@ class App extends Component {
           currentValues.push(tickerObj)
           tickerObj = {}
         }
-        this.setState({liveValues: currentValues})
+        this.setState({liveValues: currentValues}, this.getUserCoins)
       })
+
   }
 
   setUserCoins = (coins) => {
-    let newUserCoins = this.state.currentUser.usercoins.concat(coins)
-    this.setState({currentUser: {
-      userId: this.state.currentUser.userId,
-      username: this.state.currentUser.username,
-      useremail: this.state.currentUser.useremail,
-      usercoins: newUserCoins
-      }
-    }, this.postUserCoins)
+    this.postUserCoins(coins)
   }
 
-  postUserCoins = () => {
-    fetch('http://localhost:3001/usercoins', {
-      method: 'POST',
-      body: JSON.stringify(this.state.currentUser),
-      headers: {
-        'Content-Type': "application/json"
-      },
-      credentials: 'omit'
-      })
-      .then((response) => {
-        return response.text()
-      },
-      (error) => {
-      error.message
-      })
+  postUserCoins = (coins) => {
+
+    coins.map((coin) => {
+      fetch('http://localhost:3001/usercoins', {
+        method: 'POST',
+        body: JSON.stringify(coin),
+        headers: {
+          'Content-Type': "application/json"
+        },
+        credentials: 'omit'
+        })
+        .then((response) => {
+          return response.text()
+        },
+        (error) => {
+        error.message
+        })
+        .then(this.getUserCoins)
+    })
   }
 
+  getUserCoins = () => {
+
+    fetch('http://localhost:3001/usercoins')
+    .then(result => {
+      return result.json()
+    })
+    .then((coins) => {
+      let liveValues = this.state.liveValues
+      let newUserCoins = []
+      let newCoinValue = 0
+      let userCoin = {}
+      coins.forEach((coin) => {
+        liveValues.forEach((value) => {
+          if (coin.coin === value.name) {
+            userCoin.coin = coin.coin
+            userCoin.quantity = coin.quantity
+            userCoin.price = value.price
+            userCoin.total = Math.round((coin.quantity * value.price) * 100) / 100
+            newCoinValue += userCoin.total
+            newUserCoins.push(userCoin)
+            userCoin = {}
+          }
+        })
+      })
+      this.setState({userCoins: newUserCoins, totalCoinValue: newCoinValue})
+    })
+  }
+  
   constructor(props) {
     super(props);
     fetch('//localhost:3001/notification', {
@@ -115,8 +141,9 @@ class App extends Component {
         userId: 1,
         username: 'bhav',
         useremail: 'bhavdip.dev@gmail.com',
-        usercoins: []
       },
+      userCoins: [],
+      totalCoinValue: 0,
       topCoins: [],
       liveValues: [],
       reddit: []
@@ -131,17 +158,19 @@ class App extends Component {
 
     this.coinMarketCapApi()
     this.redditApi()
+    this.getUserCoins()
 
   }
+
 
   render() {
     return (
       <MuiThemeProvider>
       <div className='wrapper'>
-        <NavBar userEmail={this.state.currentUser.useremail} setUserCoins={this.setUserCoins} liveCoinValues={this.state.liveValues}/>
+        <NavBar userInfo={this.state.currentUser} postUserCoins={this.postUserCoins} liveCoinValues={this.state.liveValues}/>
         <WelcomeMessage />
-        <MainChart chartData={this.state.currentUser}/>
-        <MainInfo userInfo={this.state.currentUser}/>
+        <MainChart chartData={this.state.userCoins}/>
+        <MainInfo userCoinInfo={this.state.userCoins} userInfo={this.state.currentUser} totalCoinValue={this.state.totalCoinValue}/>
         <LeftChart chartData={this.state.topCoins}/>
         <LeftChartMessage />
         <RightChart />
