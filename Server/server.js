@@ -22,6 +22,10 @@ app.use(require('cors')());
 app.use(bodyParser.json())
 
 app.post("/notification", function(req, res) {
+
+  
+
+
   console.log(req.body)
   knex('priceChangeTable').insert({user_email: req.body.useremail, coin: req.body.coin, queryType: req.body.type})
   .returning('id')
@@ -45,7 +49,6 @@ app.get("/usercoins", function(req, res) {
 
 
 app.post("/usercoins", function(req, res) {
-
   console.log(req.body.coin)
 
   knex.select().from('coinValue')
@@ -68,8 +71,6 @@ app.post("/usercoins", function(req, res) {
           res.json({success: true, message: 'ok'});
         })
       }
-
-
   })
 })
 
