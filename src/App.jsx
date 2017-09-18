@@ -124,6 +124,7 @@ class App extends Component {
           }
         })
       })
+      Math.round(newCoinValue * 100) / 100
       this.setState({userCoins: newUserCoins, totalCoinValue: newCoinValue})
     })
   }
