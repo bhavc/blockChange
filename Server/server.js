@@ -23,10 +23,8 @@ app.use(bodyParser.json())
 
 app.post("/notification", function(req, res) {
 
-  
-
-
   console.log(req.body)
+
   knex('priceChangeTable').insert({user_email: req.body.useremail, coin: req.body.coin, queryType: req.body.type})
   .returning('id')
   .then(function (result) {
