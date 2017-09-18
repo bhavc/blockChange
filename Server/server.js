@@ -50,7 +50,6 @@ app.post("/usercoins", function(req, res) {
 
   knex.select().from('coinValue')
   .then(function(result){
-    // console.log(result)
     coinArray = []
     for (i in result) {
       coinArray.push(result[i].coin)
