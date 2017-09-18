@@ -27,7 +27,10 @@ class RightChart extends Component {
           return coin[1]
       	})
       	let dayIndex = coins.price.map((coin, index) => {
-          return index + 1
+          let fullDate = new Date(coin[0])
+          let date = fullDate.toString().substring(4, 10)
+
+          return date
         })
         
         let newChartData = this.state.chartData
