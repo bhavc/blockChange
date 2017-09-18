@@ -1,3 +1,7 @@
+html {
+  background-color: #252830;  
+}
+
 body {
   font-family: 'Roboto', sans-serif;
 }
@@ -9,14 +13,14 @@ body {
 .wrapper {
   height: 100vh;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 250px;
-  grid-template-rows: 60px 100px 600px 500px 500px 300px;
-  grid-template-areas: "navBar navBar navBar sideBar"
-                       "welcomeMessage welcomeMessage welcomeMessage sideBar"
-                       "mainInfo mainChart mainChart sideBar"
-                       "leftChart leftChart leftChartMessage sideBar"
-                       "rightChartMessage rightChart rightChart sideBar"
-                       "bottomChart bottomChart bottomChart sideBar";
+  grid-template-columns: 1fr 1fr 1fr 1fr 250px;
+  grid-template-rows: 60px 100px 600px 500px 700px 300px;
+  grid-template-areas: "navBar navBar navBar navBar sideBar"
+                       "welcomeMessage welcomeMessage welcomeMessage welcomeMessage sideBar"
+                       "mainInfo mainChart mainChart mainChart sideBar"
+                       "leftChart leftChart leftChart leftChartMessage sideBar"
+                       "rightChartMessage rightChart rightChart rightChart sideBar"
+                       "bottomChart bottomChart bottomChart bottomChart sideBar";
   
   .welcomeMessage {
     padding: 15px;
@@ -82,10 +86,42 @@ body {
   }
 
   .bottomChart {
-    text-align: center;
     color: gainsboro;
     background-color: #252830;
     grid-area: bottomChart;
+    margin-left: 50px;
+    margin-right: 50px;
+    overflow: scroll;    
+    border-top: 1px solid #677086;    
+    a {
+      color: white;
+      text-decoration: none;
+    }
+    p {
+      margin: 0px;
+      padding-left: 30px;
+      padding-right: 30px;
+    }
+    .reddit {
+      
+      
+      border-bottom: 1px solid #677086;
+    }
+    .redditVotes {
+      color: limegreen;
+    }
+    .divider {
+      color: #677086;
+    }
+    .redditThread {
+      padding-top: 15px;
+      padding-bottom: 15px;
+      transition: all .3s ease-in-out;
+    }
+    .redditThread:hover {
+      background-color: #3B404B;
+      transform: scale(1.03);
+    }
   }
 
   .sideBar {
@@ -120,7 +156,7 @@ body {
   }
   .barItem i:hover {
     transform: scale(1.2);
-    color: #ACBBDD;
+    color: #C2D4FA;
     cursor: pointer;
     cursor: hand;
   }
@@ -146,14 +182,34 @@ body {
 
 .ticker {
   font-size: 20px;
-  margin-top: 15px;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-top: 10px;
+  margin-left: 15px;
+  margin-right: 15px;
   margin-bottom: 5px;
   padding: 1px;  
   padding-bottom: 15px;
   border-bottom: 1px solid #677086;
-  
+
+  .ticker:hover {
+   
+  }
+
+  .tickerValues {
+    border-left: 2px solid #677086;
+    padding: 5px;
+    padding-left: 10px;
+  }
+
+  .tickerPercent {
+
+  }
+
+  .tickerPrice {
+    position: relative;
+    top: 14px;
+    color: #A9B8DA;
+    font-size: 16px;
+  }
 
   p {
     margin-top: 0px;

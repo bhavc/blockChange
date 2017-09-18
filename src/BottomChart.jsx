@@ -1,14 +1,20 @@
 import React, {Component} from 'react';
 
 class BottomChart extends Component {
-   render() {
+    disableScroll = (e) => {
+        document.body.style.overflow = 'hidden'
+    }
+    enableScroll = (e) => {
+        document.body.style.overflow='auto'
+    }
+    render() {
         const redditList = this.props.reddit.map((thread, index) => {
-           return <div className='reddit clearfix' key={index}>
-                    <p className='redditThread'><img src={thread.thumbnail} height='40' width='40' /> {thread.ups} | <a href={'https://www.reddit.com' + thread.permalink} target="_blank">{thread.title}</a></p>
-                  </div>
+           return <a href={'https://www.reddit.com' + thread.permalink} target="_blank"><div className='reddit clearfix' key={index}>
+                    <p className='redditThread'><span className='redditVotes'> {thread.ups}</span><span className='divider'> | </span><a href={'https://www.reddit.com' + thread.permalink} target="_blank">{thread.title}</a></p>
+                  </div></a>
         })
         return (
-            <div className='bottomChart'>
+            <div className='bottomChart' onMouseOver={this.disableScroll} onMouseOut={this.enableScroll}>
                 {redditList}
             </div>
         );
