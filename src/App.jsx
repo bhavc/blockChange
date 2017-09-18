@@ -28,7 +28,7 @@ class App extends Component {
 
   redditApi = () => {
 
-    fetch(`https://www.reddit.com/r/CryptoCurrency/hot.json?sort=hot&limit=10`)
+    fetch(`https://www.reddit.com/r/CryptoCurrency/hot.json?sort=hot&limit=15`)
       .then(result => {
           return result.json()
       })

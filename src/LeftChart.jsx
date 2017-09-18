@@ -25,12 +25,22 @@ class LeftChart extends Component {
   }
 
   buildChartData = () => {
-    let coinIDs = this.props.chartData.map(coin => {
-      return coin.name
+
+
+    let coinIDs = []
+
+    this.props.chartData.forEach((coin, index) => {
+      if (index < 4) {
+        coinIDs.push(coin.name)
+      }
     });
 
-    let marketCap = this.props.chartData.map(coin => {
-      return coin.market_cap_usd / 100 / 1000
+    let marketCap = []
+
+    this.props.chartData.forEach((coin, index) => {
+      if (index < 4) {
+        marketCap.push(coin.market_cap_usd / 100 / 1000)
+      }
     })
 
     return {
