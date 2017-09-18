@@ -70,8 +70,9 @@ class App extends Component {
           currentValues.push(tickerObj)
           tickerObj = {}
         }
-        this.setState({liveValues: currentValues})
+        this.setState({liveValues: currentValues}, this.getUserCoins)
       })
+
   }
 
   setUserCoins = (coins) => {
@@ -79,9 +80,8 @@ class App extends Component {
   }
 
   postUserCoins = () => {
-    let userCoins = this.state.userCoins
 
-    userCoins.map((coin) => {
+    this.state.userCoins.map((coin) => {
       fetch('http://localhost:3001/usercoins', {
         method: 'POST',
         body: JSON.stringify(coin),
@@ -96,6 +96,32 @@ class App extends Component {
         (error) => {
         error.message
         })
+    })
+  }
+
+  getUserCoins = () => {
+
+    fetch('http://localhost:3001/usercoins')
+    .then(result => {
+      return result.json()
+    })
+    .then((coins) => {
+      let liveValues = this.state.liveValues
+      let newUserCoins = []
+      let userCoin = {}
+      coins.forEach((coin) => {
+        liveValues.forEach((value) => {
+          if (coin.coin === value.name) {
+            userCoin.coin = coin.coin
+            userCoin.quantity = coin.quantity
+            userCoin.price = value.price
+            userCoin.total = coin.quantity * value.price
+            newUserCoins.push(userCoin)
+            userCoin = {}
+          }
+        })
+      })
+      this.setState({userCoins: newUserCoins})
     })
   }
 
@@ -128,8 +154,10 @@ class App extends Component {
 
     this.coinMarketCapApi()
     this.redditApi()
+    this.getUserCoins()
 
   }
+
 
   render() {
     return (

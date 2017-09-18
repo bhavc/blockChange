@@ -30,7 +30,7 @@ class MainChart extends Component {
     });
 
     let userTotal = this.props.chartData.map(coin => {
-      return coin.totalCAD
+      return coin.total
     })
 
     return {

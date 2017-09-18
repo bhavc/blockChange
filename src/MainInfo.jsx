@@ -6,8 +6,8 @@ class MainInfo extends Component {
     	let coinListTotal = 0
 
     	const coinList = userCoinInfo.map((coin, index) => {
-        coinListTotal += coin.totalCAD
-    		return <p className='tickerInfo' key={index}>{coin.coin}  |  {coin.amount}  |  CAD ${coin.totalCAD}</p>
+        coinListTotal += coin.total
+    		return <p className='tickerInfo' key={index}>{coin.coin}  |  {coin.quantity}  |  CAD ${coin.total}</p>
     	})
         return (
             <div className='mainInfo'>
