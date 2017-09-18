@@ -4,6 +4,7 @@ var app = express();
 var bodyParser = require('body-parser')
 const settings = require("./settings")
 const { setInitialPrice, setFinalPrice, timeQuery, emailer } = require('./query')
+const { cronApiPull } = require('./dollarChange')
 
 const knex = require('knex') ({
   client : 'pg',
@@ -35,6 +36,36 @@ app.post("/notification", function(req, res) {
     emailer(id)
   })
 
+  switch(true) {
+    case (req.body.type == 'value $'):
+        console.log('you selected value')
+        knex('priceChangeTable').insert({user_email: req.body.useremail, coin: req.body.coin, queryType: req.body.type})
+        .returning('id')
+        .then (function (result) {
+          res.json({ success: true, message: 'ok'})
+          setInitialPrice(req.body.coin, req.body.useremail)
+        }).then(function () {
+          cronApiPull(req.body.coin, req.body.useremail, req.body.value)
+        })
+        break;
+    case (req.body.type == 'percent %'):
+        console.log('you selected percent')
+        break;
+    case (req.body.type == 'time'):
+        console.log('you selected time')
+        knex('priceChangeTable').insert({user_email: req.body.useremail, coin: req.body.coin, queryType: req.body.type})
+        .returning('id')
+        .then(function (result) {
+          res.json({ success: true, message: 'ok' });
+          return timeQuery(req.body.coin, req.body.useremail, req.body.value, Number(result))
+        })
+        .then( (id) => {
+          emailer(id)
+        })
+        break;
+    default:
+        console.log('you need a valid query')
+      }
 
 })
 
