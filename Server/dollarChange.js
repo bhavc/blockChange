@@ -5,6 +5,7 @@ var fetch = require('node-fetch');
 var CronJob = require('cron').CronJob;
 var cron = require('node-cron');
 
+
 const knex = require('knex') ({
   client : 'pg',
   connection : {
