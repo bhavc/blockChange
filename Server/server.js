@@ -22,21 +22,30 @@ app.use(require('cors')());
 app.use(bodyParser.json())
 
 app.post("/notification", function(req, res) {
-
-  
-
-
   console.log(req.body)
-  knex('priceChangeTable').insert({user_email: req.body.useremail, coin: req.body.coin, queryType: req.body.type})
-  .returning('id')
-  .then(function (result) {
-    res.json({ success: true, message: 'ok' });
-    return timeQuery(req.body.coin, req.body.useremail, req.body.value, Number(result))
-  })
-  .then( (id) => {
-    emailer(id)
-  })
 
+  switch(true) {
+    case (req.body.type == 'value $') :
+        console.log('you selected value')
+        break;
+    case (req.body.type == 'percent %'):
+        console.log('you selected percent')
+        break;
+    case (req.body.type == 'time'):
+        console.log('you selected time')
+        knex('priceChangeTable').insert({user_email: req.body.useremail, coin: req.body.coin, queryType: req.body.type})
+        .returning('id')
+        .then(function (result) {
+          res.json({ success: true, message: 'ok' });
+          return timeQuery(req.body.coin, req.body.useremail, req.body.value, Number(result))
+        })
+        .then( (id) => {
+          emailer(id)
+        })
+        break;
+    default:
+        console.log('you need a valid query')
+      }
 
 })
 
