@@ -48,13 +48,13 @@ var job = new CronJob('*/5 * * * * *', function() {
       .from('priceChangeTable')
       .where('coin', coin)
       .then(function(res) {
-        console.log(res)
         let currentValue = Number(res[0].current_value)
         let finalValue = Number(res[0].final_value)
         let change = finalValue - currentValue
 
         if (change <= queryParam){
-
+          console.log('sending email')
+          //call emailer function here
         }
       })
     })
@@ -64,31 +64,5 @@ var job = new CronJob('*/5 * * * * *', function() {
     true
   );
 }
-
-
-
-// query type is either percent change or value change
-// function queryChange(coin, queryParam){
-// var something = new CronJob('*/10 * * * * *', function() {
-//   console.log('updating final value with api every 5 seconds')
-//   knex.select()
-//   .from('priceChangeTable')
-//   .where('coin', coin)
-//   .then(function(res) {
-//     let currentValue = Number(res[0].current_value)
-//     let finalValue = Number(res[0].final_value)
-//
-//     if (currentValue + queryParam >= finalValue) {
-//       console.log('send off the email here')
-//     }
-//
-//
-//     })
-//   }, function () {
-//
-//     },
-//   true
-//   );
-// }
 
 cronApiPull('BTC', 1)
