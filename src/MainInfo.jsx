@@ -3,10 +3,8 @@ import React, {Component} from 'react';
 class MainInfo extends Component {
     render() {
     	const userCoinInfo = this.props.userCoinInfo
-    	let coinListTotal = 0
 
     	const coinList = userCoinInfo.map((coin, index) => {
-        coinListTotal += coin.total
     		return <p className='tickerInfo' key={index}>{coin.coin}  |  {coin.quantity}  |  CAD ${coin.total}</p>
     	})
         return (
@@ -15,7 +13,7 @@ class MainInfo extends Component {
                 <p>Coin | Amount | Total</p>
                 {coinList}
                 <p>-----------</p>
-                <p>Total: ${coinListTotal}</p>
+                <p>Total: ${this.props.totalCoinValue}</p>
             </div>
         );
     }

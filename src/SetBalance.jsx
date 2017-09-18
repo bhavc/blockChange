@@ -59,7 +59,7 @@ class SetBalance extends Component {
   handleSave = () => {
     let userCoins = this.state.userCoins
 
-    this.props.setUserCoins(userCoins)
+    this.props.postUserCoins(userCoins)
     this.handleClose()
   }
 
