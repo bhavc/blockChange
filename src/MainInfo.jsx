@@ -13,7 +13,7 @@ class MainInfo extends Component {
                 <p>Coin | Amount | Total</p>
                 {coinList}
                 <p>-----------</p>
-                <p>Total: ${this.props.totalCoinValue}</p>
+                <p>Total: ${Math.round(this.props.totalCoinValue * 100) / 100}</p>
             </div>
         );
     }
