@@ -3,6 +3,7 @@ const settings = require('./settings')
 var nodemailer = require('nodemailer');
 var fetch = require('node-fetch');
 var CronJob = require('cron').CronJob;
+var nodemailer = require('nodemailer');
 
 const knex = require('knex') ({
   client : 'pg',
@@ -28,7 +29,7 @@ const knex = require('knex') ({
 
 //value change is the query
 
-function cronApiPull(coin, queryParam){
+function cronApiPull(coin, email, valueChange){
 var job = new CronJob('*/5 * * * * *', function() {
   console.log('updating final value with api every 5 seconds')
   fetch(`https://min-api.cryptocompare.com/data/price?fsym=${coin}&tsyms=CAD&extraParams=your_app_name`)
@@ -39,6 +40,8 @@ var job = new CronJob('*/5 * * * * *', function() {
         knex('priceChangeTable')
         .update({final_value: json.CAD})
         .where('coin', coin)
+          .andWhere('user_email', email)
+          .andWhere('final_value', null)
         .catch(function(err) {
           console.log(err)
         })
@@ -50,12 +53,37 @@ var job = new CronJob('*/5 * * * * *', function() {
       .then(function(res) {
         let currentValue = Number(res[0].current_value)
         let finalValue = Number(res[0].final_value)
-        let change = finalValue - currentValue
+        let priceDifference = finalValue - currentValue
+        console.log(priceDifference)
 
-        if (change <= queryParam){
-          console.log('sending email')
-          //call emailer function here
+        if(priceDifference/valueChange >= 1) {
+          console.log("this is when you get a notification")
+
+          var transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+              user: 'bhavdip.dev@gmail.com',
+              pass: '!3Hj.e.n'
+            }
+          });
+
+          var mailOptions = {
+            from: 'bhavdip.dev@gmail.com',
+            to: `${email}`,
+            subject: `Your ${coin} value changed!`,
+            text: `Your ${coin} value changed from ${currentValue} to ${finalValue}`
+          };
+
+          transporter.sendMail(mailOptions, function(error, info){
+            if (error) {
+              console.log(error);
+            } else {
+              console.log('Email sent: ' + info.response);
+            }
+          });
+          job.stop();
         }
+
       })
     })
   }, function () {
@@ -65,4 +93,6 @@ var job = new CronJob('*/5 * * * * *', function() {
   );
 }
 
-cronApiPull('BTC', 1)
+module.exports = {
+  cronApiPull
+};

@@ -4,6 +4,7 @@ var app = express();
 var bodyParser = require('body-parser')
 const settings = require("./settings")
 const { setInitialPrice, setFinalPrice, timeQuery, emailer } = require('./query')
+const { cronApiPull } = require('./dollarChange')
 
 const knex = require('knex') ({
   client : 'pg',
@@ -27,15 +28,14 @@ app.post("/notification", function(req, res) {
   switch(true) {
     case (req.body.type == 'value $'):
         console.log('you selected value')
-        let amountChange = Number(req.body.value)
-        //you want to compare to the user entered value
-
-
-
-
-
-
-
+        knex('priceChangeTable').insert({user_email: req.body.useremail, coin: req.body.coin, queryType: req.body.type})
+        .returning('id')
+        .then (function (result) {
+          res.json({ success: true, message: 'ok'})
+          setInitialPrice(req.body.coin, req.body.useremail)
+        }).then(function () {
+          cronApiPull(req.body.coin, req.body.useremail, req.body.value)
+        })
         break;
     case (req.body.type == 'percent %'):
         console.log('you selected percent')
