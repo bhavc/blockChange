@@ -3,7 +3,6 @@ const settings = require('./settings')
 var nodemailer = require('nodemailer');
 var fetch = require('node-fetch');
 var CronJob = require('cron').CronJob;
-var cron = require('node-cron');
 
 const knex = require('knex') ({
   client : 'pg',
@@ -17,38 +16,79 @@ const knex = require('knex') ({
   }
 });
 
-return new Promise(function(resolve, reject) {
-  resolve();
+// return new Promise(function(resolve, reject) {
+//   resolve();
+//
+//   reject();
+// });
 
-  reject();
-});
+//pull api and update the value every so often inside cron job
+//either make another function that deals with the logic, OR just run
+//evrything inside the same cron job
 
+//value change is the query
 
+function cronApiPull(coin, queryParam){
+var job = new CronJob('*/5 * * * * *', function() {
+  console.log('updating final value with api every 5 seconds')
+  fetch(`https://min-api.cryptocompare.com/data/price?fsym=${coin}&tsyms=CAD&extraParams=your_app_name`)
+    .then(function(res) {
+        return res.json();
+    }).then(function(json) {
+        console.log(json);
+        knex('priceChangeTable')
+        .update({final_value: json.CAD})
+        .where('coin', coin)
+        .catch(function(err) {
+          console.log(err)
+        })
+    })
+    .then(function() {
+      knex.select()
+      .from('priceChangeTable')
+      .where('coin', coin)
+      .then(function(res) {
+        console.log(res)
+        let currentValue = Number(res[0].current_value)
+        let finalValue = Number(res[0].final_value)
+        let change = finalValue - currentValue
 
-function initiateChangeTracking(initialCoinValue, query, value, coin) {
-  let updatedValue = 0;
-  let startValue = initialCoinValue;
-  let url = `https://min-api.cryptocompare.com/data/price?fsym=${coin}&tsyms=CAD&extraParams=your_app_name`
+        if (change <= queryParam){
 
-  findAllUsersNotUpdated().then(function(users) {
-
-    findAllChangesForEachUser(users).then(function(user, change) {
-      checkIfNotificationNeeded(user, check).then(function(users) {
-        emailUsersUpdates(user);
+        }
       })
-    });
+    })
+  }, function () {
 
-  })
-
-  fetch(url)
-  .then(function(res) {
-    return res.json();
-  }).then(function(json) {
-    canadianCurrency = json.CAD
-    updatedValue += canadianCurrency
-  })
+    },
+    true
+  );
 }
 
 
 
-initiateChangeTracking(5, 'True', 5, 'BTC');
+// query type is either percent change or value change
+// function queryChange(coin, queryParam){
+// var something = new CronJob('*/10 * * * * *', function() {
+//   console.log('updating final value with api every 5 seconds')
+//   knex.select()
+//   .from('priceChangeTable')
+//   .where('coin', coin)
+//   .then(function(res) {
+//     let currentValue = Number(res[0].current_value)
+//     let finalValue = Number(res[0].final_value)
+//
+//     if (currentValue + queryParam >= finalValue) {
+//       console.log('send off the email here')
+//     }
+//
+//
+//     })
+//   }, function () {
+//
+//     },
+//   true
+//   );
+// }
+
+cronApiPull('BTC', 1)

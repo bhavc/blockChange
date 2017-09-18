@@ -14,16 +14,3 @@ const knex = require('knex') ({
     ssl: settings.ssl
   }
 });
-
-
-function setInitialPrice(coin){
-  request(`https://min-api.cryptocompare.com/data/price?fsym=${coin}&tsyms=BTC,CAD,USD,EUR&extraParams=your_app_name`, function(error, response, body) {
-    if (!error && response.statusCode == 200) {
-      // var json = JSON.parse(body);
-      // let canadianCurrency = json['CAD']
-      return body
-      }
-    })
-  }
-
-console.log(setInitialPrice('BTC'))
