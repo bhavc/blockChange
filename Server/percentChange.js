@@ -5,7 +5,7 @@ var fetch = require('node-fetch');
 var CronJob = require('cron').CronJob;
 var nodemailer = require('nodemailer');
 var twilio = require('twilio')
-require('dotenv').config()
+// require('dotenv').config()
 
 
 const knex = require('knex') ({
@@ -45,20 +45,22 @@ var job = new CronJob('*/5 * * * * *', function() {
         let currentValue = Number(res[0].current_value)
         let finalValue = Number(res[0].final_value)
         let priceDifference = finalValue - currentValue
-        console.log(priceDifference)
-        let absolutePercentChange = Math.abs(percentChange)
+        let absolutepriceDifference = Math.abs(priceDifference)
+        console.log(absolutepriceDifference)
+        let absolutePercentChange = Math.abs((percentChange/100)*currentValue)
+        console.log(absolutePercentChange)
 
 
-        if(priceDifference >= (absolutePercentChange/100)) {
+        if(absolutepriceDifference >= absolutePercentChange) {
           console.log("this is when you get a notification")
           var accountSid = process.env.ACCOUNT_SID
+          console.log(accountSid)
           var authToken = process.env.AUTH_TOKEN
 
           var client = new twilio(accountSid, authToken);
 
-          //env your phone number
-          client.message.create({
-            body: 'your coins be dropping fam',
+          client.messages.create({
+            body: `Notification! ${coin} price has changed by ${absolutePercentChange.toFixed(3)}%`,
             to: process.env.TO_SMS,
             from: process.env.FROM_SMS
           })
@@ -75,6 +77,7 @@ var job = new CronJob('*/5 * * * * *', function() {
   );
 }
 
+
 module.exports = {
-  cronApiPull
+  cronApiPullPercentage
 };

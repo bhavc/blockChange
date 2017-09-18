@@ -5,6 +5,9 @@ var bodyParser = require('body-parser')
 const settings = require("./settings")
 const { setInitialPrice, setFinalPrice, timeQuery, emailer } = require('./query')
 const { cronApiPull } = require('./dollarChange')
+const { cronApiPullPercentage } = require('./percentChange')
+require('dotenv').config()
+
 
 const knex = require('knex') ({
   client : 'pg',
@@ -40,6 +43,14 @@ app.post("/notification", function(req, res) {
         break;
     case 'percent %':
         console.log('you selected percent')
+        knex('priceChangeTable').insert({user_email: req.body.useremail, coin: req.body.coin, queryType: req.body.type})
+        .returning('id')
+        .then(function(result) {
+          setInitialPrice(req.body.coin, req.body.useremail)
+          res.json({success: true, message: 'ok'})
+        }).then(function () {
+          cronApiPullPercentage(req.body.coin, req.body.useremail, req.body.value)
+        })
         break;
     case 'time':
         console.log('you selected time')
