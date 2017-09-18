@@ -25,8 +25,17 @@ app.post("/notification", function(req, res) {
   console.log(req.body)
 
   switch(true) {
-    case (req.body.type == 'value $') :
+    case (req.body.type == 'value $'):
         console.log('you selected value')
+        let amountChange = Number(req.body.value)
+        //you want to compare to the user entered value
+
+
+
+
+
+
+
         break;
     case (req.body.type == 'percent %'):
         console.log('you selected percent')
