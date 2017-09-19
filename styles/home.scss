@@ -78,6 +78,17 @@ body {
       box-shadow: 0px 0px 15px dodgerblue;
       transform: scale(1.025);
     }
+
+    .coinListTable {
+      margin: 0 auto;
+      padding-top: 20px;
+
+      .tableItem {
+        padding: 5px;
+      }
+
+    }
+
   }
 
   .messageOne {
@@ -162,7 +173,7 @@ body {
       border-collapse: collapse;
       .highLowTitles {
         color: #7584A1;
-       
+
       }
 
       tr {
@@ -264,13 +275,13 @@ body {
   }
 
   .infoTitle {
-    
+
     width: 160px;
     margin: 0 auto;
   }
 
   .infoTicker {
-    border-bottom: 1px solid #485061;
+    
   }
 
   .infoTotal {
