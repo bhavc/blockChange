@@ -17,7 +17,7 @@ class SetNotif extends Component {
     useremail: this.props.userEmail
 
   };
-  
+
   handleOpen = () => {
     this.setState({open: true});
   };
@@ -127,11 +127,19 @@ class SetNotif extends Component {
         >
             <div>
                 <div className='setNotif'>
-                    <h3>add new alert</h3>
+                    <h3>Set up a new notification:</h3>
                     <form>
                         <select value={this.state.coin} onChange={this.handleCoinChange}>
                             <option>BTC</option>
                             <option>ETH</option>
+                            <option>BCH</option>
+                            <option>XRP</option>
+                            <option>LTC</option>
+                            <option>DASH</option>
+                            <option>XEM</option>
+                            <option>IOT</option>
+                            <option>XMR</option>
+                            <option>ETC</option>
                         </select>
 
                         <select value={this.state.type} onChange={this.handleTypeChange}>
@@ -146,7 +154,7 @@ class SetNotif extends Component {
                         <br />
                     </form>
                     <div className='activeAlerts'>
-                      <h3>my active alerts</h3>
+                      <h3>Your previous notifications: </h3>
                       <ActiveAlertListItem />
                     </div>
                 </div>

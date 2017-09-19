@@ -139,7 +139,7 @@ class App extends Component {
 
       currentUser: {
         userId: 1,
-        username: 'bhav',
+        username: 'Bhav',
         useremail: 'bhavdip.dev@gmail.com',
       },
       userCoins: [],
@@ -173,7 +173,7 @@ class App extends Component {
       <MuiThemeProvider>
       <div className='wrapper'>
         <NavBar userInfo={this.state.currentUser} postUserCoins={this.postUserCoins} liveCoinValues={this.state.liveValues}/>
-        <WelcomeMessage />
+        <WelcomeMessage currentUser={this.state.currentUser} />
         <MainChart chartData={this.state.userCoins}/>
         <MainInfo userCoinInfo={this.state.userCoins} userInfo={this.state.currentUser} totalCoinValue={this.state.totalCoinValue}/>
         <LeftChart chartData={this.state.topCoins}/>

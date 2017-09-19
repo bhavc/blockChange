@@ -21,7 +21,7 @@ class RightChart extends Component {
     let datasets = [];
 
     topCoins.forEach((topCoin) => {
-      fetch(`http://www.coincap.io/history/365day/${topCoin.symbol}`) 
+      fetch(`http://www.coincap.io/history/365day/${topCoin.symbol}`)
         .then(result => {
           return result.json()
         })
@@ -35,24 +35,24 @@ class RightChart extends Component {
           let coinColour = '#'+(Math.random()*0xFFFFFF<<0).toString(16)
 
           datasets.push({
-            data: priceData, 
-            label: topCoin.symbol, 
+            data: priceData,
+            label: topCoin.symbol,
             borderColor: coinColour,
-            backgroundColor: coinColour, 
-            fill: false, 
+            backgroundColor: coinColour,
+            fill: false,
             pointRadius: 1,
             borderCapStyle:"butt",
             borderJoinStyle:"miter",
           })
           this.setState({chartData: { datasets: datasets, labels: dateData }});
-        })      
+        })
     })
   }
 
 
     componentDidUpdate(prevProps) {
       if (prevProps.topCoins.length === 0 && this.props.topCoins.length > 0) {
-        this.buildChartData();   
+        this.buildChartData();
       }
       return true;
     }
@@ -63,25 +63,36 @@ class RightChart extends Component {
 
     renderLine = () => {
       return (
-          <Line 
-            data={this.getChartData()} 
+          <Line
+            data={this.getChartData()}
             width={100}
             height={100}
             options={{
                 maintainAspectRatio: false,
+								legend: {
+            			labels: {
+                		fontColor: "white",
+            			}
+        				},
                 scales: {
                     xAxes: [{
+																ticks: {
+																	fontColor:"white"
+																},
                                 gridLines: {
                                     color: "rgba(0, 0, 0, 0)",
                                 }
                             }],
                     yAxes: [{
+																ticks: {
+																	fontColor:"white"
+																},
                                 gridLines: {
                                     color: "rgba(0, 0, 0, 0)",
-                                }   
+                                }
                             }]
                     }
-            }}  
+            }}
         />
       )
     }
