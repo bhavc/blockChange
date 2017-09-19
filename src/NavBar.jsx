@@ -7,7 +7,7 @@ class NavBar extends Component {
     render() {
         return (
             <div className='navBar'>                
-                <SetNotif userEmail={this.props.userInfo.useremail}/>
+                <SetNotif getNotifications={this.props.getNotifications} userNotifications={this.props.userNotifications} userEmail={this.props.userInfo.useremail}/>
                 <SetBalance userInfo={this.props.userInfo} postUserCoins={this.props.postUserCoins} liveCoinValues={this.props.liveCoinValues}/>
                 <AccountInfo />
                 <div className='barItem'>

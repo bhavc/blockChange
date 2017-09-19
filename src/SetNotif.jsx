@@ -65,6 +65,7 @@ class SetNotif extends Component {
     (error) => {
       error.message
     })
+    this.props.getNotifications()
     this.handleClose()
   }
 
