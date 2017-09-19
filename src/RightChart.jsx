@@ -38,6 +38,7 @@ class RightChart extends Component {
             data: priceData,
             label: topCoin.symbol,
             backgroundColor: coinColour,
+						borderColor: coinColour,
             fill: false,
             pointRadius: 1,
             borderCapStyle:"butt",
