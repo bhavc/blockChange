@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-class BottomChart extends Component {
+class AreaFive extends Component {
     disableScroll = (e) => {
         document.body.style.overflow = 'hidden'
     }
@@ -14,12 +14,11 @@ class BottomChart extends Component {
                   </div></a>
         })
         return (
-            <div className='bottomChart' onMouseOver={this.disableScroll} onMouseOut={this.enableScroll}>
+            <div className='areaFive' onMouseOver={this.disableScroll} onMouseOut={this.enableScroll}>
                 {redditList}
             </div>
         );
    }
 }
 
-
-export default BottomChart;
+export default AreaFive;

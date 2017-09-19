@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Line} from 'react-chartjs-2';
 
-class RightChart extends Component {
+class AreaOne extends Component {
 
 	  constructor(props){
   	super(props);
@@ -99,11 +99,11 @@ class RightChart extends Component {
 
     render() {
         return (
-            <div className='rightChart'>
+            <div className='areaOne'>
             {this.state.chartData && this.renderLine()}
             </div>
         );
     }
 }
 
-export default RightChart;
+export default AreaOne;

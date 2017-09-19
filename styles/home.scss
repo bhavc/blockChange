@@ -14,13 +14,21 @@ body {
   height: 100vh;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 250px;
-  grid-template-rows: 60px 100px 600px 500px 700px 300px;
+  grid-template-rows: 60px 100px 600px 100px 600px 100px 600px 100px 600px 100px 600px 100px 300px;
   grid-template-areas: "navBar navBar navBar navBar sideBar"
                        "welcomeMessage welcomeMessage welcomeMessage welcomeMessage sideBar"
                        "mainInfo mainChart mainChart mainChart sideBar"
-                       "leftChart leftChart leftChart leftChartMessage sideBar"
-                       "rightChartMessage rightChart rightChart rightChart sideBar"
-                       "bottomChart bottomChart bottomChart bottomChart sideBar";
+                       "messageOne messageOne messageOne messageOne sideBar"
+                       "areaOne areaOne areaOne areaOne sideBar"
+                       "messageTwo messageTwo messageTwo messageTwo sideBar"
+                       "areaTwo areaTwo areaTwo areaTwo sideBar"
+                       "messageThree messageThree messageThree messageThree sideBar"
+                       "areaThree areaThree areaThree areaThree sideBar"
+                       "messageFour messageFour messageFour messageFour sideBar"
+                       "areaFour areaFour areaFour areaFour sideBar"
+                       "messageFive messageFive messageFive messageFive sideBar"
+                       "areaFive areaFive areaFive areaFive sideBar"
+  }
   
   .welcomeMessage {
     padding: 15px;
@@ -46,49 +54,73 @@ body {
     background-color: #252830;
   }
 
-  .leftChart {
+  .messageOne {
+    grid-area: messageOne;
+    font-family: 'Poiret One', cursive;
+    
+    
+    color: white;
+    background-color: #252830;
+  }
+
+  .areaOne {
+    grid-area: areaOne;
+    color: gainsboro;
+    background-color: #252830;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 100px;
+  }
+
+  .messageTwo {
+    grid-area: messageTwo;
+    font-family: 'Poiret One', cursive;
+    
+    
+    color: white;
+    background-color: #252830;
+  }
+
+  .areaTwo {
+    grid-area: areaTwo;
     text-align: center;
     color: gainsboro;
     background-color: #252830;
-    grid-area: leftChart;
     padding-left: 40px;    
     padding-right: 40px;    
     padding-bottom: 100px;
   }
 
-  .leftChartMessage {
-    grid-area: leftChartMessage;
-    font-family: 'Poiret One', cursive;
-    padding-top: 200px;
-    text-align: center;
+  .messageThree {
     color: white;
-    background-color: #252830;
-    
+    grid-area: messageThree;
   }
 
-  .rightChartMessage {
-    grid-area: rightChartMessage;
-    font-family: 'Poiret One', cursive;
-    padding-top: 200px;
-    text-align: center;
-    color: white;
-    background-color: #252830;
+  .areaThree {
+    color: white;    
+    grid-area: areaThree;
   }
 
-  .rightChart {
-    text-align: center;
+  .messageFour {
+    color: white;    
+    grid-area: messageFour;
+  }
+
+  .areaFour {
+    color: white;    
+    grid-area: areaFour;
+  }
+
+  .messageFive {
+    color: white;    
+    grid-area: messageFive;
+  }
+
+  .areaFive {
     color: gainsboro;
     background-color: #252830;
-    grid-area: rightChart;
-    padding-left: 50px;
-    padding-right: 50px;
-    padding-bottom: 100px;    
-  }
 
-  .bottomChart {
-    color: gainsboro;
-    background-color: #252830;
-    grid-area: bottomChart;
+    grid-area: areaFive;
     margin-left: 50px;
     margin-right: 50px;
     overflow: scroll;    
@@ -103,8 +135,6 @@ body {
       padding-right: 30px;
     }
     .reddit {
-      
-      
       border-bottom: 1px solid #677086;
     }
     .redditVotes {
@@ -124,6 +154,15 @@ body {
     }
   }
 
+
+
+
+
+  
+
+
+
+  
   .sideBar {
     overflow-y: scroll;
     text-align: center;
@@ -136,7 +175,7 @@ body {
     height: 100vh;
     border-left: 1px solid #677086;
   }
-}
+
 
 .navBar {
   border-bottom: 1px solid #677086;
@@ -166,19 +205,6 @@ body {
   }
 }
 
-@media (max-width: 1300px) {
-  .wrapper {
-    grid-template-columns: 1fr 250px;
-    grid-template-rows: 60px 150px 600px 400px 400px 400px 300px;
-    grid-template-areas: "navBar sideBar"
-                         "welcomeMessage sideBar"
-                         "mainInfo sideBar"
-                         "mainChart sideBar"
-                         "leftChart sideBar"
-                         "rightChart sideBar"
-                         "bottomChart sideBar";
-  }
-}
 
 .ticker {
   font-size: 20px;
@@ -190,18 +216,10 @@ body {
   padding-bottom: 15px;
   border-bottom: 1px solid #677086;
 
-  .ticker:hover {
-   
-  }
-
   .tickerValues {
     
     padding: 5px;
     padding-left: 10px;
-  }
-
-  .tickerPercent {
-
   }
 
   .tickerPrice {
