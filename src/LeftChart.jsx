@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Doughnut} from 'react-chartjs-2';
+import {Pie} from 'react-chartjs-2';
 import App from './App.jsx'
 
 class LeftChart extends Component {
@@ -12,7 +12,7 @@ class LeftChart extends Component {
 
       return (
           <div className='leftChart'>
-            <Doughnut
+            <Pie
               data={this.buildChartData()}
               width={0}
               height={0}
