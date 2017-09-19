@@ -1,44 +1,53 @@
 import React, {Component} from 'react';
-import {Doughnut} from 'react-chartjs-2';
+import {Pie} from 'react-chartjs-2';
 import App from './App.jsx'
-
+ 
 class AreaTwo extends Component {
-
+ 
   constructor(props){
-  	super(props);
+    super(props);
   }
-
+ 
   render() {
-
+ 
       return (
           <div className='areaTwo'>
-            <Doughnut 
-              data={this.buildChartData()}              
+            <Pie
+              data={this.buildChartData()}
               width={0}
               height={0}
               options={{
-                  maintainAspectRatio: false
+                  maintainAspectRatio: false,
+                  legend: {
+                        labels: {
+                        fontColor: "white",
+                        }
+                        }
               }}
             />
           </div>
       );
   }
-
+ 
   buildChartData = () => {
-
-
+ 
+ 
     let coinIDs = []
-
+ 
     this.props.chartData.forEach((coin, index) => {
       if (index < 5) {
         coinIDs.push(coin.name)
       }
     });
-
-    let marketCap = this.props.chartData.map(coin => {
-      return coin.market_cap_usd / 100 / 1000
+ 
+    let marketCap = []
+ 
+    this.props.chartData.forEach((coin, index) => {
+      if (index < 4) {
+        marketCap.push(coin.market_cap_usd / 100 / 1000)
+      }
     })
-
+ 
     return {
           labels: coinIDs,
           datasets:[{
@@ -53,23 +62,23 @@ class AreaTwo extends Component {
                       '#FFCE56',
                       '#cc65fe',
                       '#33FF39',
-                      '#cc65fe'                      
+                      '#cc65fe'
                   ],
                   borderColor:[
-                      '#252830', 
-                      '#252830', 
-                      '#252830', 
-                      '#252830', 
-                      '#252830',
-                      '#252830', 
-                      '#252830', 
                       '#252830',
                       '#252830',
-                      '#252830'                      
+                      '#252830',
+                      '#252830',
+                      '#252830',
+                      '#252830',
+                      '#252830',
+                      '#252830',
+                      '#252830',
+                      '#252830'
                   ]
           }]
         }
       }
   }
-
+ 
 export default AreaTwo;

@@ -1,15 +1,15 @@
 import React, {Component} from 'react';
 import {Doughnut} from 'react-chartjs-2';
 import App from './App.jsx'
-
+ 
 class MainChart extends Component {
-
+ 
   constructor(props){
-  	super(props);
+    super(props);
   }
-
+ 
   render() {
-
+ 
       return (
           <div className='mainChart'>
             <Doughnut
@@ -19,25 +19,25 @@ class MainChart extends Component {
               options={{
                   maintainAspectRatio: false,
                   legend: {
-              			labels: {
-                  		fontColor: "white",
-              			}
-          				}
+                        labels: {
+                        fontColor: "white",
+                        }
+                        }
               }}
             />
           </div>
       );
   }
-
+ 
   buildChartData = () => {
     let userCoinIDs = this.props.chartData.map(coin => {
       return coin.coin
     });
-
+ 
     let userTotal = this.props.chartData.map(coin => {
       return coin.total
     })
-
+ 
     return {
           labels: userCoinIDs,
           datasets:[{
@@ -70,5 +70,5 @@ class MainChart extends Component {
         }
       }
   }
-
+ 
 export default MainChart;
