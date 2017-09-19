@@ -10,10 +10,9 @@ class MainInfo extends Component {
         return (
             <div className='mainInfo'>
                 <h3 className='infoName'>Dave's Coins</h3>
-                <p className='infoTitle'>Coin | Amount | Total</p>
+                <p className='infoTitle'>Coin <span className='divider'>|</span> Amount <span className='divider'>|</span> Total</p>
                 {coinList}
-                <p>_________________</p>
-                <p>Total: ${Math.round(this.props.totalCoinValue * 100) / 100}</p>
+                <p className='infoTotal'>Total: ${Math.round(this.props.totalCoinValue * 100) / 100}</p>
             </div>
         );
     }

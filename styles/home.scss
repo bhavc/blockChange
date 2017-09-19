@@ -67,7 +67,7 @@ body {
     color: gainsboro;
     background-color: #1B1E24;
     width: 15vw;
-    height: 300px;
+    height: 375px;
     margin: 0 auto;
     border-radius: 5px;
     border: 1px solid #485061;
@@ -225,9 +225,6 @@ body {
     .redditVotes {
       color: orange;
     }
-    .divider {
-      color: #677086;
-    }
     .redditThread {
       padding-top: 15px;
       padding-bottom: 15px;
@@ -239,6 +236,28 @@ body {
     }
   }
 
+  .infoTitle {
+    
+    width: 160px;
+    margin: 0 auto;
+  }
+
+  .infoTicker {
+    border-bottom: 1px solid #485061;
+  }
+
+  .infoTotal {
+   margin-top: 25px !important;
+   border: 1px solid dodgerblue;
+   border-radius: 5px;
+   width: 50%;
+   padding: 5px;
+   margin: 0 auto;
+  }
+
+  .divider {
+    color: #677086;
+  }
 
   .sideBar {
     overflow-y: scroll;
