@@ -53,6 +53,33 @@ var job = new CronJob('*/5 * * * * *', function() {
 
         if(absolutepriceDifference >= absolutePercentChange) {
           console.log("this is when you get a notification")
+
+          //send email
+          var transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+              user: 'bhavdip.dev@gmail.com',
+              pass: '!3Hj.e.n'
+            }
+          });
+
+          var mailOptions = {
+            from: 'bhavdip.dev@gmail.com',
+            to: `${email}`,
+            subject: `Your ${coin} value changed!`,
+            text: `Your ${coin} value changed from ${currentValue} to ${finalValue}`
+          };
+
+          transporter.sendMail(mailOptions, function(error, info){
+            if (error) {
+              console.log(error);
+            } else {
+              console.log('Email sent: ' + info.response);
+            }
+          });
+
+
+          //send twilio
           var accountSid = process.env.ACCOUNT_SID
           console.log(accountSid)
           var authToken = process.env.AUTH_TOKEN
