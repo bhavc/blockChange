@@ -50,6 +50,10 @@ class LeftChart extends Component {
 
     return {
           labels: coinIDs,
+          legend: {
+            display: false,
+            position: 'bottom'
+          }
           datasets:[{
             data: marketCap,
             backgroundColor:[

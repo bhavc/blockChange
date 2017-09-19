@@ -19,10 +19,12 @@ class MainChart extends Component {
               options={{
                   maintainAspectRatio: false,
                   legend: {
-                        labels: {
-                        fontColor: "white",
-                        }
-                        }
+                    display: true,
+                    position: 'right',
+                    labels: {
+                    fontColor: "white",
+                    }
+                  }
               }}
             />
           </div>
