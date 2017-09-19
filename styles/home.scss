@@ -1,5 +1,5 @@
 html {
-  background-color: #252830;  
+  background-color: #252830;
 }
 
 body {
@@ -29,28 +29,52 @@ body {
                        "messageFive messageFive messageFive messageFive sideBar"
                        "areaFive areaFive areaFive areaFive sideBar"
   }
-  
+
   .welcomeMessage {
     padding: 15px;
     padding-left: 150px;
     padding-bottom: 50px;
     background-color: #252830;
-    color: white;    
+    color: white;
     grid-area: welcomeMessage;
   }
 
   .mainChart {
     text-align: center;
     color: gainsboro;
-    background-color: #252830;
+    background-color: #1B1E24;
     grid-area: mainChart;
+    width: 55vw;
+    margin: 0 auto;
+    border-radius: 5px;
+    border: 1px solid #485061;
+    padding: 25px;
+    transition: all .3s ease-in-out;
+    &:hover {
+      border: 1px solid dodgerblue;
+      box-shadow: 0px 0px 15px dodgerblue;
+      transform: scale(1.025);
+    }
   }
 
   .mainInfo {
     grid-area: mainInfo;
     text-align: center;
+    overflow: scroll;
     color: gainsboro;
-    background-color: #252830;
+    background-color: #1B1E24;
+    width: 15vw;
+    height: 300px;
+    margin: 0 auto;
+    border-radius: 5px;
+    border: 1px solid #485061;
+    padding: 25px;
+    transition: all .3s ease-in-out;
+    &:hover {
+      border: 1px solid dodgerblue;
+      box-shadow: 0px 0px 15px dodgerblue;
+      transform: scale(1.025);
+    }
   }
 
   .messageOne {
@@ -70,7 +94,7 @@ body {
     margin: 0 auto;
     border-radius: 5px;
     border: 1px solid #485061;
-    padding: 25px;    
+    padding: 25px;
     transition: all .3s ease-in-out;
     &:hover {
       border: 1px solid dodgerblue;
@@ -89,15 +113,15 @@ body {
     grid-area: areaTwo;
     text-align: center;
     color: gainsboro;
-    padding-left: 40px;    
-    padding-right: 40px;    
+    padding-left: 40px;
+    padding-right: 40px;
     padding-bottom: 100px;
     background-color: #1B1E24;
     width: 60vw;
     margin: 0 auto;
     border-radius: 5px;
     border: 1px solid #485061;
-    padding: 25px;    
+    padding: 25px;
     transition: all .3s ease-in-out;
     &:hover {
       border: 1px solid dodgerblue;
@@ -113,32 +137,32 @@ body {
   }
 
   .areaThree {
-    color: white;    
+    color: white;
     grid-area: areaThree;
     padding: 25px;
     overflow: scroll;
     width: 60vw;
     background-color: #1B1E24;
     margin: 0 auto;
-    border: 1px solid #485061;   
+    border: 1px solid #485061;
     border-radius: 5px;
-    transition: all .3s ease-in-out; 
+    transition: all .3s ease-in-out;
     &:hover {
       border: 1px solid dodgerblue;
       box-shadow: 0px 0px 15px dodgerblue;
-      transform: scale(1.025);  
-    }    
+      transform: scale(1.025);
+    }
   }
 
   .messageFour {
-    color: white;    
+    color: white;
     grid-area: messageFour;
     overflow: scroll;
-    
+
   }
 
   .areaFour {
-    color: white;    
+    color: white;
     grid-area: areaFour;
     overflow: scroll;
     width: 60vw;
@@ -147,19 +171,19 @@ body {
     border: 1px solid #485061;
     background-color: #1B1E24;
     border-radius: 5px;
-    transition: all .3s ease-in-out;    
+    transition: all .3s ease-in-out;
     &:hover {
       border: 1px solid dodgerblue;
       box-shadow: 0px 0px 15px dodgerblue;
-      transform: scale(1.025);      
-    }    
+      transform: scale(1.025);
+    }
   }
 
   .messageFive {
-    color: white;    
+    color: white;
     grid-area: messageFive;
     overflow: scroll;
-    
+
   }
 
   .areaFive {
@@ -172,8 +196,8 @@ body {
     margin-right: 50px;
     margin-bottom: 50px !important;
     margin: 0 auto;
-    overflow: scroll;    
-    border: 1px solid #485061;    
+    overflow: scroll;
+    border: 1px solid #485061;
     transition: all .3s ease-in-out;
     &:hover {
       border: 1px solid dodgerblue;
@@ -212,7 +236,7 @@ body {
     }
   }
 
-  
+
   .sideBar {
     overflow-y: scroll;
     text-align: center;
@@ -224,7 +248,7 @@ body {
     width: 250px;
     height: 100vh;
     border-left: 1px solid #677086;
-    transition: all .2s ease-in-out;        
+    transition: all .2s ease-in-out;
     &:hover {
       border-left: 1px solid dodgerblue;
     }
@@ -237,7 +261,7 @@ body {
   padding-left: 20px;
   padding-right: 25px;
   padding-bottom: 25px;
-  background-color: #1B1E24;  
+  background-color: #1B1E24;
   color: #8E9AB8;
   grid-area: navBar;
   transition: all .2s ease-in-out;
@@ -249,7 +273,7 @@ body {
     display: inline-block;
   }
   .barItem i {
-    transition: all .2s ease-in-out;    
+    transition: all .2s ease-in-out;
   }
   .barItem i:hover {
     transform: scale(1.2);
@@ -270,17 +294,17 @@ body {
   margin-left: 15px;
   margin-right: 15px;
   margin-bottom: 5px;
-  padding: 1px;  
+  padding: 1px;
   padding-bottom: 15px;
   border-bottom: 1px solid #677086;
-  transition: all .2s ease-in-out;        
+  transition: all .2s ease-in-out;
 
   &:hover {
     border-bottom: 1px solid dodgerblue;
   }
 
   .tickerValues {
-    
+
     padding: 5px;
     padding-left: 10px;
   }
@@ -304,7 +328,7 @@ body {
     position: relative;
     top: 26px;
     left: 10px;
-    border-radius: 100px;    
+    border-radius: 100px;
   }
   .tickerDown {
     width: 12px;
@@ -380,7 +404,7 @@ body {
 
 .activeCoins p {
   display: inline-block;
-  margin-right: 25px;  
+  margin-right: 25px;
 }
 
 .activeCoinListItem {
@@ -390,7 +414,7 @@ body {
 .accountInfo {
   width: 180px;
   margin: 0 auto;
-  
+
   input {
     margin-bottom: 10px;
   }
@@ -408,4 +432,3 @@ body {
 .clearfix { display: inline-block; }
 * html .clearfix { height: 1%; }
 .clearfix { display: block; }
-
