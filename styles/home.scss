@@ -14,7 +14,7 @@ body {
   height: 100vh;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 250px;
-  grid-template-rows: 60px 100px 600px 100px 600px 100px 600px 100px 600px 100px 600px 100px 300px;
+  grid-template-rows: 60px 100px 600px 100px 600px 100px 600px 100px 600px 100px 600px 100px 350px;
   grid-template-areas: "navBar navBar navBar navBar sideBar"
                        "welcomeMessage welcomeMessage welcomeMessage welcomeMessage sideBar"
                        "mainInfo mainChart mainChart mainChart sideBar"
