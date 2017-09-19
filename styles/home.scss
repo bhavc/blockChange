@@ -37,7 +37,6 @@ body {
     background-color: #252830;
     color: white;    
     grid-area: welcomeMessage;
-    font-family: 'Poiret One', cursive;
   }
 
   .mainChart {
@@ -56,7 +55,6 @@ body {
 
   .messageOne {
     grid-area: messageOne;
-    font-family: 'Poiret One', cursive;
     color: white;
     background-color: #252830;
   }
@@ -83,9 +81,6 @@ body {
 
   .messageTwo {
     grid-area: messageTwo;
-    font-family: 'Poiret One', cursive;
-    
-    
     color: white;
     background-color: #252830;
   }
@@ -94,7 +89,6 @@ body {
     grid-area: areaTwo;
     text-align: center;
     color: gainsboro;
-    background-color: #252830;
     padding-left: 40px;    
     padding-right: 40px;    
     padding-bottom: 100px;
@@ -243,7 +237,7 @@ body {
   padding-left: 20px;
   padding-right: 25px;
   padding-bottom: 25px;
-  background-color: #252830;
+  background-color: #1B1E24;  
   color: #8E9AB8;
   grid-area: navBar;
   transition: all .2s ease-in-out;
