@@ -20,7 +20,7 @@ class App extends Component {
 
   coinMarketCapApi = () => {
 
-    fetch(`https://api.coinmarketcap.com/v1/ticker/?limit=15`)
+    fetch(`https://api.coinmarketcap.com/v1/ticker/?limit=10`)
     .then(result => {
         return result.json()
     })
@@ -33,7 +33,7 @@ class App extends Component {
 
   redditApi = () => {
 
-    fetch(`https://www.reddit.com/r/CryptoCurrency/hot.json?sort=hot&limit=15`)
+    fetch(`https://www.reddit.com/r/CryptoCurrency/hot.json?sort=hot&limit=10`)
       .then(result => {
           return result.json()
       })
