@@ -162,6 +162,11 @@ class App extends Component {
 
   }
 
+  // componentDidUpdate(prevProps, prevState) {
+  //   console.log('old state:', prevState);
+  //   console.log('new state:', this.state);
+  // }
+
 
   render() {
     return (
@@ -173,7 +178,7 @@ class App extends Component {
         <MainInfo userCoinInfo={this.state.userCoins} userInfo={this.state.currentUser} totalCoinValue={this.state.totalCoinValue}/>
         <LeftChart chartData={this.state.topCoins}/>
         <LeftChartMessage />
-        <RightChart />
+        {<RightChart topCoins={this.state.topCoins}/>}
         <RightChartMessage />
         <BottomChart reddit={this.state.reddit}/>
         <SideBar tickerInfo={this.state.liveValues}/>
