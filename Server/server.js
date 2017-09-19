@@ -30,6 +30,7 @@ app.post("/notification", function(req, res) {
   console.log(req.body)
 
   switch(req.body.type ) {
+    //this is going to have to work with the seed data
     case 'value $':
         console.log('you selected value')
         knex('priceChangeTable').insert({user_email: req.body.useremail, coin: req.body.coin, queryType: req.body.type, activeNotifications: true})
@@ -38,6 +39,7 @@ app.post("/notification", function(req, res) {
           setInitialPrice(req.body.coin, req.body.useremail)
           res.json({ success: true, message: 'ok'})
         }).then(function () {
+          console.log('setting final value')
           cronApiPull(req.body.coin, req.body.useremail, req.body.value)
         })
         break;
