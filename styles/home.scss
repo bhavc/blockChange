@@ -117,14 +117,23 @@ body {
   }
 
   .areaFive {
+    border-radius: 5px;
+    width: 60vw;
     color: gainsboro;
-    background-color: #252830;
-
+    background-color: #1B1E24;
     grid-area: areaFive;
     margin-left: 50px;
     margin-right: 50px;
+    margin-bottom: 50px !important;
+    margin: 0 auto;
     overflow: scroll;    
-    border-top: 1px solid #677086;    
+    border: 1px solid #485061;    
+    transition: all .3s ease-in-out;
+    &:hover {
+      border: 1px solid dodgerblue;
+      box-shadow: 0px 0px 15px dodgerblue;
+    }
+
     a {
       color: white;
       text-decoration: none;
@@ -134,11 +143,8 @@ body {
       padding-left: 30px;
       padding-right: 30px;
     }
-    .reddit {
-      border-bottom: 1px solid #677086;
-    }
     .redditVotes {
-      color: limegreen;
+      color: dodgerblue;
     }
     .divider {
       color: #677086;
@@ -154,26 +160,22 @@ body {
     }
   }
 
-
-
-
-
-  
-
-
-
   
   .sideBar {
     overflow-y: scroll;
     text-align: center;
     color: gainsboro;
-    background-color: #252830;
+    background-color: #1B1E24;
     grid-area: sideBar;
     position: fixed;
     right: 0;
     width: 250px;
     height: 100vh;
     border-left: 1px solid #677086;
+    transition: all .2s ease-in-out;        
+    &:hover {
+      border-left: 1px solid dodgerblue;
+    }
   }
 
 
@@ -186,6 +188,10 @@ body {
   background-color: #252830;
   color: #8E9AB8;
   grid-area: navBar;
+  transition: all .2s ease-in-out;
+  &:hover {
+    border-bottom: 1px solid dodgerblue;
+  }
   .barItem {
     margin-right: 15px;
     display: inline-block;
@@ -195,7 +201,7 @@ body {
   }
   .barItem i:hover {
     transform: scale(1.2);
-    color: #C2D4FA;
+    color: dodgerblue;
     cursor: pointer;
     cursor: hand;
   }
@@ -215,6 +221,11 @@ body {
   padding: 1px;  
   padding-bottom: 15px;
   border-bottom: 1px solid #677086;
+  transition: all .2s ease-in-out;        
+
+  &:hover {
+    border-bottom: 1px solid dodgerblue;
+  }
 
   .tickerValues {
     
@@ -239,7 +250,7 @@ body {
     height: 12px;
     background-color: limegreen;
     position: relative;
-    top: 17px;
+    top: 26px;
     left: 10px;
     border-radius: 100px;    
   }
@@ -248,7 +259,7 @@ body {
     height: 12px;
     background-color: hotpink;
     position: relative;
-    top: 17px;
+    top: 26px;
     left: 10px;
     border-radius: 100px;
   }

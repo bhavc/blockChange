@@ -12,10 +12,6 @@ import MessageFour from './MessageFour.jsx';
 import AreaFour from './AreaFour.jsx';
 import MessageFive from './MessageFive.jsx';
 import AreaFive from './AreaFive.jsx';
-
-
-
- 
 import SideBar from './SideBar.jsx';
 import NavBar from './NavBar.jsx';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
