@@ -47,52 +47,6 @@ class RightChart extends Component {
           this.setState({chartData: { datasets: datasets, labels: dateData }});
         })      
     })
-
-    // fetch(`http://www.coincap.io/history/365day/BTC`) 
-    //   .then(result => {
-    //     return result.json()
-    //   })
-    //   .then((coinYearData) => {
-    //     priceData = coinYearData.price.map((price) => {
-    //       return price[1];
-    //     });
-    //     dateData = coinYearData.price.map((price) => {
-    //       return price[0];
-    //     })
-
-    //     this.setState({chartData: { datasets: [{data: priceData}], labels: dateData }});
-    //   })
-
-    // topCoins.forEach((topCoin) => {
-    //   fetch(`http://www.coincap.io/history/365day/${topCoin.symbol}`) 
-    //     .then(result => {
-    //       return result.json()
-    //     })
-    //     .then((coinYearData) => {
-    //       coinYearData.price.forEach((coinYearPrice) => {
-    //         let newDataset = {}
-    //         let dayValues = []
-
-    //         dayValues.push(coinYearPrice[1])
-    //         let fullDate = new Date(coinYearPrice[0])
-    //         let date = fullDate.toString().substring(4, 10)
-
-    //         newDataset.data = dayValues
-    //         newDataset.label = topCoin.symbol
-    //         newDataset.backgroundColor = this.getRandomColor()
-    //         console.log('here')
-    //         newDatasets.push(newDataset)
-    //         dayIndex.push(date)
-    //         // newDataset = {}
-
-    //       })
-    //     })
-    // })
-
-    // return {
-    //   labels: dateData,
-    //   datasets: priceData
-    // }
   }
 
 
