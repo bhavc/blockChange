@@ -1,12 +1,21 @@
 import React, {Component} from 'react';
-import MainChart from './MainChart.jsx';
 import WelcomeMessage from './WelcomeMessage.jsx';
 import MainInfo from './MainInfo.jsx';
-import LeftChart from './LeftChart.jsx';
-import LeftChartMessage from './leftChartMessage.jsx';
-import RightChartMessage from './rightChartMessage.jsx';
-import RightChart from './RightChart.jsx';
-import BottomChart from './BottomChart.jsx';
+import MainChart from './MainChart.jsx';
+import MessageOne from './MessageOne.jsx';
+import AreaOne from './AreaOne.jsx';
+import MessageTwo from './MessageTwo.jsx';
+import AreaTwo from './AreaTwo.jsx';
+import MessageThree from './MessageThree.jsx';
+import AreaThree from './AreaThree.jsx';
+import MessageFour from './MessageFour.jsx';
+import AreaFour from './AreaFour.jsx';
+import MessageFive from './MessageFive.jsx';
+import AreaFive from './AreaFive.jsx';
+
+
+
+ 
 import SideBar from './SideBar.jsx';
 import NavBar from './NavBar.jsx';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
@@ -15,7 +24,7 @@ class App extends Component {
 
   coinMarketCapApi = () => {
 
-    fetch(`https://api.coinmarketcap.com/v1/ticker/?limit=15`)
+    fetch(`https://api.coinmarketcap.com/v1/ticker/?limit=10`)
     .then(result => {
         return result.json()
     })
@@ -28,7 +37,7 @@ class App extends Component {
 
   redditApi = () => {
 
-    fetch(`https://www.reddit.com/r/CryptoCurrency/hot.json?sort=hot&limit=15`)
+    fetch(`https://www.reddit.com/r/CryptoCurrency/hot.json?sort=hot&limit=10`)
       .then(result => {
           return result.json()
       })
@@ -186,11 +195,16 @@ class App extends Component {
         <WelcomeMessage currentUser={this.state.currentUser}/>
         <MainChart chartData={this.state.userCoins}/>
         <MainInfo userCoinInfo={this.state.userCoins} userInfo={this.state.currentUser} totalCoinValue={this.state.totalCoinValue}/>
-        <LeftChart chartData={this.state.topCoins}/>
-        <LeftChartMessage />
-        {<RightChart topCoins={this.state.topCoins}/>}
-        <RightChartMessage />
-        <BottomChart reddit={this.state.reddit}/>
+        <MessageOne />
+        <AreaOne topCoins={this.state.topCoins}/>
+        <MessageTwo />
+        <AreaTwo chartData={this.state.topCoins}/>
+        <MessageThree /> 
+        <AreaThree />
+        <MessageFour />
+        <AreaFour />
+        <MessageFive />
+        <AreaFive reddit={this.state.reddit}/>
         <SideBar tickerInfo={this.state.liveValues}/>
       </div>
       </MuiThemeProvider>

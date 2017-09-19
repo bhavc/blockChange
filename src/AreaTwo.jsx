@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import {Pie} from 'react-chartjs-2';
+import {Doughnut} from 'react-chartjs-2';
 import App from './App.jsx'
 
-class LeftChart extends Component {
+class AreaTwo extends Component {
 
   constructor(props){
   	super(props);
@@ -11,18 +11,13 @@ class LeftChart extends Component {
   render() {
 
       return (
-          <div className='leftChart'>
-            <Pie
-              data={this.buildChartData()}
+          <div className='areaTwo'>
+            <Doughnut 
+              data={this.buildChartData()}              
               width={0}
               height={0}
               options={{
-                  maintainAspectRatio: false,
-                  legend: {
-              			labels: {
-                  		fontColor: "white",
-              			}
-          				}
+                  maintainAspectRatio: false
               }}
             />
           </div>
@@ -40,12 +35,8 @@ class LeftChart extends Component {
       }
     });
 
-    let marketCap = []
-
-    this.props.chartData.forEach((coin, index) => {
-      if (index < 4) {
-        marketCap.push(coin.market_cap_usd / 100 / 1000)
-      }
+    let marketCap = this.props.chartData.map(coin => {
+      return coin.market_cap_usd / 100 / 1000
     })
 
     return {
@@ -62,23 +53,23 @@ class LeftChart extends Component {
                       '#FFCE56',
                       '#cc65fe',
                       '#33FF39',
-                      '#cc65fe'
+                      '#cc65fe'                      
                   ],
                   borderColor:[
+                      '#252830', 
+                      '#252830', 
+                      '#252830', 
+                      '#252830', 
+                      '#252830',
+                      '#252830', 
+                      '#252830', 
                       '#252830',
                       '#252830',
-                      '#252830',
-                      '#252830',
-                      '#252830',
-                      '#252830',
-                      '#252830',
-                      '#252830',
-                      '#252830',
-                      '#252830'
+                      '#252830'                      
                   ]
           }]
         }
       }
   }
 
-export default LeftChart;
+export default AreaTwo;

@@ -61,6 +61,7 @@
     "pg": "^7.3.0",
     "pg-promise": "^5.9.7",
     "react": "^15.4.2",
+    "react-addons-css-transition-group": "^15.6.0",
     "react-chartjs-2": "^2.6.2",
     "react-dom": "^15.4.2",
     "request-promise": "^4.2.1",
