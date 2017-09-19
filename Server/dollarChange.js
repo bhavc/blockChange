@@ -4,6 +4,7 @@ var nodemailer = require('nodemailer');
 var fetch = require('node-fetch');
 var CronJob = require('cron').CronJob;
 var nodemailer = require('nodemailer');
+var twilio = require('twilio')
 
 
 const knex = require('knex') ({
@@ -25,12 +26,12 @@ var job = new CronJob('*/5 * * * * *', function() {
     .then(function(res) {
         return res.json();
     }).then(function(json) {
-        console.log(json);
+        console.log('here:', json);
         knex('priceChangeTable')
         .update({final_value: json.CAD})
         .where('coin', coin)
           .andWhere('user_email', email)
-          .andWhere('final_value', null)
+          // .andWhere('final_value', null)
         .catch(function(err) {
           console.log(err)
         })
@@ -40,6 +41,7 @@ var job = new CronJob('*/5 * * * * *', function() {
       .from('priceChangeTable')
       .where('coin', coin)
       .then(function(res) {
+        console.log(res[0])
         let currentValue = Number(res[0].current_value)
         console.log(currentValue)
         let finalValue = Number(res[0].final_value)
@@ -50,6 +52,7 @@ var job = new CronJob('*/5 * * * * *', function() {
         if(priceDifference/valueChange >= 1) {
           console.log("this is when you get a notification")
 
+          //send email
           var transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
@@ -72,6 +75,20 @@ var job = new CronJob('*/5 * * * * *', function() {
               console.log('Email sent: ' + info.response);
             }
           });
+
+          //send twilio
+          var accountSid = process.env.ACCOUNT_SID
+          console.log(accountSid)
+          var authToken = process.env.AUTH_TOKEN
+
+          var client = new twilio(accountSid, authToken);
+
+          client.messages.create({
+            body: `Notification! ${coin} price has changed by $ ${priceDifference.toFixed(2)}`,
+            to: process.env.TO_SMS,
+            from: process.env.FROM_SMS
+          })
+          .then((message) => console.log(message.sid))
           job.stop();
         }
 
