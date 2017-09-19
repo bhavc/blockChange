@@ -1,54 +1,57 @@
 import React, {Component} from 'react';
-import {Bar} from 'react-chartjs-2';
+import {Pie} from 'react-chartjs-2';
 import App from './App.jsx'
- 
-class AreaFour extends Component {
- 
+
+class LeftChart extends Component {
+
   constructor(props){
-    super(props);
+  	super(props);
   }
- 
+
   render() {
- 
+
       return (
-          <div className='areaFour'>
-            <Bar
+          <div className='leftChart'>
+            <Pie
               data={this.buildChartData()}
               width={0}
               height={0}
               options={{
                   maintainAspectRatio: false,
                   legend: {
-                        labels: {
-                        fontColor: "white",
-                        }
-                        }
+              			labels: {
+                  		fontColor: "white",
+              			}
+          				}
               }}
             />
           </div>
       );
   }
- 
+
   buildChartData = () => {
- 
- 
+
+
     let coinIDs = []
- 
-    this.props.topCoins.forEach((coin, index) => {
+
+    this.props.chartData.forEach((coin, index) => {
+      if (index < 5) {
         coinIDs.push(coin.name)
+      }
     });
- 
-    let volume = []
- 
-    this.props.topCoins.forEach((coin, index) => {
-        volume.push(coin['24h_volume_usd'])
+
+    let marketCap = []
+
+    this.props.chartData.forEach((coin, index) => {
+      if (index < 5) {
+        marketCap.push(coin.market_cap_usd / 100 / 1000)
+      }
     })
- 
+
     return {
           labels: coinIDs,
           datasets:[{
-            data: volume,
-            label: '24 Hour Volume',
+            data: marketCap,
             backgroundColor:[
                 '#FF6384',
                       '#36A2EB',
@@ -77,5 +80,5 @@ class AreaFour extends Component {
         }
       }
   }
- 
-export default AreaFour;
+
+export default LeftChart;

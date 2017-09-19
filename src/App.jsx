@@ -202,7 +202,7 @@ class App extends Component {
         <MessageThree /> 
         <AreaThree />
         <MessageFour />
-        <AreaFour />
+        <AreaFour topCoins={this.state.topCoins}/>
         <MessageFive />
         <AreaFive reddit={this.state.reddit}/>
         <SideBar tickerInfo={this.state.liveValues}/>
