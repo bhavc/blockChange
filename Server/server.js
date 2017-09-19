@@ -85,7 +85,7 @@ app.get("/usernotifications", function(req, res) {
   .then(function(result){
     res.send(result)
   })
-
+})
 
 app.post("/usercoins", function(req, res) {
   console.log(req.body.coin)

@@ -127,7 +127,7 @@ class App extends Component {
       this.setState({userCoins: newUserCoins, totalCoinValue: newCoinValue})
     })
   }
-  
+
   constructor(props) {
     super(props);
     fetch('//localhost:3001/notification', {

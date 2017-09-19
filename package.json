@@ -50,17 +50,21 @@
     "body-parser": "^1.18.1",
     "chart.js": "^2.5.0",
     "cors": "^2.8.4",
+    "dotenv": "^4.0.0",
     "express": "^4.15.4",
     "knex": "^0.13.0",
     "material-ui": "^0.19.1",
     "node-cron": "^1.2.1",
     "node-fetch": "^1.7.3",
+    "node-schedule": "^1.2.4",
     "pg": "^7.3.0",
     "pg-promise": "^5.9.7",
     "react": "^15.4.2",
     "react-chartjs-2": "^2.6.2",
     "react-dom": "^15.4.2",
     "request-promise": "^4.2.1",
-    "sendgrid": "^5.2.3"
+    "sendgrid": "^5.2.3",
+    "twilio": "^3.6.7",
+    "webpack": "^2.2.1"
   }
 }
