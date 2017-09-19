@@ -3,18 +3,47 @@ import React, {Component} from 'react';
 class AreaThree extends Component {
     render() {
     	const liveValues = this.props.liveValues
-    	let liveValuesList = liveValues.map((coin, index) => {
-    		return <span className='marketPriceList' key={index}>
-    		          <p>----------</p>
-				          <p>High: {coin.high}</p>
-				          <p>{coin.name} | {coin.open}</p>
-				          <p>Low: {coin.low}</p>
-				          <p>----------</p>
-                </span>
+
+    	let rowNames = liveValues.map((coin, index) => {
+    		return <th key={index} >{coin.name}</th>
+    	})
+    	let rowHighs = liveValues.map((coin, index) => {
+    		return <th key={index} >${Math.round(coin.high * 100) / 100}</th>
+    	})
+    	let rowOpens = liveValues.map((coin, index) => {
+    		return <th key={index} >${Math.round(coin.open * 100) / 100}</th>
+    	})
+    	let rowLows = liveValues.map((coin, index) => {
+    		return <th key={index} >${Math.round(coin.low * 100) / 100}</th>
     	})
         return (
                 <div className='areaThree'>
-                    {liveValuesList}
+                  <table>
+                    <tr>
+                      <th>
+                        Coin
+                      </th>
+                      {rowNames}
+                    </tr>
+                    <tr>
+                      <th>
+                        High
+                      </th>
+                      {rowHighs}
+                    </tr>
+                    <tr>
+                      <th>
+                        Open
+                      </th>
+                      {rowOpens}
+                    </tr>
+                    <tr>
+                      <th>
+                        Low
+                      </th>
+                      {rowLows}
+                    </tr>
+                  </table>
                 </div>
         );
     }
