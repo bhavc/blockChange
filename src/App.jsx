@@ -182,7 +182,7 @@ class App extends Component {
     return (
       <MuiThemeProvider>
       <div className='wrapper'>
-        <NavBar userInfo={this.state.currentUser} postUserCoins={this.postUserCoins} liveCoinValues={this.state.liveValues}/>
+        <NavBar getNotifications={this.getUserNotifications} userNotifications={this.state.notifications} userInfo={this.state.currentUser} postUserCoins={this.postUserCoins} liveCoinValues={this.state.liveValues}/>
         <WelcomeMessage />
         <MainChart chartData={this.state.userCoins}/>
         <MainInfo userCoinInfo={this.state.userCoins} userInfo={this.state.currentUser} totalCoinValue={this.state.totalCoinValue}/>

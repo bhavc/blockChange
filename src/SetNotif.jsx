@@ -65,6 +65,7 @@ class SetNotif extends Component {
     (error) => {
       error.message
     })
+    this.props.getNotifications()
     this.handleClose()
   }
 
@@ -147,7 +148,7 @@ class SetNotif extends Component {
                     </form>
                     <div className='activeAlerts'>
                       <h3>my active alerts</h3>
-                      <ActiveAlertListItem />
+                      <ActiveAlertListItem userNotifications={this.props.userNotifications}/>
                     </div>
                 </div>
             </div>
