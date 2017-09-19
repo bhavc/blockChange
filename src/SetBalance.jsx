@@ -90,7 +90,7 @@ class SetBalance extends Component {
         >
           <div>
             <div className='setBalance'>
-                <h3>add new coin</h3>
+                <h3>Update your balance:</h3>
                 <form>
                   <select value={this.state.coin} onChange={this.handleCoinChange}>
                     <option>BTC</option>
@@ -101,13 +101,16 @@ class SetBalance extends Component {
                     <option>DASH</option>
                     <option>XEM</option>
                     <option>XER</option>
+                    <option>IOT</option>
+                    <option>XMR</option>
+                    <option>ETC</option>
 
                   </select>
                   <input type='text' value={this.state.amount} onChange={this.handleAmountChange}></input>
                 </form>
                 <button className='newButton' onClick={this.handleAdd}>add</button>
                 <div className='activeCoins'>
-                  <h3>my coins</h3>
+                  <h3>Your wallet:</h3>
                   <ActiveCoinListItem userCoins={this.state.userCoins}/>
                 </div>
             </div>
