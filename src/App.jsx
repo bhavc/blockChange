@@ -76,6 +76,10 @@ class App extends Component {
           tickerObj.name =  coins.RAW[key].CAD.FROMSYMBOL;
           tickerObj.percent = coins.DISPLAY[key].CAD.CHANGEPCT24HOUR;
           tickerObj.price = coins.RAW[key].CAD.PRICE;
+          tickerObj.open = coins.RAW[key].CAD.OPEN24HOUR;
+          tickerObj.high = coins.RAW[key].CAD.HIGH24HOUR;
+          tickerObj.low = coins.RAW[key].CAD.LOW24HOUR;
+          tickerObj.market = coins.RAW[key].CAD.LASTMARKET;
           currentValues.push(tickerObj)
           tickerObj = {}
         }
@@ -200,9 +204,9 @@ class App extends Component {
         <MessageTwo />
         <AreaTwo chartData={this.state.topCoins}/>
         <MessageThree /> 
-        <AreaThree />
+        <AreaThree liveValues={this.state.liveValues}/>
         <MessageFour />
-        <AreaFour />
+        <AreaFour topCoins={this.state.topCoins}/>
         <MessageFive />
         <AreaFive reddit={this.state.reddit}/>
         <SideBar tickerInfo={this.state.liveValues}/>
