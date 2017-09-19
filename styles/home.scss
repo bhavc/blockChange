@@ -182,7 +182,7 @@ body {
 
 .ticker {
   font-size: 20px;
-  margin-top: 10px;
+  padding-top: 10px !important;
   margin-left: 15px;
   margin-right: 15px;
   margin-bottom: 5px;
@@ -195,7 +195,7 @@ body {
   }
 
   .tickerValues {
-    border-left: 2px solid #677086;
+    
     padding: 5px;
     padding-left: 10px;
   }
@@ -327,3 +327,4 @@ body {
 .clearfix { display: inline-block; }
 * html .clearfix { height: 1%; }
 .clearfix { display: block; }
+
