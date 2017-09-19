@@ -35,7 +35,7 @@ class LeftChart extends Component {
     let coinIDs = []
 
     this.props.chartData.forEach((coin, index) => {
-      if (index < 4) {
+      if (index < 5) {
         coinIDs.push(coin.name)
       }
     });
