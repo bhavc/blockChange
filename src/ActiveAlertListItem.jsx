@@ -2,11 +2,14 @@ import React, {Component} from 'react';
 
 class ActiveAlertListItem extends Component {
     render() {
+    	const userNotifications = this.props.userNotifications
+
+    	const notificationList = userNotifications.map((notification, index) => {
+    		return <p className='notification' key={index}>{notification.coin} from ${notification.current_value} to ${notification.final_value}</p>
+    	})
         return (
             <div>
-                <p>BTC</p>
-                <p>0.05</p>
-                <p>USD $50</p>
+              {notificationList}
             </div>
         );
     }

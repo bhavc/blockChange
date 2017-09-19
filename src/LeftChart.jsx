@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Doughnut} from 'react-chartjs-2';
+import {Pie} from 'react-chartjs-2';
 import App from './App.jsx'
 
 class LeftChart extends Component {
@@ -12,12 +12,17 @@ class LeftChart extends Component {
 
       return (
           <div className='leftChart'>
-            <Doughnut 
-              data={this.buildChartData()}              
+            <Pie
+              data={this.buildChartData()}
               width={0}
               height={0}
               options={{
-                  maintainAspectRatio: false
+                  maintainAspectRatio: false,
+                  legend: {
+              			labels: {
+                  		fontColor: "white",
+              			}
+          				}
               }}
             />
           </div>
@@ -57,19 +62,19 @@ class LeftChart extends Component {
                       '#FFCE56',
                       '#cc65fe',
                       '#33FF39',
-                      '#cc65fe'                      
+                      '#cc65fe'
                   ],
                   borderColor:[
-                      '#252830', 
-                      '#252830', 
-                      '#252830', 
-                      '#252830', 
-                      '#252830',
-                      '#252830', 
-                      '#252830', 
                       '#252830',
                       '#252830',
-                      '#252830'                      
+                      '#252830',
+                      '#252830',
+                      '#252830',
+                      '#252830',
+                      '#252830',
+                      '#252830',
+                      '#252830',
+                      '#252830'
                   ]
           }]
         }
