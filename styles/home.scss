@@ -58,6 +58,9 @@ body {
   }
 
   .mainInfo {
+    position: relative;
+    top: 50px;
+    left: 35px;
     grid-area: mainInfo;
     text-align: center;
     overflow: scroll;
