@@ -37,7 +37,6 @@ class RightChart extends Component {
           datasets.push({
             data: priceData, 
             label: topCoin.symbol, 
-            borderColor: coinColour,
             backgroundColor: coinColour, 
             fill: false, 
             pointRadius: 1,

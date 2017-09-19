@@ -128,6 +128,21 @@ class App extends Component {
     })
   }
 
+  getUserNotifications = () => {
+    fetch('http://localhost:3001/usernotifications')
+    .then(result => {
+      return result.json()
+    })
+    .then((notifications) => {
+      let notificationObj = []
+      notifications.forEach((notification) => {
+        notificationObj.push(notification)
+      })
+      notificationObj.reverse()
+      this.setState({notifications: notificationObj})
+    })
+  }
+
   constructor(props) {
     super(props);
     fetch('//localhost:3001/notification', {
@@ -144,6 +159,7 @@ class App extends Component {
       },
       userCoins: [],
       totalCoinValue: 0,
+      notifications: [],
       topCoins: [],
       liveValues: [],
       reddit: []
@@ -155,18 +171,12 @@ class App extends Component {
   }
 
   componentDidMount() {
-
+    this.getUserNotifications()
     this.coinMarketCapApi()
     this.redditApi()
     this.getUserCoins()
 
   }
-
-  // componentDidUpdate(prevProps, prevState) {
-  //   console.log('old state:', prevState);
-  //   console.log('new state:', this.state);
-  // }
-
 
   render() {
     return (
