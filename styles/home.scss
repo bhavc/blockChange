@@ -14,7 +14,7 @@ body {
   height: 100vh;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 250px;
-  grid-template-rows: 60px 100px 600px 100px 600px 100px 600px 100px 600px 100px 600px 100px 350px;
+  grid-template-rows: 60px 100px 600px 100px 600px 100px 600px 100px 475px 100px 600px 100px 350px;
   grid-template-areas: "navBar navBar navBar navBar sideBar"
                        "welcomeMessage welcomeMessage welcomeMessage welcomeMessage sideBar"
                        "mainInfo mainChart mainChart mainChart sideBar"
@@ -154,6 +154,33 @@ body {
       border: 1px solid dodgerblue;
       box-shadow: 0px 0px 15px dodgerblue;
       transform: scale(1.025);
+    }
+
+    .highLowTable {
+      width: 100%;
+      margin: 0 auto;
+      border-collapse: collapse;
+      .highLowTitles {
+        color: #7584A1;
+       
+      }
+
+      tr {
+        height: 100px;
+      }
+
+      .rowNames {
+        border-bottom: 1px solid #485061;
+      }
+
+      .rowHighs {
+        color: limegreen;
+      }
+
+      .rowLows {
+        color: #FF3535;
+      }
+
     }
   }
 
@@ -355,7 +382,7 @@ body {
   .tickerDown {
     width: 12px;
     height: 12px;
-    background-color: hotpink;
+    background-color: #FF3535;
     position: relative;
     top: 26px;
     left: 10px;
