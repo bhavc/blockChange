@@ -57,8 +57,6 @@ body {
   .messageOne {
     grid-area: messageOne;
     font-family: 'Poiret One', cursive;
-    
-    
     color: white;
     background-color: #252830;
   }
@@ -66,10 +64,21 @@ body {
   .areaOne {
     grid-area: areaOne;
     color: gainsboro;
-    background-color: #252830;
+    background-color: #1B1E24;
     padding-left: 50px;
     padding-right: 50px;
     padding-bottom: 100px;
+    width: 60vw;
+    margin: 0 auto;
+    border-radius: 5px;
+    border: 1px solid #485061;
+    padding: 25px;    
+    transition: all .3s ease-in-out;
+    &:hover {
+      border: 1px solid dodgerblue;
+      box-shadow: 0px 0px 15px dodgerblue;
+      transform: scale(1.025);
+    }
   }
 
   .messageTwo {
@@ -89,36 +98,71 @@ body {
     padding-left: 40px;    
     padding-right: 40px;    
     padding-bottom: 100px;
+    background-color: #1B1E24;
+    width: 60vw;
+    margin: 0 auto;
+    border-radius: 5px;
+    border: 1px solid #485061;
+    padding: 25px;    
+    transition: all .3s ease-in-out;
+    &:hover {
+      border: 1px solid dodgerblue;
+      box-shadow: 0px 0px 15px dodgerblue;
+      transform: scale(1.025);
+    }
   }
 
   .messageThree {
     color: white;
     grid-area: messageThree;
+    overflow: scroll;
   }
 
   .areaThree {
     color: white;    
     grid-area: areaThree;
+    padding: 25px;
+    overflow: scroll;
+    width: 60vw;
+    background-color: #1B1E24;
+    margin: 0 auto;
   }
 
   .messageFour {
     color: white;    
     grid-area: messageFour;
+    overflow: scroll;
+    
   }
 
   .areaFour {
     color: white;    
     grid-area: areaFour;
+    overflow: scroll;
+    width: 60vw;
+    margin: 0 auto;
+    padding: 25px;
+    border: 1px solid #485061;
+    background-color: #1B1E24;
+    border-radius: 5px;
+    transition: all .3s ease-in-out;    
+    &:hover {
+      border: 1px solid dodgerblue;
+      box-shadow: 0px 0px 15px dodgerblue;
+      transform: scale(1.025);      
+    }    
   }
 
   .messageFive {
     color: white;    
     grid-area: messageFive;
+    overflow: scroll;
+    
   }
 
   .areaFive {
     border-radius: 5px;
-    width: 60vw;
+    width: 62.5vw;
     color: gainsboro;
     background-color: #1B1E24;
     grid-area: areaFive;
@@ -132,6 +176,7 @@ body {
     &:hover {
       border: 1px solid dodgerblue;
       box-shadow: 0px 0px 15px dodgerblue;
+      transform: scale(1.025);
     }
 
     a {
@@ -144,7 +189,7 @@ body {
       padding-right: 30px;
     }
     .redditVotes {
-      color: dodgerblue;
+      color: orange;
     }
     .divider {
       color: #677086;

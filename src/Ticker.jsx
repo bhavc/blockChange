@@ -24,7 +24,7 @@ class Ticker extends Component {
             }
            return <div className='ticker clearfix' ref={(div) => { this.ticker = div } } key={index}>
                     {tickerBox}
-                    <p className='tickerInfo'>{coin.name} &nbsp;<span className='tickerValues'><span className='coinPercent'>{coin.percent}%</span><br /><span className='tickerPrice' ref={(tickerPrice) => {this.tickerPrice = tickerPrice }}> ${coin.price.toFixed(2)}</span></span></p>
+                    <p className='tickerInfo'>{coin.name} &nbsp;|<span className='tickerValues'><span className='coinPercent'>{coin.percent}%</span><br /><span className='tickerPrice' ref={(tickerPrice) => {this.tickerPrice = tickerPrice }}> ${coin.price.toFixed(2)}</span></span></p>
                   </div>
         })
         return (
