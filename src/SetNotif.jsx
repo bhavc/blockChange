@@ -156,7 +156,7 @@ class SetNotif extends Component {
                     </form>
                     <div className='activeAlerts'>
                       <h3>Your previous notifications: </h3>
-                      <ActiveAlertListItem />
+                      <ActiveAlertListItem userNotifications={this.props.userNotifications}/>
                     </div>
                 </div>
             </div>
