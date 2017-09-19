@@ -79,6 +79,13 @@ app.get("/usercoins", function(req, res) {
   })
 })
 
+//you would have to make this specific to the user when we have multiple users
+app.get("/usernotifications", function(req, res) {
+  knex.select().from('priceChangeTable')
+  .then(function(result){
+    res.send(result)
+  })
+
 
 app.post("/usercoins", function(req, res) {
   console.log(req.body.coin)
