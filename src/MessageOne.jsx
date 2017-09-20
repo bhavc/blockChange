@@ -4,7 +4,7 @@ class MessageOne extends Component {
    render() {
        return (
            <div className='messageOne'>
-               <h1>here is your line graph</h1>
+               <h1>Historical pricing for each coin: </h1>
            </div>
        );
    }

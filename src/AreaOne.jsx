@@ -1,25 +1,25 @@
 import React, {Component} from 'react';
 import {Line} from 'react-chartjs-2';
- 
+
 class AreaOne extends Component {
- 
+
       constructor(props){
     super(props);
- 
+
     this.state = {chartData: null};
   }
- 
+
   getRandomColor = () => {
     return '#'+(Math.random()*0xFFFFFF<<0).toString(16);
   }
- 
+
   buildChartData = () => {
- 
+
     let topCoins = this.props.topCoins
     let priceData;
     let dateData;
     let datasets = [];
- 
+
     topCoins.forEach((topCoin) => {
       fetch(`http://www.coincap.io/history/365day/${topCoin.symbol}`)
         .then(result => {
@@ -33,7 +33,7 @@ class AreaOne extends Component {
             return new Date(price[0]).toString().substring(4, 10)
           })
           let coinColour = '#'+(Math.random()*0xFFFFFF<<0).toString(16)
- 
+
           datasets.push({
             data: priceData,
             label: topCoin.symbol,
@@ -48,19 +48,19 @@ class AreaOne extends Component {
         })
     })
   }
- 
- 
+
+
     componentDidUpdate(prevProps) {
       if (prevProps.topCoins.length === 0 && this.props.topCoins.length > 0) {
         this.buildChartData();
       }
       return true;
     }
- 
+
     getChartData = () => {
       return this.state.chartData;
     }
- 
+
     renderLine = () => {
       return (
           <Line
@@ -69,34 +69,34 @@ class AreaOne extends Component {
             height={100}
             options={{
                 maintainAspectRatio: false,
-                                legend: {
+                    legend: {
                         labels: {
                         fontColor: "white",
-                        }
-                        },
-                scales: {
-                    xAxes: [{
-                                                                ticks: {
-                                                                    fontColor:"white"
-                                                                },
-                                gridLines: {
-                                    color: "rgba(0, 0, 0, 0)",
+                            }
+                          },
+                        scales: {
+                          xAxes: [{
+                            ticks: {
+                            fontColor:"white"
+                              },
+                            gridLines: {
+                            color: "rgba(0, 0, 0, 0)",
                                 }
-                            }],
-                    yAxes: [{
-                                                                ticks: {
-                                                                    fontColor:"white"
-                                                                },
-                                gridLines: {
-                                    color: "rgba(0, 0, 0, 0)",
+                              }],
+                          yAxes: [{
+                            ticks: {
+                            fontColor:"white"
+                                },
+                            gridLines: {
+                            color: "rgba(0, 0, 0, 0)",
                                 }
-                            }]
+                              }]
                     }
-            }}
-        />
-      )
-    }
- 
+                  }}
+                />
+              )
+            }
+
     render() {
         return (
             <div className='areaOne'>
@@ -105,5 +105,5 @@ class AreaOne extends Component {
         );
     }
 }
- 
+
 export default AreaOne;

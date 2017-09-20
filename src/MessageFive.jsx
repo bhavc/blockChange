@@ -4,7 +4,7 @@ class MessageFive extends Component {
     render() {
         return (
                 <div className='messageFive'>
-                    <h1>here is your news</h1>
+                    <h1>Discussion on social media:</h1>
                 </div>
         );
     }

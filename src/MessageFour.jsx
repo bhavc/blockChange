@@ -4,7 +4,7 @@ class MessageFour extends Component {
     render() {
         return (
                 <div className='messageFour'>
-                    <h1>here is your volume bar</h1>
+                    <h1>####### - what is this? </h1>
                 </div>
         );
     }

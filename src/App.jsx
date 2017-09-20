@@ -199,7 +199,7 @@ class App extends Component {
         <AreaOne topCoins={this.state.topCoins}/>
         <MessageTwo />
         <AreaTwo chartData={this.state.topCoins}/>
-        <MessageThree /> 
+        <MessageThree />
         <AreaThree liveValues={this.state.liveValues}/>
         <MessageFour />
         <AreaFour topCoins={this.state.topCoins}/>

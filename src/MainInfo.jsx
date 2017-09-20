@@ -13,7 +13,7 @@ class MainInfo extends Component {
     	})
         return (
             <div className='mainInfo'>
-                <h3 className='infoName'>Dave's Coins</h3>
+                <h3 className='infoName'>Your Coins: </h3>
                 <p className='infoTitle'>Coin <span className='divider'>|</span> Amount <span className='divider'>|</span> Total</p>
                 <table className='coinListTable'>
                 {coinList}

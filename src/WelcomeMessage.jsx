@@ -4,7 +4,7 @@ class WelcomeMessage extends Component {
    render() {
        return (
            <div className='welcomeMessage'>
-               <h1>Welcome Dave, here are your personalized stats</h1>
+               <h1>Welcome Dave, your personalized portfolio: </h1>
            </div>
        );
    }
