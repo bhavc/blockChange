@@ -104,11 +104,10 @@ class SetBalance extends Component {
                     <option>IOT</option>
                     <option>XMR</option>
                     <option>ETC</option>
-
                   </select>
                   <input type='text' value={this.state.amount} onChange={this.handleAmountChange}></input>
                 </form>
-                <button className='newButton' onClick={this.handleAdd}>add</button>
+                  <i onClick={this.handleAdd} className=" newButton add material-icons">add</i>
                 <div className='activeCoins'>
                   <h3>Your wallet:</h3>
                   <ActiveCoinListItem userCoins={this.state.userCoins}/>
