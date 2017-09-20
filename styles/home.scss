@@ -6,6 +6,10 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
+h1 {
+  font-weight: normal;
+}
+
 .material-icons {
   font-size: 30px !important;
 }
@@ -289,6 +293,7 @@ body {
   .footer {
     grid-area: footer;
     background-color: #1B1E24;  
+    border-top: 1px solid #485061;
     color: #677086;
     text-align: center;
   }
@@ -438,17 +443,32 @@ body {
   outline: 0;
 }
 
+
+
 .setNotif {
-  width: 300px;
+  width: 400px;
   height: 200px;
-  margin: 0 auto;
+  margin: 0 auto !important;
   text-align: left;
   padding: 25px;
-
-  input {
-    width: 50px;
+  
+  select {
+    appearance: none;
+    border-radius: 0;
   }
 
+  
+  input {
+    width: 50px;
+    background-color: #252830;
+    border: 0;
+    border-bottom: 2px solid white;
+    color: white;  
+  }
+  
+  input:focus {
+    outline: 0;
+  }
   button {
     margin: 15px;
     margin: 0 auto;
@@ -554,3 +574,10 @@ body {
 .news li:nth-child(2) {
   animation-delay: -12s;
 }
+
+
+
+
+
+
+
