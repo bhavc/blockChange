@@ -21,6 +21,8 @@ const knex = require('knex') ({
 
 function cronApiPull(coin, email, valueChange){
 var job = new CronJob('*/5 * * * * *', function() {
+  //pulls the price API every 5 seconds, then updates the final value with
+  //the price of the API
   console.log('updating final value with api every 5 seconds')
   fetch(`https://min-api.cryptocompare.com/data/price?fsym=${coin}&tsyms=CAD&extraParams=your_app_name`)
     .then(function(res) {
@@ -42,6 +44,8 @@ var job = new CronJob('*/5 * * * * *', function() {
       .where('coin', coin)
       .then(function(res) {
         console.log(res[0])
+        //Function that runs a callback that selects the initial value and final value
+        //and calculates the difference between the two
         let currentValue = Number(res[0].current_value)
         console.log(currentValue)
         let finalValue = Number(res[0].final_value)
@@ -49,10 +53,12 @@ var job = new CronJob('*/5 * * * * *', function() {
         let priceDifference = finalValue - currentValue
         console.log(priceDifference)
 
+        //if the price difference divided by the user entered value is greater than 1
+        //shoot off both an email to the user and a text
         if(priceDifference/valueChange >= 1) {
           console.log("this is when you get a notification")
 
-          //send email
+          //sends an email using nodemailer here
           var transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
@@ -76,7 +82,7 @@ var job = new CronJob('*/5 * * * * *', function() {
             }
           });
 
-          //send twilio
+          //sends an sms via twilio here
           var accountSid = process.env.ACCOUNT_SID
           console.log(accountSid)
           var authToken = process.env.AUTH_TOKEN

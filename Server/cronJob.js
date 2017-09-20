@@ -15,9 +15,10 @@ const knex = require('knex') ({
 });
 
 
-//may not use cron job, better for scalability though
+//run a CronJob that pulls an api every 5 seconds and appends this to the
+//priceChangeTable
 let apiCall = new CronJob({
-  cronTime: '*/2 * * * * *',
+  cronTime: '*/5 * * * * *',
   onTick: function() {
     //call the api from within here
     request('https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=BTC,CAD,USD,EUR&extraParams=your_app_name', function(error, response, body) {
