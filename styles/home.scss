@@ -32,8 +32,9 @@ body {
   }
 
   .welcomeMessage {
+    font-family: 'Roboto', sans-serif;  
     padding: 15px;
-    padding-left: 150px;
+    padding-left: 50px;
     padding-bottom: 50px;
     background-color: #252830;
     color: white;
@@ -82,7 +83,7 @@ body {
 
     .coinListTable {
       margin: 0 auto;
-      padding-top: 20px;
+      padding-top: 10px;
 
       .tableItem {
         padding: 5px;
@@ -90,6 +91,12 @@ body {
 
     }
 
+  }
+
+  .message {
+    margin-left: 50px;
+    padding: 5px;
+    padding-top: 10px;
   }
 
   .messageOne {
