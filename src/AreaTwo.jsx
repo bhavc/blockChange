@@ -45,7 +45,7 @@ class AreaTwo extends Component {
     let marketCap = []
 
     this.props.chartData.forEach((coin, index) => {
-      if (index < 4) {
+      if (index < 5) {
         marketCap.push(coin.market_cap_usd / 100 / 1000)
       }
     })
