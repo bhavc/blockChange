@@ -77,6 +77,7 @@ class App extends Component {
           tickerObj.high = coins.RAW[key].CAD.HIGH24HOUR;
           tickerObj.low = coins.RAW[key].CAD.LOW24HOUR;
           tickerObj.market = coins.RAW[key].CAD.LASTMARKET;
+          tickerObj.change = coins.RAW[key].CAD.CHANGE24HOUR;
           currentValues.push(tickerObj)
           tickerObj = {}
         }
