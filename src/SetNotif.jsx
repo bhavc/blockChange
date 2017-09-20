@@ -123,15 +123,13 @@ class SetNotif extends Component {
           title="Alerts"
           actions={actions}
           modal={false}
-          
           open={this.state.open}
           onRequestClose={this.handleClose}
         >
             <div>
                 <div className='setNotif'>
-                    <h3>Set up a new alert:</h3>
+                    <h3>Set up a new notification:</h3>
                     <form>
-                      
                         <select value={this.state.coin} onChange={this.handleCoinChange}>
                             <option>BTC</option>
                             <option>ETH</option>

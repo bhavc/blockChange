@@ -446,26 +446,28 @@ h1 {
 
 
 .setNotif {
-  width: 400px;
+  width: 350px;
   height: 200px;
   margin: 0 auto !important;
   text-align: left;
-  padding: 25px;
-  
-  select {
-    appearance: none;
-    border-radius: 0;
-  }
+  padding: 20px;
+  background-color: #1B1E24;
+  border: 1px solid #677086;
+  border-radius: 5px;
 
+  select, input {
+    margin-right: 10px;
+  }
   
   input {
     width: 50px;
-    background-color: #252830;
+    background-color: #1B1E24;
     border: 0;
     border-bottom: 2px solid white;
     color: white;  
   }
   
+
   input:focus {
     outline: 0;
   }
@@ -473,6 +475,10 @@ h1 {
     margin: 15px;
     margin: 0 auto;
   }
+}
+
+.activeAlerts {
+  padding-top: 25px;
 }
 
 .activeAlerts p {
@@ -483,10 +489,43 @@ h1 {
 .setBalance {
   width: 300px;
   margin: 0 auto;
+  background-color: #1B1E24;
+  border: 1px solid #677086;
+  border-radius: 5px;
+  padding: 25px;
+
+  select, input {
+    margin-right: 15px;
+  }
+
+  .add {
+    color: white;
+    transition: all .3s ease-in-out;
+  }
+
+  .add:hover {
+    color: dodgerblue;
+    transform: scale(1.025);
+    cursor: default;
+  }
+
+
+
+  input {
+    width: 100px;
+    background-color: #1B1E24;
+    border: 0;
+    border-bottom: 2px solid white;
+    color: white;  
+  }
+
+  input:focus {
+    outline: 0;
+  }
 
   .newButton {
     position: relative;
-    left: 250px;
+    left: 200px;
     bottom: 24px;
   }
 }
@@ -497,16 +536,29 @@ h1 {
 }
 
 .activeCoinListItem {
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #677086;
 }
 
 .accountInfo {
   width: 180px;
   margin: 0 auto;
-
+  background-color: #1B1E24;
+  border: 1px solid #677086;
+  border-radius: 5px;
+  padding: 25px;
+  color: white;
   input {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    background-color: #1B1E24;
+    border: 0;
+    border-bottom: 2px solid white;
+    color: white;
   }
+
+  input:focus {
+    outline: 0;
+  }
+
 }
 
 .clearfix:after {
@@ -574,10 +626,3 @@ h1 {
 .news li:nth-child(2) {
   animation-delay: -12s;
 }
-
-
-
-
-
-
-
