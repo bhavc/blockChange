@@ -90,7 +90,7 @@ class SetBalance extends Component {
         >
           <div>
             <div className='setBalance'>
-                <h3>Update your balance:</h3>
+                <h3>Update your balance</h3>
                 <form>
                   <select value={this.state.coin} onChange={this.handleCoinChange}>
                     <option>BTC</option>
@@ -109,7 +109,7 @@ class SetBalance extends Component {
                 </form>
                   <i onClick={this.handleAdd} className=" newButton add material-icons">add</i>
                 <div className='activeCoins'>
-                  <h3>Your wallet:</h3>
+                  <h3>Your wallet</h3>
                   <ActiveCoinListItem userCoins={this.state.userCoins}/>
                 </div>
             </div>

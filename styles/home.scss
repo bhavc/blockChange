@@ -447,7 +447,8 @@ h1 {
 
 .setNotif {
   width: 350px;
-  height: 200px;
+  height: 250px;
+  overflow: scroll;
   margin: 0 auto !important;
   text-align: left;
   padding: 20px;
@@ -482,7 +483,8 @@ h1 {
 }
 
 .activeAlerts {
-  padding-top: 25px;
+  margin-top: 25px;
+  border-top: 1px solid #677086;
 }
 
 .activeAlerts p {
@@ -493,6 +495,7 @@ h1 {
 .setBalance {
   width: 300px;
   margin: 0 auto;
+  overflow: scroll;
   background-color: #1B1E24;
   border: 1px solid #677086;
   border-radius: 5px;
@@ -538,9 +541,14 @@ h1 {
   }
 }
 
+.activeCoins {
+  border-top: 1px solid #677086;
+  color: whitesmoke;
+}
+
 .activeCoins p {
   display: inline-block;
-  margin-right: 25px;
+  margin-right: 25px;  
 }
 
 .activeCoinListItem {
@@ -638,4 +646,8 @@ h1 {
 }
 .news li:nth-child(2) {
   animation-delay: -12s;
+}
+
+.tableTitle {
+  color: whitesmoke;
 }

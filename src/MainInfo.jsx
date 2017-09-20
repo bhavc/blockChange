@@ -13,12 +13,12 @@ class MainInfo extends Component {
     	})
         return (
             <div className='mainInfo'>
-                <h3 className='infoName'>Your Coins: </h3>
+                <h3 className='infoName'>Your Coins</h3>
                 <table className='coinListTable'>
                     <tr>
-                        <th>Coin | </th>
-                        <th>Total | </th>
-                        <th>Amount</th>
+                        <th><span className='tableTitle'>Coin</span> <span className='divider'>|</span> </th>
+                        <th><span className='tableTitle'>Total</span> <span className='divider'>|</span> </th>
+                        <th><span className='tableTitle'>Amount</span></th>
                     </tr>
                     {coinList}
                 </table>
