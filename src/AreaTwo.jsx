@@ -50,30 +50,20 @@ class AreaTwo extends Component {
       }
     })
 
+    let userColours = this.props.chartData.map((coin) => {
+      return '#'+(Math.random()*0xFFFFFF<<0).toString(16)
+    })
+
+    let userBorder = this.props.chartData.map((coin) => {
+      return '#1B1E24'
+    })
+
     return {
           labels: coinIDs,
           datasets:[{
             data: marketCap,
-            backgroundColor:[
-                '#0044cc',
-                      '#e60000',
-                      '#FFCE56',
-                      '#00e64d',
-                      '##00e64d',
-
-                  ],
-                  borderColor:[
-                      '#252830',
-                      '#252830',
-                      '#252830',
-                      '#252830',
-                      '#252830',
-                      '#252830',
-                      '#252830',
-                      '#252830',
-                      '#252830',
-                      '#252830'
-                  ]
+            backgroundColor: userColours,
+            borderColor: userBorder
           }]
         }
       }
