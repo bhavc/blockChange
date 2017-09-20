@@ -173,7 +173,7 @@ body {
       margin: 0 auto;
       border-collapse: collapse;
       .highLowTitles {
-        color: #7584A1;
+        color: #9BAFD4;
 
       }
 
@@ -365,7 +365,6 @@ body {
   margin-right: 15px;
   margin-bottom: 5px;
   padding: 1px;
-  // padding-bottom: 5px;
   border-bottom: 1px solid #677086;
   transition: all .2s ease-in-out;
 
@@ -378,13 +377,6 @@ body {
     padding: 5px;
     padding-left: 10px;
   }
-
-  // .tickerPrice {
-  //   position: relative;
-  //   top: 14px;
-  //   color: #A9B8DA;
-  //   font-size: 16px;
-  // }
 
   p {
     margin-top: 0px;
@@ -506,6 +498,7 @@ body {
 .tickerText {
   font-size: 12px;
   position: relative;
+  color: #8A98B4;  
   bottom: 1px;
   right: 5px;
 }

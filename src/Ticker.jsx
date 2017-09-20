@@ -16,7 +16,7 @@ class Ticker extends Component {
             }
            return <div className='ticker clearfix' key={index}>
                     {tickerBox}
-                    <p className='tickerInfo'>{coin.name} &nbsp;|<span className='tickerValues'><span className='coinPercent'>{coin.percent}%</span>
+                    <p className='tickerInfo'>{coin.name} &nbsp;<span className='divider'>|</span><span className='tickerValues'><span className='coinPercent'>{coin.percent}%</span>
                     
                     
                     
