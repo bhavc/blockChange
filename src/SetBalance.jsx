@@ -9,7 +9,8 @@ class SetBalance extends Component {
         open: false,
         userCoins: [],
         coin: 'BTC',
-        amount: 0
+        amount: 0,
+        placeHolder: ''
       };
 
 
@@ -22,7 +23,7 @@ class SetBalance extends Component {
       open: false,
       userCoins: [],
       coin: 'BTC',
-      amount: 0
+      amount: 0,
     });
   };
 
@@ -105,7 +106,7 @@ class SetBalance extends Component {
                     <option>XMR</option>
                     <option>ETC</option>
                   </select>
-                  <input type='text' value={this.state.amount} onChange={this.handleAmountChange}></input>
+                  <input type='text' placeholder={this.state.placeHolder} value={this.state.amount} onChange={this.handleAmountChange}></input>
                 </form>
                   <i onClick={this.handleAdd} className=" newButton add material-icons">add</i>
                 <div className='activeCoins'>
