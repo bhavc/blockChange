@@ -13,6 +13,7 @@ import AreaFour from './AreaFour.jsx';
 import MessageFive from './MessageFive.jsx';
 import AreaFive from './AreaFive.jsx';
 import SideBar from './SideBar.jsx';
+import Footer from './Footer.jsx';
 import NavBar from './NavBar.jsx';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 
@@ -205,6 +206,7 @@ class App extends Component {
         <AreaFour topCoins={this.state.topCoins}/>
         <MessageFive />
         <AreaFive reddit={this.state.reddit}/>
+        <Footer />
         <SideBar tickerInfo={this.state.liveValues}/>
       </div>
       </MuiThemeProvider>

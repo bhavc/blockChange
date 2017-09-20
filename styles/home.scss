@@ -14,7 +14,7 @@ body {
   height: 100vh;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 250px;
-  grid-template-rows: 60px 100px 600px 100px 600px 100px 600px 100px 475px 100px 600px 100px 350px;
+  grid-template-rows: 60px 100px 600px 100px 600px 100px 600px 100px 475px 100px 600px 100px 350px 50px;
   grid-template-areas: "navBar navBar navBar navBar sideBar"
                        "welcomeMessage welcomeMessage welcomeMessage welcomeMessage sideBar"
                        "mainInfo mainChart mainChart mainChart sideBar"
@@ -28,6 +28,7 @@ body {
                        "areaFour areaFour areaFour areaFour sideBar"
                        "messageFive messageFive messageFive messageFive sideBar"
                        "areaFive areaFive areaFive areaFive sideBar"
+                       "footer footer footer footer sideBar"
   }
 
   .welcomeMessage {
@@ -188,6 +189,10 @@ body {
         color: limegreen;
       }
 
+      .rowOpens {
+        color: dodgerblue;
+      }
+
       .rowLows {
         color: #FF3535;
       }
@@ -274,19 +279,24 @@ body {
     }
   }
 
+  .footer {
+    grid-area: footer;
+    background-color: #1B1E24;  
+    color: #677086;
+    text-align: center;
+  }
+
   .infoTitle {
 
     width: 160px;
     margin: 0 auto;
   }
 
-  .infoTicker {
-    
-  }
+  
 
   .infoTotal {
    margin-top: 25px !important;
-   border: 1px solid dodgerblue;
+   border: 1px solid #485061;
    border-radius: 5px;
    width: 50%;
    padding: 5px;
@@ -308,7 +318,7 @@ body {
     width: 250px;
     height: 100vh;
     border-left: 1px solid #677086;
-    transition: all .2s ease-in-out;
+    transition: all .3s ease-in-out;
     &:hover {
       border-left: 1px solid dodgerblue;
     }
