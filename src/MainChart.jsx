@@ -40,27 +40,19 @@ class MainChart extends Component {
       return coin.total
     })
 
+    let userColours = this.props.chartData.map((coin) => {
+      return '#'+(Math.random()*0xFFFFFF<<0).toString(16)
+    })
+
+    let userBorder = this.props.chartData.map((coin) => {
+      return '#1B1E24'
+    })
     return {
           labels: userCoinIDs,
           datasets:[{
             data: userTotal,
-            backgroundColor:[
-              '#ff0000',
-                '#002080',
-                '#ffff1a',
-                      '#009933',
-                      '#FFCE56',
-                      '#cc65fe'
-                  ],
-                  borderColor:[
-                      '#FFFFFF',
-                      '#FFFFFF',
-                      '#FFFFFF',
-                      '#FFFFFF',
-                      '#FFFFFF',
-                      '#FFFFFF',
-                      
-                  ]
+            backgroundColor: userColours,
+            borderColor: userBorder
           }]
         }
       }
