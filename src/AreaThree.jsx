@@ -11,7 +11,7 @@ class AreaThree extends Component {
     		return <th className='rowHighs' key={index} >${Math.round(coin.high * 100) / 100}</th>
     	})
     	let rowOpens = liveValues.map((coin, index) => {
-    		return <th key={index} >${Math.round(coin.open * 100) / 100}</th>
+    		return <th className='rowOpens' key={index} >${Math.round(coin.open * 100) / 100}</th>
     	})
     	let rowLows = liveValues.map((coin, index) => {
     		return <th className='rowLows' key={index} >${Math.round(coin.low * 100) / 100}</th>

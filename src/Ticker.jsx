@@ -4,14 +4,6 @@ import SideBar from './SideBar.jsx'
 
 class Ticker extends Component {
 
-    // componentDidMount() {
-        
-    //         $(this.ticker).hover(function () {
-    //             $(this.tickerPrice).slideToggle("fast");
-    //         });
-        
-    // }
-
 
     render () {
         const tickerChange = this.props.tickerInfo || []
@@ -22,9 +14,22 @@ class Ticker extends Component {
             } else {
                 tickerBox = <div className='tickerUp'></div> 
             }
-           return <div className='ticker clearfix' ref={(div) => { this.ticker = div } } key={index}>
+           return <div className='ticker clearfix' key={index}>
                     {tickerBox}
-                    <p className='tickerInfo'>{coin.name} &nbsp;|<span className='tickerValues'><span className='coinPercent'>{coin.percent}%</span><br /><span className='tickerPrice' ref={(tickerPrice) => {this.tickerPrice = tickerPrice }}> ${coin.price.toFixed(2)}</span></span></p>
+                    <p className='tickerInfo'>{coin.name} &nbsp;<span className='divider'>|</span><span className='tickerValues'><span className='coinPercent'>{coin.percent}%</span>
+                    
+                    
+                    
+                    <div className='news'>
+                        <ul>
+                            <li><span className='tickerPrice'><span className='tickerText'>PRICE </span>${coin.price.toFixed(2)}</span></li>
+                            <li><span className='tickerPrice'><span className='tickerText'>CHANGE </span>${coin.change.toFixed(2)}</span></li>
+                            <li><span className='tickerPrice'><span className='tickerText'>HIGH </span>${coin.high.toFixed(2)}</span></li>
+                            <li><span className='tickerPrice'><span className='tickerText'>LOW </span>${coin.low.toFixed(2)}</span></li>
+                        </ul>
+                    </div>
+
+                    </span></p>
                   </div>
         })
         return (

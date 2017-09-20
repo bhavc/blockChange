@@ -16,7 +16,12 @@ class MainInfo extends Component {
                 <h3 className='infoName'>Your Coins: </h3>
                 <p className='infoTitle'>Coin <span className='divider'>|</span> Amount <span className='divider'>|</span> Total</p>
                 <table className='coinListTable'>
-                {coinList}
+                    <tr>
+                        <th>Coin | </th>
+                        <th>Total | </th>
+                        <th>Amount</th>
+                    </tr>
+                    {coinList}
                 </table>
                 <p className='infoTotal'>Total: ${Math.round(this.props.totalCoinValue * 100) / 100}</p>
             </div>

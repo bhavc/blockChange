@@ -13,6 +13,7 @@ import AreaFour from './AreaFour.jsx';
 import MessageFive from './MessageFive.jsx';
 import AreaFive from './AreaFive.jsx';
 import SideBar from './SideBar.jsx';
+import Footer from './Footer.jsx';
 import NavBar from './NavBar.jsx';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 
@@ -76,6 +77,7 @@ class App extends Component {
           tickerObj.high = coins.RAW[key].CAD.HIGH24HOUR;
           tickerObj.low = coins.RAW[key].CAD.LOW24HOUR;
           tickerObj.market = coins.RAW[key].CAD.LASTMARKET;
+          tickerObj.change = coins.RAW[key].CAD.CHANGE24HOUR;
           currentValues.push(tickerObj)
           tickerObj = {}
         }
@@ -205,6 +207,7 @@ class App extends Component {
         <AreaFour topCoins={this.state.topCoins}/>
         <MessageFive />
         <AreaFive reddit={this.state.reddit}/>
+        <Footer />
         <SideBar tickerInfo={this.state.liveValues}/>
       </div>
       </MuiThemeProvider>

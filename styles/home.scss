@@ -14,7 +14,7 @@ body {
   height: 100vh;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 250px;
-  grid-template-rows: 60px 100px 600px 100px 600px 100px 600px 100px 475px 100px 600px 100px 350px;
+  grid-template-rows: 60px 100px 600px 100px 600px 100px 600px 100px 475px 100px 600px 100px 350px 50px;
   grid-template-areas: "navBar navBar navBar navBar sideBar"
                        "welcomeMessage welcomeMessage welcomeMessage welcomeMessage sideBar"
                        "mainInfo mainChart mainChart mainChart sideBar"
@@ -28,6 +28,7 @@ body {
                        "areaFour areaFour areaFour areaFour sideBar"
                        "messageFive messageFive messageFive messageFive sideBar"
                        "areaFive areaFive areaFive areaFive sideBar"
+                       "footer footer footer footer sideBar"
   }
 
   .welcomeMessage {
@@ -172,7 +173,7 @@ body {
       margin: 0 auto;
       border-collapse: collapse;
       .highLowTitles {
-        color: #7584A1;
+        color: #9BAFD4;
 
       }
 
@@ -186,6 +187,10 @@ body {
 
       .rowHighs {
         color: limegreen;
+      }
+
+      .rowOpens {
+        color: dodgerblue;
       }
 
       .rowLows {
@@ -274,19 +279,24 @@ body {
     }
   }
 
+  .footer {
+    grid-area: footer;
+    background-color: #1B1E24;  
+    color: #677086;
+    text-align: center;
+  }
+
   .infoTitle {
 
     width: 160px;
     margin: 0 auto;
   }
 
-  .infoTicker {
-    
-  }
+  
 
   .infoTotal {
    margin-top: 25px !important;
-   border: 1px solid dodgerblue;
+   border: 1px solid #485061;
    border-radius: 5px;
    width: 50%;
    padding: 5px;
@@ -308,7 +318,7 @@ body {
     width: 250px;
     height: 100vh;
     border-left: 1px solid #677086;
-    transition: all .2s ease-in-out;
+    transition: all .3s ease-in-out;
     &:hover {
       border-left: 1px solid dodgerblue;
     }
@@ -355,7 +365,6 @@ body {
   margin-right: 15px;
   margin-bottom: 5px;
   padding: 1px;
-  padding-bottom: 15px;
   border-bottom: 1px solid #677086;
   transition: all .2s ease-in-out;
 
@@ -367,13 +376,6 @@ body {
 
     padding: 5px;
     padding-left: 10px;
-  }
-
-  .tickerPrice {
-    position: relative;
-    top: 14px;
-    color: #A9B8DA;
-    font-size: 16px;
   }
 
   p {
@@ -492,3 +494,56 @@ body {
 .clearfix { display: inline-block; }
 * html .clearfix { height: 1%; }
 .clearfix { display: block; }
+
+.tickerText {
+  font-size: 12px;
+  position: relative;
+  color: #8A98B4;  
+  bottom: 1px;
+  right: 5px;
+}
+
+@keyframes ticker {
+  0% {
+    transform: translateY(100%);
+  }
+  5%,
+  25% {
+    transform: translateY(0%);
+  }
+  30%,
+  100% {
+    transform: translateY(-100%);
+  }
+}
+.news {
+  width: 150px;
+  height: 25px;
+  overflow: hidden;
+  top: 15px;
+  margin: 0 auto;
+  position: relative;
+}
+.news ul {
+  width: 250px;
+  padding-left: 20px;
+}
+.news li {
+  color: #A9B8DA;
+  position: absolute;
+  top: 0px;
+  line-height: 29px;
+  list-style: none;
+  font-size: 16px;
+  animation: ticker 16s infinite ease-in-out;
+}
+
+.news li:nth-child(4) {
+  animation-delay: -4s;
+}
+.news li:nth-child(3) {
+  animation-delay: -8s;
+}
+.news li:nth-child(2) {
+  animation-delay: -12s;
+}
