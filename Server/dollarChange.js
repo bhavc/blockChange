@@ -31,7 +31,7 @@ var job = new CronJob('*/5 * * * * *', function() {
         .update({final_value: json.CAD})
         .where('coin', coin)
           .andWhere('user_email', email)
-          // .andWhere('final_value', null)
+          .andWhere('final_value', null)
         .catch(function(err) {
           console.log(err)
         })
@@ -65,7 +65,7 @@ var job = new CronJob('*/5 * * * * *', function() {
             from: 'bhavdip.dev@gmail.com',
             to: `${email}`,
             subject: `Your ${coin} value changed!`,
-            text: `Your ${coin} value changed from ${currentValue} to ${finalValue}`
+            text: `Your ${coin} value changed from $ ${currentValue} to $ ${finalValue}`
           };
 
           transporter.sendMail(mailOptions, function(error, info){

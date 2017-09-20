@@ -43,7 +43,9 @@ var job = new CronJob('*/5 * * * * *', function() {
       .where('coin', coin)
       .then(function(res) {
         let currentValue = Number(res[0].current_value)
+        console.log(currentValue)
         let finalValue = Number(res[0].final_value)
+        console.log(finalValue)
         let priceDifference = finalValue - currentValue
         let absolutepriceDifference = Math.abs(priceDifference)
         console.log(absolutepriceDifference)
