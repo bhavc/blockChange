@@ -4,6 +4,9 @@ would be interested in. Built in notification feature also sends alerts dependin
 
 ![intro](https://user-images.githubusercontent.com/16729002/30709420-2f166822-9ed0-11e7-8734-b6d0aca40f11.png)
 <img width="1679" alt="1" src="https://user-images.githubusercontent.com/16729002/30709428-32033fec-9ed0-11e7-845a-1f3eb33a18ab.png">
+
+Reddit API pulls in real time data from the r/cryptocurrency subreddit
+
 <img width="1680" alt="2" src="https://user-images.githubusercontent.com/16729002/30709437-370dd8bc-9ed0-11e7-9e3a-685223ac957e.png">
 
 
