@@ -64,10 +64,11 @@ class AreaTwo extends Component {
             data: marketCap,
             backgroundColor:[
 
-              '#FF5733',
+'#900C3F',
+              ' #ff3333',
 
               '#581845',
-              '#900C3F',
+
               '#FFC300',
               '#C70039',
                 '#FF6384',
