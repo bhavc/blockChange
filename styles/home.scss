@@ -293,12 +293,8 @@ h1 {
 
   .footer {
     grid-area: footer;
-<<<<<<< HEAD
     background-color: #1B1E24;
-=======
-    background-color: #1B1E24;  
     border-top: 1px solid #485061;
->>>>>>> 2a49d9d84170673a27d3e690781e6f9132bd864b
     color: #677086;
     text-align: center;
   }
@@ -468,15 +464,15 @@ h1 {
   select, input {
     margin-right: 10px;
   }
-  
+
   input {
     width: 50px;
     background-color: #1B1E24;
     border: 0;
     border-bottom: 2px solid white;
-    color: white;  
+    color: white;
   }
-  
+
 
   input:focus {
     outline: 0;
@@ -532,7 +528,7 @@ h1 {
     background-color: #1B1E24;
     border: 0;
     border-bottom: 2px solid white;
-    color: white;  
+    color: white;
   }
 
   input:focus {
@@ -553,7 +549,7 @@ h1 {
 
 .activeCoins p {
   display: inline-block;
-  margin-right: 25px;  
+  margin-right: 25px;
 }
 
 .activeCoinListItem {
@@ -658,10 +654,7 @@ h1 {
 .news li:nth-child(2) {
   animation-delay: -12s;
 }
-<<<<<<< HEAD
-=======
 
 .tableTitle {
   color: whitesmoke;
 }
->>>>>>> 2a49d9d84170673a27d3e690781e6f9132bd864b
