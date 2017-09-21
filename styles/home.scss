@@ -355,17 +355,18 @@ h1 {
     color: #677086;
     display: inline-block;
     position: absolute;
-    left: 40vw;
+    text-transform: uppercase;
+    left: 37vw;
     top: 12px;
     text-align: center;
     border: 3px solid #677086;
-    width: 155px;
+    width: 200px;
     height: 30px;
     font-size: 25px;
     transition: all .3s ease-in-out;
     .logoText{
       position: relative;
-      bottom: 25px;
+      bottom: 23px;
     }
     .bold {
       font-weight: bold;
