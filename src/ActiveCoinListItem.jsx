@@ -8,7 +8,6 @@ class ActiveCoinListItem extends Component {
     	  return  <div className='activeCoinListItem' key={index}>
 				          <p>{coin.coin}</p>
 				          <p>{coin.amount}</p>
-				          <p>CAD</p>
                 </div>
     	})
       return (

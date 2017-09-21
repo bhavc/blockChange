@@ -9,7 +9,8 @@ class SetBalance extends Component {
         open: false,
         userCoins: [],
         coin: 'BTC',
-        amount: 0
+        amount: 0,
+        placeHolder: ''
       };
 
 
@@ -22,7 +23,7 @@ class SetBalance extends Component {
       open: false,
       userCoins: [],
       coin: 'BTC',
-      amount: 0
+      amount: 0,
     });
   };
 
@@ -90,7 +91,7 @@ class SetBalance extends Component {
         >
           <div>
             <div className='setBalance'>
-                <h3>Update your balance:</h3>
+                <h3>Update your balance</h3>
                 <form>
                   <select value={this.state.coin} onChange={this.handleCoinChange}>
                     <option>BTC</option>
@@ -104,13 +105,12 @@ class SetBalance extends Component {
                     <option>IOT</option>
                     <option>XMR</option>
                     <option>ETC</option>
-
                   </select>
-                  <input type='text' value={this.state.amount} onChange={this.handleAmountChange}></input>
+                  <input type='text' placeholder={this.state.placeHolder} value={this.state.amount} onChange={this.handleAmountChange}></input>
                 </form>
-                <button className='newButton' onClick={this.handleAdd}>add</button>
+                  <i onClick={this.handleAdd} className=" newButton add material-icons">add</i>
                 <div className='activeCoins'>
-                  <h3>Your wallet:</h3>
+                  <h3>Your wallet</h3>
                   <ActiveCoinListItem userCoins={this.state.userCoins}/>
                 </div>
             </div>

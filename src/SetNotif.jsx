@@ -128,7 +128,7 @@ class SetNotif extends Component {
         >
             <div>
                 <div className='setNotif'>
-                    <h3>Set up a new notification:</h3>
+                    <h3>Set up a new notification</h3>
                     <form>
                         <select value={this.state.coin} onChange={this.handleCoinChange}>
                             <option>BTC</option>
@@ -155,7 +155,7 @@ class SetNotif extends Component {
                         <br />
                     </form>
                     <div className='activeAlerts'>
-                      <h3>Your previous notifications: </h3>
+                      <h3>Your previous notifications</h3>
                       <ActiveAlertListItem userNotifications={this.props.userNotifications}/>
                     </div>
                 </div>

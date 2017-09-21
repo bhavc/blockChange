@@ -57,7 +57,7 @@ class AccountInfo extends Component {
         >        
             <div>
               <div className='accountInfo'>
-                <h3>update account</h3>
+                <h3>Update account</h3>
                 <form>
                   <div>
                     <input placeholder='new email address' type='text'></input>

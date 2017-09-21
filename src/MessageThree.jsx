@@ -4,7 +4,7 @@ class MessageThree extends Component {
     render() {
         return (
                 <div className='messageThree message'>
-                    <h1>Daily Highs and Lows</h1>
+                    <h1>Daily highs and lows</h1>
                 </div>
         );
     }
