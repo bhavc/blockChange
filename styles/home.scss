@@ -201,8 +201,8 @@ h1 {
       }
 
       .rowOpens {
-        // color: dodgerblue;
-        color: #ffffcc;
+        color: dodgerblue;
+        // color: #ffffcc;
       }
 
       .rowLows {
@@ -293,7 +293,11 @@ h1 {
 
   .footer {
     grid-area: footer;
+<<<<<<< HEAD
     background-color: #1B1E24;
+=======
+    background-color: #1B1E24;  
+>>>>>>> 9080df049dfa5db2c8701e9d68e0310786a1d7fb
     border-top: 1px solid #485061;
     color: #677086;
     text-align: center;
@@ -350,6 +354,32 @@ h1 {
   transition: all .2s ease-in-out;
   &:hover {
     border-bottom: 1px solid dodgerblue;
+  }
+  .logo {
+    color: #677086;
+    display: inline-block;
+    position: absolute;
+    text-transform: uppercase;
+    left: 37vw;
+    top: 12px;
+    text-align: center;
+    border: 3px solid #677086;
+    width: 200px;
+    height: 30px;
+    font-size: 25px;
+    transition: all .3s ease-in-out;
+    .logoText{
+      position: relative;
+      bottom: 23px;
+    }
+    .bold {
+      font-weight: bold;
+    }
+    &:hover {
+      cursor: default;
+      color: dodgerblue;
+      border: 3px solid dodgerblue;
+    }
   }
   .barItem {
     margin-right: 15px;

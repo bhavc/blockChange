@@ -13,6 +13,11 @@ class NavBar extends Component {
                 <div className='barItem'>
                     <a href='#'><i className="material-icons">exit_to_app</i></a>
                 </div>
+
+                <div className='logo'>
+                    <p className='logoText'>block<span className='bold'>change</span></p>
+                </div>
+
             </div>
         );
     }
