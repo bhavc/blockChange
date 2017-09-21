@@ -1,15 +1,15 @@
 import React, {Component} from 'react';
 import {Bar} from 'react-chartjs-2';
 import App from './App.jsx'
- 
+
 class AreaFour extends Component {
- 
+
   constructor(props){
     super(props);
   }
- 
+
   render() {
- 
+
       return (
           <div className='areaFour'>
             <Bar
@@ -28,38 +28,41 @@ class AreaFour extends Component {
           </div>
       );
   }
- 
+
   buildChartData = () => {
- 
- 
+
+
     let coinIDs = []
- 
+
     this.props.topCoins.forEach((coin, index) => {
         coinIDs.push(coin.name)
     });
- 
+
     let volume = []
- 
+
     this.props.topCoins.forEach((coin, index) => {
         volume.push(coin['24h_volume_usd'])
     })
- 
+
     return {
           labels: coinIDs,
           datasets:[{
             data: volume,
             label: '24 Hour Volume',
             backgroundColor:[
-                '#FF6384',
-                      '#36A2EB',
-                      '#FFCE56',
-                      '#cc65fe',
-                      '#33FF39',
-                      '#36A2EB',
-                      '#FFCE56',
-                      '#cc65fe',
-                      '#33FF39',
-                      '#cc65fe'
+              '#adebad',
+              '#248f24',
+              '#70db70',
+                      '#33cc33',
+                      '#2eb82e',
+                      '#0f3d0f',
+                      '#ebfaeb',
+
+
+                      '#0a290a',
+                      '#c2f0c2',
+                      '#47d147'
+
                   ],
                   borderColor:[
                       '#252830',
@@ -77,5 +80,5 @@ class AreaFour extends Component {
         }
       }
   }
- 
+
 export default AreaFour;
