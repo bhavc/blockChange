@@ -36,7 +36,7 @@ h1 {
   }
 
   .welcomeMessage {
-    font-family: 'Roboto', sans-serif;  
+    font-family: 'Roboto', sans-serif;
     padding: 15px;
     padding-left: 50px;
     padding-bottom: 50px;
@@ -201,7 +201,8 @@ h1 {
       }
 
       .rowOpens {
-        color: dodgerblue;
+        // color: dodgerblue;
+        color: #ffffcc;
       }
 
       .rowLows {
@@ -292,8 +293,12 @@ h1 {
 
   .footer {
     grid-area: footer;
+<<<<<<< HEAD
+    background-color: #1B1E24;
+=======
     background-color: #1B1E24;  
     border-top: 1px solid #485061;
+>>>>>>> 2a49d9d84170673a27d3e690781e6f9132bd864b
     color: #677086;
     text-align: center;
   }
@@ -304,7 +309,7 @@ h1 {
     margin: 0 auto;
   }
 
-  
+
 
   .infoTotal {
    margin-top: 25px !important;
@@ -629,7 +634,7 @@ h1 {
 .tickerText {
   font-size: 12px;
   position: relative;
-  color: #8A98B4;  
+  color: #8A98B4;
   bottom: 1px;
   right: 5px;
 }
@@ -678,7 +683,10 @@ h1 {
 .news li:nth-child(2) {
   animation-delay: -12s;
 }
+<<<<<<< HEAD
+=======
 
 .tableTitle {
   color: whitesmoke;
 }
+>>>>>>> 2a49d9d84170673a27d3e690781e6f9132bd864b

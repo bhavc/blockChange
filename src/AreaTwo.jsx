@@ -55,14 +55,27 @@ class AreaTwo extends Component {
     })
 
     let userBorder = this.props.chartData.map((coin) => {
-      return '#1B1E24'
+      return '#000000'
     })
 
     return {
           labels: coinIDs,
           datasets:[{
             data: marketCap,
-            backgroundColor: userColours,
+            backgroundColor:[
+
+'#900C3F',
+              ' #ff3333',
+
+              '#581845',
+
+              '#FFC300',
+              '#C70039',
+                '#FF6384',
+                  ],
+
+
+
             borderColor: userBorder
           }]
         }

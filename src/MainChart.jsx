@@ -51,7 +51,13 @@ class MainChart extends Component {
           labels: userCoinIDs,
           datasets:[{
             data: userTotal,
-            backgroundColor: userColours,
+            backgroundColor:[
+                  '#a7d6ea',
+                  '#67aadf',
+                      '#45a889',
+                      '#8081b9',
+                      '#125b9f',
+                  ],
             borderColor: userBorder
           }]
         }
