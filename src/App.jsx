@@ -128,6 +128,7 @@ class App extends Component {
             userCoin.coin = coin.coin
             userCoin.quantity = coin.quantity
             userCoin.price = value.price
+            userCoin.change = value.change
             userCoin.total = Math.round((coin.quantity * value.price) * 100) / 100
             newCoinValue += userCoin.total
             newUserCoins.push(userCoin)
@@ -194,7 +195,7 @@ class App extends Component {
       <MuiThemeProvider>
       <div className='wrapper'>
         <NavBar getNotifications={this.getUserNotifications} userNotifications={this.state.notifications} userInfo={this.state.currentUser} postUserCoins={this.postUserCoins} liveCoinValues={this.state.liveValues}/>
-        <WelcomeMessage currentUser={this.state.currentUser}/>
+        <WelcomeMessage currentUser={this.state.currentUser} userChange={this.state.userCoins}/>
         <MainChart chartData={this.state.userCoins}/>
         <MainInfo userCoinInfo={this.state.userCoins} userInfo={this.state.currentUser} totalCoinValue={this.state.totalCoinValue}/>
         <MessageOne />
