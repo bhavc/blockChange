@@ -6,9 +6,10 @@ const settings = require("./settings")
 
 //importing functions that calculate initial and final price & the module
 //that allows for an email to be sent
-const { setInitialPrice, setFinalPrice, timeQuery, emailer } = require('./query')
+const { setInitialPrice, setFinalPrice } = require('./query')
 const { cronApiPull } = require('./dollarChange')
 const { cronApiPullPercentage } = require('./percentChange')
+const { timeApiPull } = require('./timeQuery')
 //configuring environment variables
 require('dotenv').config()
 
@@ -75,12 +76,10 @@ app.post("/notification", function(req, res) {
         .returning('id')
         .then(function (result) {
           //runs the function timeQuery
-          timeQuery(req.body.coin, req.body.useremail, req.body.value, Number(result))
-          res.json({ success: true, message: 'ok' });
-        })
-        //emails user with the newly entered id
-        .then( (id) => {
-          emailer(id)
+          setInitialPrice(req.body.coin, req.body.useremail)
+          res.json({ success: true, message: 'ok' })
+        }).then(function () {
+          timeApiPull(req.body.coin, req.body.useremail, req.body.value)
         })
         break;
     default:

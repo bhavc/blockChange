@@ -63,21 +63,7 @@ function setFinalPrice(coin, email){
   });
 }
 
-//function that checks the difference beetween the initial value and the final
-//value
-//final value is called after the user specified time
-function timeQuery(coin, email, time, id) {
-  let myPromise = new Promise((resolve, reject) => {
-    setInitialPrice(coin, email)
 
-    setTimeout(function() {
-      setFinalPrice(coin, email).then(() => {
-        resolve(id);
-      });
-    }, time+1000)
-  })
-  return myPromise;
-}
 
 // this function sends an email to user id 1
 function emailer(id){
@@ -119,5 +105,5 @@ function emailer(id){
 }
 
 module.exports = {
-  setFinalPrice, setInitialPrice, timeQuery, emailer
+  setFinalPrice, setInitialPrice
 };
