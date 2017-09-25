@@ -7,7 +7,10 @@ class AccountInfo extends Component {
       state = {
         open: false,
         dropDownSelection: 'time',
-        placeHolder: 'text'
+        placeHolder: 'text',
+        name: '',
+        email: '',
+        phone: ''
       };
 
 
@@ -18,16 +21,27 @@ class AccountInfo extends Component {
   handleClose = () => {
     this.setState({open: false});
   };
-
-  handleSelectionChange = (e) => {
-    this.setState({
-      dropDownSelection: e.target.value,
-      placeHolder: e.target.value
-    })
+  handleNameChange = (e) => {
+    this.setState({ name: e.target.value })
   }
 
-  notifyForm = () => {
-    let placeholder = this.state.placeHolder
+  handleEmailChange = (e) => {
+    this.setState({ email: e.target.value })
+  }
+
+  handlePhoneChange = (e) => {
+    this.setState({ phone: e.target.value })
+  }
+
+  handleSave = () => {
+    let userInfo = {
+      name: this.state.name,
+      email: this.state.email,
+      phone: this.state.phone
+    }
+
+    this.props.postUserInfo(userInfo)
+    this.handleClose()
   }
 
   render() {
@@ -41,7 +55,7 @@ class AccountInfo extends Component {
       <FlatButton
         label="Submit"
         primary={true}
-        onClick={this.handleClose}
+        onClick={this.handleSave} 
       />,
     ];
 
@@ -60,13 +74,13 @@ class AccountInfo extends Component {
                 <h3>Update account</h3>
                 <form>
                   <div>
-                    <input placeholder='Your Name' type='text'></input>
+                    <input value={this.state.name} onChange={this.handleNameChange} placeholder='Your Name' type='text'></input>
                   </div>
                   <div>
-                    <input placeholder='Your Email Address' type='text'></input>
+                    <input value={this.state.email} onChange={this.handleEmailChange} placeholder='Your Email Address' type='text'></input>
                   </div>
                   <div>
-                    <input placeholder='Your Phone Number' type='text'></input>
+                    <input value={this.state.phone} onChange={this.handlePhoneChange} placeholder='Your Phone Number' type='text'></input>
                   </div>
 
                 </form>

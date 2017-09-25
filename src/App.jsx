@@ -155,6 +155,26 @@ class App extends Component {
     })
   }
 
+  postUserInfo = (info) => {
+
+      fetch('http://localhost:3001/userinfo', {
+        method: 'POST',
+        body: JSON.stringify(info),
+        headers: {
+          'Content-Type': "application/json"
+        },
+        credentials: 'omit'
+        })
+        .then((response) => {
+          return response.text()
+        },
+        (error) => {
+        error.message
+        })
+        .then(this.setState({currentUser: info}))
+
+  }
+
   constructor(props) {
     super(props);
     fetch('//localhost:3001/notification', {
@@ -194,7 +214,16 @@ class App extends Component {
     return (
       <MuiThemeProvider>
       <div className='wrapper'>
-        <NavBar getNotifications={this.getUserNotifications} userNotifications={this.state.notifications} userInfo={this.state.currentUser} postUserCoins={this.postUserCoins} liveCoinValues={this.state.liveValues}/>
+
+        <NavBar 
+        getNotifications={this.getUserNotifications} 
+        userNotifications={this.state.notifications} 
+        userInfo={this.state.currentUser} 
+        postUserCoins={this.postUserCoins} 
+        liveCoinValues={this.state.liveValues}
+        postUserInfo={this.postUserInfo}
+        />
+
         <WelcomeMessage currentUser={this.state.currentUser} userChange={this.state.userCoins}/>
         <MainChart chartData={this.state.userCoins}/>
         <MainInfo userCoinInfo={this.state.userCoins} userInfo={this.state.currentUser} totalCoinValue={this.state.totalCoinValue}/>

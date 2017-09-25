@@ -136,10 +136,10 @@ app.post("/usercoins", function(req, res) {
       }
   })
 })
-// 
-// app.post("/userlogin", function(req, res) {
-//   console.log(req.body)
-// })
+
+app.post("/userinfo", function(req, res) {
+  console.log(req.body)
+})
 
 http.createServer(app).listen(3001, function() {
   console.log("Server started at post 3001");
