@@ -41,7 +41,7 @@ app.post("/notification", function(req, res) {
     case 'value $':
         console.log('you selected value')
         //if the value parameter is chose, insert into the database the user email, the coin they're interested in and the type of query
-        knex('priceChangeTable').insert({user_email: req.body.useremail, coin: req.body.coin, queryType: req.body.type, activeNotifications: true})
+        knex('priceChangeTable').insert({user_email: req.body.useremail, coin: req.body.coin, queryType: req.body.type})
         //returns the id of the newly made entry
         .returning('id')
         .then (function (result) {
@@ -58,7 +58,7 @@ app.post("/notification", function(req, res) {
     case 'percent %':
         console.log('you selected percent')
         //exact same logic as above, except this time the cronApiPullPercentage function is called
-        knex('priceChangeTable').insert({user_email: req.body.useremail, coin: req.body.coin, queryType: req.body.type, activeNotifications: true})
+        knex('priceChangeTable').insert({user_email: req.body.useremail, coin: req.body.coin, queryType: req.body.type})
         .returning('id')
         .then(function(result) {
           setInitialPrice(req.body.coin, req.body.useremail)
@@ -71,7 +71,7 @@ app.post("/notification", function(req, res) {
     case 'time':
         console.log('you selected time')
         //same logic as above
-        knex('priceChangeTable').insert({user_email: req.body.useremail, coin: req.body.coin, queryType: req.body.type, activeNotifications: true})
+        knex('priceChangeTable').insert({user_email: req.body.useremail, coin: req.body.coin, queryType: req.body.type})
         .returning('id')
         .then(function (result) {
           //runs the function timeQuery
@@ -114,7 +114,7 @@ app.get("/usernotifications", function(req, res) {
 //everything posted at the endpoint is then
 //processed and entered into the database table.
 //if the coin already exists for a user, the previous value
-//is updated 
+//is updated
 app.post("/usercoins", function(req, res) {
   console.log(req.body.coin)
 
