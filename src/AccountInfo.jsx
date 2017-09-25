@@ -54,22 +54,23 @@ class AccountInfo extends Component {
           modal={false}
           open={this.state.open}
           onRequestClose={this.handleClose}
-        >        
+        >
             <div>
               <div className='accountInfo'>
                 <h3>Update account</h3>
                 <form>
                   <div>
-                    <input placeholder='new email address' type='text'></input>
+                    <input placeholder='Your Name' type='text'></input>
                   </div>
                   <div>
-                    <input placeholder='new password' type='text'></input>
+                    <input placeholder='Your Email Address' type='text'></input>
                   </div>
                   <div>
-                    <input placeholder='confirm new password' type='text'></input>
+                    <input placeholder='Your Phone Number' type='text'></input>
                   </div>
+
                 </form>
-                </div>  
+                </div>
             </div>
         </Dialog>
       </div>

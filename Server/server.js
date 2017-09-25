@@ -32,9 +32,7 @@ app.use(bodyParser.json())
 
 //create a post request to the /notification endpoint
 app.post("/notification", function(req, res) {
-
   console.log(req.body)
-
 //switch statement that takes in the type of query a user makes
   switch(req.body.type ) {
 
@@ -108,7 +106,6 @@ app.get("/usernotifications", function(req, res) {
   })
 })
 
-
 //makes a post request to the /usercoins,
 //everything posted at the endpoint is then
 //processed and entered into the database table.
@@ -139,6 +136,10 @@ app.post("/usercoins", function(req, res) {
       }
   })
 })
+// 
+// app.post("/userlogin", function(req, res) {
+//   console.log(req.body)
+// })
 
 http.createServer(app).listen(3001, function() {
   console.log("Server started at post 3001");
