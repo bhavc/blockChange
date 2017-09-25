@@ -62,8 +62,8 @@ var job = new CronJob('*/5 * * * * *', function() {
           var transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
-              user: 'bhavdip.dev@gmail.com',
-              pass: '!3Hj.e.n'
+              user: process.env.USER_EMAIL,
+              pass: process.env.USER_EMAIL_PASS
             }
           });
 
