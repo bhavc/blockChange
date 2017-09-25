@@ -65,7 +65,7 @@ function setFinalPrice(coin, email){
 
 //function that checks the difference beetween the initial value and the final
 //value
-//final value is called after the user specified time 
+//final value is called after the user specified time
 function timeQuery(coin, email, time, id) {
   let myPromise = new Promise((resolve, reject) => {
     setInitialPrice(coin, email)
@@ -92,8 +92,8 @@ function emailer(id){
     var transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
-        user: 'bhavdip.dev@gmail.com',
-        pass: '!3Hj.e.n'
+        user: process.env.USER_EMAIL,
+        pass: process.env.USER_EMAIL_PASS
       }
     });
 
