@@ -47,6 +47,11 @@ You must also start the actual server found in the Server file using the followi
 node server.js
 ```
 
+You may need to ensure you have the latest database migrations using the following: 
+```
+knex migrate:latest
+```
+
 ### Dependencies
 
 * React
