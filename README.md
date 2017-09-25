@@ -42,6 +42,11 @@ npm start
 open http://localhost:3000
 ```
 
+You must also start the actual server found in the Server file using the following: 
+```
+node server.js
+```
+
 ### Dependencies
 
 * React
