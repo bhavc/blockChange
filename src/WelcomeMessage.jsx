@@ -8,7 +8,7 @@ class WelcomeMessage extends Component {
    	})
        return (
            <div className='welcomeMessage'>
-               <h1>Welcome Dave, here is your personalized portfolio.</h1>
+               <h1>Welcome {this.props.currentUser.name}, here is your personalized portfolio.</h1>
            </div>
        );
    }
