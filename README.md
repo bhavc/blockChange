@@ -14,7 +14,7 @@ Reddit API pulls in real time data from the r/cryptocurrency subreddit
 
 
 
-Want to be notified of Bitcoins value at the end of the day? Set a notification. How about a notification for when the value of Ethereum dips 10%? Set a query and you will be notified when the conditions are met. Notification is delivered using SMS and Email. 
+Want to be notified of Bitcoins value at the end of the day? Or how about a notification for when the value of Ethereum dips 10%? Set a notification and you will be alerted when the conditions are met. Notification is delivered using SMS and Email. 
 
 <img width="1680" alt="3" src="https://user-images.githubusercontent.com/16729002/30709440-38ff4a66-9ed0-11e7-849c-e5aaf5012896.png">
 
